@@ -9,6 +9,7 @@ export type Destination = {
 };
 
 export type CountryGuide = {
+  slug: string;
   country: string;
   region: string;
   base: string;
@@ -25,6 +26,7 @@ export type CountryGuide = {
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
+  { href: "/services", label: "Services" },
   { href: "/remote-work-travel", label: "Remote Work Travel" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -68,6 +70,7 @@ export const highlightNotes = [
 
 export const advisoryCountries: CountryGuide[] = [
   {
+    slug: "portugal",
     country: "Portugal",
     region: "Europe",
     base: "Lisbon",
@@ -81,6 +84,7 @@ export const advisoryCountries: CountryGuide[] = [
     tags: ["Walkable", "Reliable Wi-Fi", "Cafes", "Good for couples"],
   },
   {
+    slug: "spain",
     country: "Spain",
     region: "Europe",
     base: "Valencia",
@@ -94,6 +98,7 @@ export const advisoryCountries: CountryGuide[] = [
     tags: ["Sea access", "Lower pressure", "Great weather", "Long-stay friendly"],
   },
   {
+    slug: "italy",
     country: "Italy",
     region: "Europe",
     base: "Puglia",
@@ -107,6 +112,7 @@ export const advisoryCountries: CountryGuide[] = [
     tags: ["Beautiful stays", "Slower pace", "Food", "More variable logistics"],
   },
   {
+    slug: "indonesia",
     country: "Indonesia",
     region: "Asia",
     base: "Canggu",
@@ -120,6 +126,7 @@ export const advisoryCountries: CountryGuide[] = [
     tags: ["Coworking", "Surf", "Social", "Tropical"],
   },
   {
+    slug: "guatemala",
     country: "Guatemala",
     region: "Central America",
     base: "Lake Atitlan",
@@ -133,6 +140,7 @@ export const advisoryCountries: CountryGuide[] = [
     tags: ["Lower cost", "Nature", "Slower rhythm", "Patchier Wi-Fi"],
   },
   {
+    slug: "mexico",
     country: "Mexico",
     region: "North America",
     base: "Mexico City",
@@ -213,4 +221,23 @@ export const destinationFilters = [
   "Month-long stays",
   "Warm weather",
   "Lower-cost options",
+];
+
+export const serviceItems = [
+  {
+    title: "Destination Advisory",
+    body: "We help you choose the right country, region, and base city for your workload, travel style, budget, and timing.",
+  },
+  {
+    title: "Personalized Remote Plan",
+    body: "A tailored route with recommended stays, work-friendly neighborhoods, pacing advice, and practical logistics for each stop.",
+  },
+  {
+    title: "Booking Support",
+    body: "Guidance on apartments, hotels, transfer flow, and the setup details that reduce friction once the trip becomes real.",
+  },
+  {
+    title: "Couples Travel Strategy",
+    body: "Recommendations built around two schedules, two work styles, and a shared plan that still leaves room for enjoyment.",
+  },
 ];

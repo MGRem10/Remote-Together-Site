@@ -212,6 +212,7 @@ img {
   padding: 0.72rem 1rem;
   border-left: 1px solid var(--border);
   transition: color 180ms ease, background-color 180ms ease;
+  white-space: nowrap;
 }
 
 .nav-link:first-child {
