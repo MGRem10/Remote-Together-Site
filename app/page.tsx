@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   advisoryCountries,
-  featuredDestinations,
   guideTopics,
   highlightNotes,
   principles,
@@ -42,8 +41,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-[1.05fr_0.55fr]">
-            <div className="image-frame min-h-[460px] border border-[var(--border)] shadow-[var(--shadow-lg)] fade-in-up delay-1">
+          <div className="grid gap-4 lg:grid-cols-[1fr_0.52fr]">
+            <div className="image-frame min-h-[320px] border border-[var(--border)] shadow-[var(--shadow-lg)] fade-in-up delay-1 lg:min-h-[360px]">
               <img
                 src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80"
                 alt="Remote Together hero destination"
@@ -69,7 +68,7 @@ export default function HomePage() {
                   <p>Daily-life fit</p>
                 </div>
               </div>
-              <div className="image-frame min-h-[215px] border border-[var(--border)] shadow-[var(--shadow)] fade-in-up delay-3">
+              <div className="image-frame min-h-[160px] border border-[var(--border)] shadow-[var(--shadow)] fade-in-up delay-3 lg:min-h-[180px]">
                 <img
                   src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1000&q=80"
                   alt="Travel notebook"
@@ -117,56 +116,6 @@ export default function HomePage() {
       </section>
 
       <section className="section-space section-block">
-        <div className="container">
-          <div className="flex items-end justify-between gap-6">
-            <div>
-              <div className="eyebrow">Featured Destinations</div>
-              <h2 className="section-title mt-4">Places we would return to for longer stays.</h2>
-            </div>
-            <Link href="/destinations" className="button-secondary hidden md:inline-flex">
-              See all destinations
-            </Link>
-          </div>
-          <div className="editorial-divider mt-6" />
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {featuredDestinations.map((destination) => (
-              <article key={destination.name} className="section-panel overflow-hidden rounded-[1.8rem]">
-                <div className="relative h-80">
-                  <img
-                    src={destination.image}
-                    alt={destination.name}
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[rgba(19,12,8,0.72)] to-transparent" />
-                  <div className="absolute bottom-5 left-5 text-white">
-                    <div className="text-xs uppercase tracking-[0.22em] text-white/72">
-                      {destination.country}
-                    </div>
-                    <h3 className="mt-2 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
-                      {destination.name}
-                    </h3>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <p className="text-sm leading-7 text-[var(--muted)]">{destination.summary}</p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {[destination.season, destination.wifi, destination.vibe].map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full bg-[rgba(94,125,117,0.1)] px-3 py-2 text-xs uppercase tracking-[0.16em] text-[var(--accent-deep)]"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-space section-block">
         <div className="container grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <div className="eyebrow">How we evaluate</div>
@@ -194,7 +143,7 @@ export default function HomePage() {
 
       <section className="section-space section-block">
         <div className="container grid gap-8 lg:grid-cols-[1.02fr_0.98fr]">
-          <div className="image-frame min-h-[560px] border border-[var(--border)] shadow-[var(--shadow-lg)]">
+          <div className="image-frame min-h-[300px] border border-[var(--border)] shadow-[var(--shadow-lg)] lg:min-h-[380px]">
             <img
               src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1400&q=80"
               alt="Remote work setup while traveling"

@@ -18,8 +18,8 @@ export function PageHero({
   secondaryCta,
 }: PageHeroProps) {
   return (
-    <section className="section-space pb-16 pt-8">
-      <div className="container grid items-center gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+    <section className="section-space pb-14 pt-8">
+      <div className="container grid items-center gap-8 lg:grid-cols-[1fr_1fr]">
         <div className="max-w-xl">
           <div className="eyebrow">{eyebrow}</div>
           <h1 className="display mt-4">{title}</h1>
@@ -39,13 +39,13 @@ export function PageHero({
             </div>
           )}
         </div>
-        <div className="image-frame min-h-[380px] border border-[var(--border)] shadow-[var(--shadow)] lg:min-h-[420px]">
+        <div className="image-frame min-h-[280px] border border-[var(--border)] shadow-[var(--shadow)] lg:min-h-[320px]">
           <img
             src={image}
             alt={title}
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between gap-6 p-5 text-white">
+          <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between gap-6 p-4 text-white">
             <div>
               <div className="text-xs uppercase tracking-[0.24em] text-white/70">
                 From lived experience
