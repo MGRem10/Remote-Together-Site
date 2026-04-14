@@ -41,40 +41,22 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid max-w-[34rem] gap-4 lg:ml-auto lg:w-full lg:grid-cols-1">
-            <div className="image-frame min-h-[210px] border border-[var(--border)] shadow-[var(--shadow-lg)] fade-in-up delay-1 lg:min-h-[240px]">
-              <img
-                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80"
-                alt="Remote Together hero destination"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="absolute inset-x-0 bottom-0 z-10 p-4 text-white">
-                <div className="text-xs uppercase tracking-[0.22em] text-white/70">
-                  Editorial destination notes
-                </div>
-                <p className="mt-3 max-w-md text-base leading-7 text-white/90">
-                  Places that are beautiful, yes, but also stable enough for calls,
-                  deadlines, routines, and real shared travel.
-                </p>
+          <div className="grid max-w-[26rem] gap-4 lg:ml-auto lg:w-full">
+            <div className="section-panel rounded-[1.8rem] p-5 fade-in-up delay-2">
+              <div className="eyebrow">What we measure</div>
+              <div className="mt-4 space-y-3 text-sm leading-6 text-[var(--muted)]">
+                <p>Internet quality</p>
+                <p>Housing comfort</p>
+                <p>Noise and rhythm</p>
+                <p>Daily-life fit</p>
               </div>
             </div>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-1">
-              <div className="section-panel rounded-[1.8rem] p-5 fade-in-up delay-2">
-                <div className="eyebrow">What we measure</div>
-                <div className="mt-4 space-y-3 text-sm leading-6 text-[var(--muted)]">
-                  <p>Internet quality</p>
-                  <p>Housing comfort</p>
-                  <p>Noise and rhythm</p>
-                  <p>Daily-life fit</p>
-                </div>
-              </div>
-              <div className="image-frame min-h-[110px] border border-[var(--border)] shadow-[var(--shadow)] fade-in-up delay-3 lg:min-h-[120px]">
-                <img
-                  src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1000&q=80"
-                  alt="Travel notebook"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              </div>
+            <div className="section-panel rounded-[1.8rem] p-5 fade-in-up delay-3">
+              <div className="eyebrow">Editorial promise</div>
+              <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+                Places that are beautiful, but also stable enough for calls,
+                deadlines, routines, and real shared travel.
+              </p>
             </div>
           </div>
         </div>
@@ -142,22 +124,13 @@ export default function HomePage() {
       </section>
 
       <section className="section-space section-block">
-        <div className="container grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
-          <div className="image-frame min-h-[190px] border border-[var(--border)] shadow-[var(--shadow-lg)] lg:min-h-[230px]">
-            <img
-              src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1400&q=80"
-              alt="Remote work setup while traveling"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <div className="absolute bottom-0 left-0 z-10 max-w-md p-5 text-white">
-              <div className="text-xs uppercase tracking-[0.22em] text-white/72">
-                From the road
-              </div>
-              <p className="mt-3 text-base leading-7 text-white/90">
-                The best destination is not the one with the loudest promise. It is
-                the one that still feels right on an ordinary Wednesday.
-              </p>
-            </div>
+        <div className="container grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+          <div className="section-panel rounded-[2rem] p-8">
+            <div className="eyebrow">From the road</div>
+            <p className="mt-4 text-base leading-8 text-[var(--muted)]">
+              The best destination is not the one with the loudest promise. It is the
+              one that still feels right on an ordinary Wednesday.
+            </p>
           </div>
           <div className="flex flex-col justify-between gap-6">
             <div className="section-panel rounded-[2rem] p-8 md:p-10">

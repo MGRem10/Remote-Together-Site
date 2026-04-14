@@ -41,15 +41,15 @@ export default function ServicesPage() {
 
       <section className="section-space section-block">
         <div className="container grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
-          <div className="image-frame min-h-[180px] border border-[var(--border)] shadow-[var(--shadow-lg)] lg:min-h-[220px]">
-            <img
-              src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1400&q=80"
-              alt="Travel advisory planning"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
+          <div className="section-panel rounded-[2rem] p-8">
+            <div className="eyebrow">Example support</div>
+            <p className="mt-4 text-base leading-8 text-[var(--muted)]">
+              We work best when the question is specific: where to go, how long to
+              stay, which base to choose, and how to keep the trip elegant and workable.
+            </p>
           </div>
           <div className="section-panel rounded-[2rem] p-8 md:p-10">
-            <div className="eyebrow">Example support</div>
+            <div className="eyebrow">Process</div>
             <h2 className="section-title mt-4">From “we want to go somewhere” to a real plan.</h2>
             <p className="mt-5 text-base leading-8 text-[var(--muted)]">
               We can help narrow the destination, define the route, recommend the best
