@@ -23,7 +23,7 @@ export function SiteHeader() {
             </div>
           </div>
         </Link>
-        <nav className="hidden items-center overflow-hidden rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.44)] text-sm md:flex">
+        <nav className="hidden items-center overflow-hidden rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.58)] text-sm md:flex">
           {navItems.map((item) => {
             const active = pathname === item.href;
             return (

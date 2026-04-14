@@ -8,6 +8,20 @@ export type Destination = {
   image: string;
 };
 
+export type CountryGuide = {
+  country: string;
+  region: string;
+  base: string;
+  summary: string;
+  internet: string;
+  cost: string;
+  stay: string;
+  bestFor: string;
+  score: string;
+  image: string;
+  tags: string[];
+};
+
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
@@ -43,6 +57,93 @@ export const featuredDestinations: Destination[] = [
     wifi: "Excellent in coworking hubs",
     vibe: "Lively, tropical, connected",
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+  },
+];
+
+export const highlightNotes = [
+  "Destination guides written from actual workweeks, not quick stopovers.",
+  "Advice shaped for remote workers, digital nomads, and travel-minded couples.",
+  "Clear reads on internet, routine, cost, housing, and emotional fit.",
+];
+
+export const advisoryCountries: CountryGuide[] = [
+  {
+    country: "Portugal",
+    region: "Europe",
+    base: "Lisbon",
+    summary: "One of the easiest entries into remote-work travel: strong infrastructure, layered neighborhoods, and enough energy to feel inspiring without becoming chaotic.",
+    internet: "9.4/10",
+    cost: "Mid",
+    stay: "4 to 10 weeks",
+    bestFor: "First long remote stay",
+    score: "94",
+    image: "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1400&q=80",
+    tags: ["Walkable", "Reliable Wi-Fi", "Cafes", "Good for couples"],
+  },
+  {
+    country: "Spain",
+    region: "Europe",
+    base: "Valencia",
+    summary: "A softer landing than Barcelona or Madrid, with coast access, calmer neighborhoods, and a strong balance between daily life and productivity.",
+    internet: "9.0/10",
+    cost: "Mid",
+    stay: "1 to 3 months",
+    bestFor: "Sun, city structure, balance",
+    score: "91",
+    image: "https://images.unsplash.com/photo-1509840841025-9088ba78a826?auto=format&fit=crop&w=1400&q=80",
+    tags: ["Sea access", "Lower pressure", "Great weather", "Long-stay friendly"],
+  },
+  {
+    country: "Italy",
+    region: "Europe",
+    base: "Puglia",
+    summary: "Best for people who want beauty and slower rhythm, but are willing to be more selective about housing and backup work setups.",
+    internet: "7.6/10",
+    cost: "Mid to high",
+    stay: "2 to 6 weeks",
+    bestFor: "Slow travel and design lovers",
+    score: "84",
+    image: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?auto=format&fit=crop&w=1400&q=80",
+    tags: ["Beautiful stays", "Slower pace", "Food", "More variable logistics"],
+  },
+  {
+    country: "Indonesia",
+    region: "Asia",
+    base: "Canggu",
+    summary: "A highly optimized nomad base with strong coworking infrastructure, social density, and easy routine-building if you choose your area carefully.",
+    internet: "9.2/10",
+    cost: "Low to mid",
+    stay: "1 to 4 months",
+    bestFor: "Community and convenience",
+    score: "92",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80",
+    tags: ["Coworking", "Surf", "Social", "Tropical"],
+  },
+  {
+    country: "Guatemala",
+    region: "Central America",
+    base: "Lake Atitlan",
+    summary: "Magnetic and reflective, with lower costs and stronger scenery than infrastructure. Better for slower, self-directed workers than high-volume meeting weeks.",
+    internet: "7.1/10",
+    cost: "Low",
+    stay: "3 to 8 weeks",
+    bestFor: "Reflection and deep work",
+    score: "82",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80",
+    tags: ["Lower cost", "Nature", "Slower rhythm", "Patchier Wi-Fi"],
+  },
+  {
+    country: "Mexico",
+    region: "North America",
+    base: "Mexico City",
+    summary: "One of the richest urban options for remote workers who want food, culture, and serious city life without losing access to strong work infrastructure.",
+    internet: "8.8/10",
+    cost: "Mid",
+    stay: "1 to 3 months",
+    bestFor: "Big-city energy",
+    score: "90",
+    image: "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=1400&q=80",
+    tags: ["Culture", "Food", "Neighborhood depth", "Urban"],
   },
 ];
 
@@ -104,4 +205,12 @@ export const stats = [
   { value: "20+", label: "destinations lived through" },
   { value: "2", label: "perspectives on every place" },
   { value: "100%", label: "advice shaped by actual workdays" },
+];
+
+export const destinationFilters = [
+  "Best for couples",
+  "Fast Wi-Fi",
+  "Month-long stays",
+  "Warm weather",
+  "Lower-cost options",
 ];

@@ -3,10 +3,11 @@ import { navItems } from "@/data/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[var(--border)] bg-[rgba(255,248,242,0.72)]">
-      <div className="container grid gap-10 py-12 md:grid-cols-[1.3fr_0.8fr_0.9fr]">
+    <footer className="mt-16 border-t border-[var(--border)] bg-[rgba(247,245,239,0.84)]">
+      <div className="container grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.9fr]">
         <div className="max-w-md">
-          <div className="font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
+          <div className="eyebrow">Remote Together</div>
+          <div className="mt-4 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
             Remote Together
           </div>
           <p className="mt-4 text-sm leading-7 text-[var(--muted)]">

@@ -15,6 +15,7 @@
   --olive: #7f9670;
   --sand: #d7c8ab;
   --shadow: 0 18px 44px rgba(41, 52, 46, 0.07);
+  --shadow-lg: 0 28px 70px rgba(41, 52, 46, 0.11);
   --font-heading: Georgia, "Times New Roman", serif;
   --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -33,6 +34,7 @@ body {
   background:
     radial-gradient(circle at top left, rgba(110, 145, 134, 0.18), transparent 28%),
     radial-gradient(circle at 88% 12%, rgba(137, 171, 112, 0.14), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(215, 200, 171, 0.16), transparent 28%),
     linear-gradient(180deg, #edf2ea 0%, #eef0e7 28%, #f5f2e9 100%);
   color: var(--text);
   font-family: var(--font-body);
@@ -68,6 +70,10 @@ img {
 
 .section-space {
   padding: 5.5rem 0;
+}
+
+.section-block {
+  border-top: 1px solid var(--border);
 }
 
 .eyebrow {
@@ -111,6 +117,12 @@ img {
   box-shadow: var(--shadow);
 }
 
+.section-panel {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.18));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
 .button-primary,
 .button-secondary {
   display: inline-flex;
@@ -124,13 +136,13 @@ img {
 }
 
 .button-primary {
-  background: var(--text);
-  color: #f9f3ed;
+  background: #26433f;
+  color: #f6f4ef;
 }
 
 .button-primary:hover {
   transform: translateY(-1px);
-  background: #3a2920;
+  background: #1f3733;
 }
 
 .button-secondary {
@@ -158,6 +170,43 @@ img {
   background: linear-gradient(180deg, rgba(22, 13, 8, 0.02), rgba(22, 13, 8, 0.22));
 }
 
+.editorial-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(63, 93, 86, 0.7), rgba(63, 93, 86, 0.06));
+}
+
+.result-row {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1.2fr) repeat(4, minmax(90px, 0.5fr));
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeInUp 700ms ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 80ms;
+}
+
+.delay-2 {
+  animation-delay: 160ms;
+}
+
+.delay-3 {
+  animation-delay: 240ms;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .nav-link {
   color: var(--muted);
   padding: 0.72rem 1rem;
@@ -177,6 +226,12 @@ img {
 .nav-link-active {
   color: var(--text);
   background: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 1024px) {
+  .result-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
