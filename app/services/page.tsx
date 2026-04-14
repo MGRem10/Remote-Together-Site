@@ -40,8 +40,8 @@ export default function ServicesPage() {
       </section>
 
       <section className="section-space section-block">
-        <div className="container grid gap-8 lg:grid-cols-[1fr_0.9fr]">
-          <div className="image-frame min-h-[420px] border border-[var(--border)] shadow-[var(--shadow-lg)]">
+        <div className="container grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+          <div className="image-frame min-h-[180px] border border-[var(--border)] shadow-[var(--shadow-lg)] lg:min-h-[220px]">
             <img
               src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1400&q=80"
               alt="Travel advisory planning"

@@ -21,7 +21,7 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
   return (
     <>
       <section className="section-space pt-8">
-        <div className="container grid gap-8 lg:grid-cols-[0.84fr_1.16fr]">
+        <div className="container grid gap-8 lg:grid-cols-[1fr_0.72fr]">
           <div className="max-w-xl">
             <div className="eyebrow">{country.region}</div>
             <h1 className="display mt-4">{country.country}</h1>
@@ -49,17 +49,17 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
             </div>
           </div>
 
-          <div className="image-frame min-h-[460px] border border-[var(--border)] shadow-[var(--shadow-lg)]">
+          <div className="image-frame min-h-[180px] border border-[var(--border)] shadow-[var(--shadow-lg)] lg:min-h-[220px]">
             <img
               src={country.image}
               alt={country.country}
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <div className="absolute bottom-0 left-0 z-10 max-w-md p-8 text-white">
+            <div className="absolute bottom-0 left-0 z-10 max-w-md p-4 text-white">
               <div className="text-xs uppercase tracking-[0.2em] text-white/72">
                 Score {country.score}/100
               </div>
-              <p className="mt-3 text-base leading-7 text-white/88">{country.summary}</p>
+              <p className="mt-2 max-w-[14rem] text-xs leading-5 text-white/88">{country.summary}</p>
             </div>
           </div>
         </div>

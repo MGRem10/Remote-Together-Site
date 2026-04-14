@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <>
       <section className="section-space pb-8 pt-8">
-        <div className="container grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
+        <div className="container grid gap-8 lg:grid-cols-[0.98fr_0.82fr]">
           <div className="flex max-w-xl flex-col justify-center fade-in-up">
             <div className="eyebrow">Remote Together</div>
             <h1 className="display mt-4">
@@ -41,14 +41,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-[1fr_0.52fr]">
-            <div className="image-frame min-h-[320px] border border-[var(--border)] shadow-[var(--shadow-lg)] fade-in-up delay-1 lg:min-h-[360px]">
+          <div className="grid max-w-[34rem] gap-4 lg:ml-auto lg:w-full lg:grid-cols-1">
+            <div className="image-frame min-h-[210px] border border-[var(--border)] shadow-[var(--shadow-lg)] fade-in-up delay-1 lg:min-h-[240px]">
               <img
                 src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80"
                 alt="Remote Together hero destination"
                 className="absolute inset-0 h-full w-full object-cover"
               />
-              <div className="absolute inset-x-0 bottom-0 z-10 p-6 text-white">
+              <div className="absolute inset-x-0 bottom-0 z-10 p-4 text-white">
                 <div className="text-xs uppercase tracking-[0.22em] text-white/70">
                   Editorial destination notes
                 </div>
@@ -58,7 +58,7 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="grid gap-4">
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-1">
               <div className="section-panel rounded-[1.8rem] p-5 fade-in-up delay-2">
                 <div className="eyebrow">What we measure</div>
                 <div className="mt-4 space-y-3 text-sm leading-6 text-[var(--muted)]">
@@ -68,7 +68,7 @@ export default function HomePage() {
                   <p>Daily-life fit</p>
                 </div>
               </div>
-              <div className="image-frame min-h-[160px] border border-[var(--border)] shadow-[var(--shadow)] fade-in-up delay-3 lg:min-h-[180px]">
+              <div className="image-frame min-h-[110px] border border-[var(--border)] shadow-[var(--shadow)] fade-in-up delay-3 lg:min-h-[120px]">
                 <img
                   src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1000&q=80"
                   alt="Travel notebook"
@@ -142,14 +142,14 @@ export default function HomePage() {
       </section>
 
       <section className="section-space section-block">
-        <div className="container grid gap-8 lg:grid-cols-[1.02fr_0.98fr]">
-          <div className="image-frame min-h-[300px] border border-[var(--border)] shadow-[var(--shadow-lg)] lg:min-h-[380px]">
+        <div className="container grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+          <div className="image-frame min-h-[190px] border border-[var(--border)] shadow-[var(--shadow-lg)] lg:min-h-[230px]">
             <img
               src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1400&q=80"
               alt="Remote work setup while traveling"
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <div className="absolute bottom-0 left-0 z-10 max-w-md p-8 text-white">
+            <div className="absolute bottom-0 left-0 z-10 max-w-md p-5 text-white">
               <div className="text-xs uppercase tracking-[0.22em] text-white/72">
                 From the road
               </div>
