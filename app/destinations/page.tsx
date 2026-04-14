@@ -19,11 +19,11 @@ export default function DestinationsPage() {
 
       <section className="section-space section-block pt-10">
         <div className="container">
-          <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {advisoryCountries.map((country) => (
-              <Link key={country.slug} href={`/destinations/${country.slug}`} className="group block">
-                <div className="overflow-hidden rounded-[1.4rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] shadow-[var(--shadow)]">
-                  <div className="relative aspect-[4/3]">
+              <Link key={country.slug} href={`/destinations/${country.slug}`} className="group block max-w-[13rem]">
+                <div className="overflow-hidden rounded-[1.1rem] border border-[var(--border)] bg-[rgba(255,255,255,0.28)] shadow-[var(--shadow)]">
+                  <div className="relative aspect-[5/4]">
                     <img
                       src={country.image}
                       alt={country.country}
@@ -31,11 +31,11 @@ export default function DestinationsPage() {
                     />
                   </div>
                 </div>
-                <div className="mt-4">
-                  <h2 className="font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em] text-[var(--text)]">
+                <div className="mt-3">
+                  <h2 className="font-[family-name:var(--font-heading)] text-[1.7rem] tracking-[-0.05em] text-[var(--text)]">
                     {country.country}
                   </h2>
-                  <p className="mt-1 text-sm text-[var(--muted)]">{country.region}</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-[var(--muted)]">{country.region}</p>
                 </div>
               </Link>
             ))}

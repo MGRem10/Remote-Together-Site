@@ -86,7 +86,7 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
             <h2 className="section-title mt-4">What makes {country.country} work.</h2>
           </div>
           <div className="section-panel rounded-[2rem] p-8 md:p-10">
-            <p className="text-base leading-8 text-[var(--muted)]">{country.summary}</p>
+            <p className="text-base leading-8 text-[var(--muted)]">{country.whyItWorks}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               {country.tags.map((tag) => (
                 <span
@@ -98,6 +98,25 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section-space section-block">
+        <div className="container grid gap-6 md:grid-cols-2">
+          <article className="rounded-[1.6rem] border border-[var(--border)] bg-[rgba(255,255,255,0.28)] p-8">
+            <div className="eyebrow">When To Go</div>
+            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
+              {country.idealTiming}
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+              This is the timing that gives the best balance between atmosphere,
+              climate, and a workable day-to-day setup.
+            </p>
+          </article>
+          <article className="rounded-[1.6rem] border border-[var(--border)] bg-[rgba(255,255,255,0.28)] p-8">
+            <div className="eyebrow">What To Watch</div>
+            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{country.watchOutFor}</p>
+          </article>
         </div>
       </section>
     </>

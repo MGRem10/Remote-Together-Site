@@ -14,6 +14,9 @@ export type CountryGuide = {
   region: string;
   base: string;
   summary: string;
+  whyItWorks: string;
+  watchOutFor: string;
+  idealTiming: string;
   internet: string;
   cost: string;
   stay: string;
@@ -75,6 +78,9 @@ export const advisoryCountries: CountryGuide[] = [
     region: "Europe",
     base: "Lisbon",
     summary: "One of the easiest entries into remote-work travel: strong infrastructure, layered neighborhoods, and enough energy to feel inspiring without becoming chaotic.",
+    whyItWorks: "Portugal is one of the cleanest all-round options for remote workers because the infrastructure is dependable, the rhythm is easy to settle into, and the neighborhoods give you both workability and quality of life.",
+    watchOutFor: "The strongest neighborhoods and apartments go fast, and the most obvious central areas can feel overpriced or over-exposed if you stay too close to the tourist flow.",
+    idealTiming: "March to June, or September to November",
     internet: "9.4/10",
     cost: "Mid",
     stay: "4 to 10 weeks",
@@ -89,6 +95,9 @@ export const advisoryCountries: CountryGuide[] = [
     region: "Europe",
     base: "Valencia",
     summary: "A softer landing than Barcelona or Madrid, with coast access, calmer neighborhoods, and a strong balance between daily life and productivity.",
+    whyItWorks: "Spain works especially well when you want good weather, strong urban structure, and a more relaxed emotional tempo without giving up city convenience.",
+    watchOutFor: "August can distort the experience depending on the city, and some beach-oriented areas are better for short holidays than focused working weeks.",
+    idealTiming: "April to June, or September to October",
     internet: "9.0/10",
     cost: "Mid",
     stay: "1 to 3 months",
@@ -103,6 +112,9 @@ export const advisoryCountries: CountryGuide[] = [
     region: "Europe",
     base: "Puglia",
     summary: "Best for people who want beauty and slower rhythm, but are willing to be more selective about housing and backup work setups.",
+    whyItWorks: "Italy is strongest for travelers who want atmosphere, design, food, and slower living to matter as much as the work itself.",
+    watchOutFor: "The tradeoff is consistency. Housing quality, desk setup, and internet reliability need much closer checking before you commit.",
+    idealTiming: "May to June, or September",
     internet: "7.6/10",
     cost: "Mid to high",
     stay: "2 to 6 weeks",
@@ -117,6 +129,9 @@ export const advisoryCountries: CountryGuide[] = [
     region: "Asia",
     base: "Canggu",
     summary: "A highly optimized nomad base with strong coworking infrastructure, social density, and easy routine-building if you choose your area carefully.",
+    whyItWorks: "Indonesia is ideal when you want convenience, warm weather, and an ecosystem already optimized around remote work and flexible stays.",
+    watchOutFor: "Some areas are too noisy or over-social if you need quiet concentration, so the exact neighborhood choice matters more than the country label.",
+    idealTiming: "May to September",
     internet: "9.2/10",
     cost: "Low to mid",
     stay: "1 to 4 months",
@@ -126,25 +141,14 @@ export const advisoryCountries: CountryGuide[] = [
     tags: ["Coworking", "Surf", "Social", "Tropical"],
   },
   {
-    slug: "guatemala",
-    country: "Guatemala",
-    region: "Central America",
-    base: "Lake Atitlan",
-    summary: "Magnetic and reflective, with lower costs and stronger scenery than infrastructure. Better for slower, self-directed workers than high-volume meeting weeks.",
-    internet: "7.1/10",
-    cost: "Low",
-    stay: "3 to 8 weeks",
-    bestFor: "Reflection and deep work",
-    score: "82",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80",
-    tags: ["Lower cost", "Nature", "Slower rhythm", "Patchier Wi-Fi"],
-  },
-  {
     slug: "mexico",
     country: "Mexico",
     region: "North America",
     base: "Mexico City",
     summary: "One of the richest urban options for remote workers who want food, culture, and serious city life without losing access to strong work infrastructure.",
+    whyItWorks: "Mexico is compelling when you want a destination with real cultural depth, strong food, serious city life, and enough infrastructure to support demanding weeks.",
+    watchOutFor: "Neighborhood choice changes everything. Some areas feel ideal for long stays, others are too hectic, noisy, or expensive to justify.",
+    idealTiming: "October to April",
     internet: "8.8/10",
     cost: "Mid",
     stay: "1 to 3 months",
