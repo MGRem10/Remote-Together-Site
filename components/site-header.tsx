@@ -34,25 +34,6 @@ export function SiteHeader() {
             );
           })}
         </nav>
-        <nav aria-label="Mobile primary" className="grid grid-cols-2 gap-2 md:hidden">
-          {navItems.map((item) => {
-            const active = isActive(item.href);
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`rounded-full border border-[var(--border)] px-4 py-3 text-center text-sm transition-colors ${
-                  active
-                    ? "bg-[rgba(63,93,86,0.16)] text-[var(--text)]"
-                    : "bg-[rgba(255,255,255,0.58)] text-[var(--muted)]"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
       </div>
     </header>
   );
