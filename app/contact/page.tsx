@@ -1,85 +1,104 @@
 import type { Metadata } from "next";
+import { Reveal } from "@/components/reveal";
 import { ContactForm } from "@/components/contact-form";
-import { PageHero } from "@/components/page-hero";
-import { primaryCta, secondaryCta } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch for destination selection, custom remote-work travel planning, route shaping, and longer-stay advice.",
+    "Get in touch if you are trying to choose where to go, how to set up remote life abroad, or how to make the whole thing more sustainable.",
   openGraph: {
     title: "Contact Remote Together",
     description:
-      "Use the contact form for destination selection, route shaping, and custom remote-work travel planning.",
+      "Reach out about destination choices, setup questions, and making remote work and travel actually work.",
   },
 };
+
+const nextSteps = [
+  "We review your situation.",
+  "We reply within 48 hours.",
+  "If it makes sense, we suggest the best way to help.",
+];
 
 export default function ContactPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Contact"
-        title="Tell us what kind of remote-work trip you are planning."
-        description="Use the form below if you want help choosing a destination, shaping a longer stay, or turning a rough idea into a plan that actually works."
-        image="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=1400&q=80"
-        primaryCta={primaryCta}
-        secondaryCta={secondaryCta}
-      />
+      <section className="section-space pt-8 md:pt-12">
+        <div className="container">
+          <Reveal className="max-w-3xl">
+            <div className="eyebrow">Contact</div>
+            <h1 className="display mt-4">Contact</h1>
+            <p className="lead mt-6 text-[var(--muted-strong)]">
+              Not sure where to start? That&apos;s usually the right place.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
-      <section className="section-space pt-0">
-        <div className="container grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="content-card panel-pad">
-            <div className="eyebrow">Planning Call</div>
-            <h2 className="card-title mt-4">
-              Share the trip, timing, and work setup you are planning around.
-            </h2>
-            <p className="body-sm mt-5">
-              This service is strongest for remote workers, couples, and longer stays
-              where destination choice affects focus, comfort, and how the trip feels
-              after the first few days.
-            </p>
-            <div className="mt-8 space-y-4">
-              {[
-                "Reply within 48 hours.",
-                "Best for destination selection, route shaping, and remote-work planning.",
-                "You can also opt into destination updates from the same form.",
-              ].map((item) => (
-                <div key={item} className="comparison-item">
-                  <p className="body-sm">{item}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8 border-t border-[var(--border)] pt-6">
-              <div className="eyebrow">Elsewhere</div>
-              <div className="mt-4 flex flex-wrap gap-4 text-sm text-[var(--muted)]">
-                <a href="#" className="hover:text-[var(--text)]">
-                  Instagram
-                </a>
-                <a href="#" className="hover:text-[var(--text)]">
-                  LinkedIn
-                </a>
-                <a href="mailto:hello@remotetogether.com" className="hover:text-[var(--text)]">
-                  Email
-                </a>
+      <section className="section-space section-block pt-0">
+        <div className="container grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-12">
+          <div className="grid gap-6 self-start">
+            <Reveal className="content-card panel-pad" delay={20}>
+              <div className="eyebrow">Start Here</div>
+              <p className="body-md mt-5">
+                We work with people who want to make remote work and travel actually
+                work.
+              </p>
+              <p className="body-md mt-4">
+                If you&apos;re trying to figure out where to go, how to set things up, or
+                how to make it sustainable, send us a message.
+              </p>
+            </Reveal>
+
+            <Reveal className="summary-panel px-7 py-8 md:px-8 md:py-9" delay={90}>
+              <div className="eyebrow">What Happens Next</div>
+              <div className="bullet-list mt-6">
+                {nextSteps.map((item) => (
+                  <div key={item} className="bullet-row">
+                    <span className="bullet-dot" />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-            </div>
+            </Reveal>
+
+            <Reveal className="content-card panel-pad" delay={160}>
+              <div className="eyebrow">Personal Note</div>
+              <p className="body-md mt-5">
+                We read every message ourselves. No automation, no outsourcing.
+              </p>
+              <div className="mt-7 border-t border-[var(--border)] pt-6">
+                <div className="text-xs uppercase tracking-[0.18em] text-[var(--accent-deep)]">
+                  Secondary Contact
+                </div>
+                <div className="mt-4 grid gap-3 text-sm text-[var(--muted)]">
+                  <a href="mailto:hello@remotetogether.com" className="transition-colors duration-200 hover:text-[var(--text)]">
+                    hello@remotetogether.com
+                  </a>
+                  <a
+                    href="https://www.linkedin.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition-colors duration-200 hover:text-[var(--text)]"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+            </Reveal>
           </div>
-          <div className="summary-panel panel-pad">
-            <div className="eyebrow">Contact Form</div>
-            <h2 className="card-title mt-4">
-              Book a Planning Call
-            </h2>
-            <p className="body-sm mt-5">
-              Include the countries you are weighing, your work rhythm, and the kind of
-              stay you want to build. The more specific the brief, the sharper the plan.
-            </p>
-            <p className="body-sm mt-3">
-              We usually respond within 48 hours, often sooner on weekdays.
+
+          <Reveal className="summary-panel panel-pad" delay={60}>
+            <div className="eyebrow">Send A Message</div>
+            <h2 className="card-title mt-4">Tell us what you&apos;re trying to figure out.</h2>
+            <p className="body-sm mt-5 max-w-2xl">
+              Keep it simple. A rough situation is enough. We can usually tell quite
+              quickly whether you need destination help, setup guidance, or a better
+              structure for the next step.
             </p>
             <div className="mt-8">
               <ContactForm />
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>

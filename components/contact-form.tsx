@@ -5,12 +5,11 @@ import { FormEvent, useState } from "react";
 const defaultValues = {
   name: "",
   email: "",
-  trip: "",
-  budget: "",
-  travelStyle: "",
+  question: "",
+  currentLocation: "",
   travelMode: "",
+  monthlyBudget: "",
   message: "",
-  newsletter: false,
 };
 
 export function ContactForm() {
@@ -26,15 +25,13 @@ export function ContactForm() {
     if (
       !values.name.trim() ||
       !values.email.trim() ||
-      !values.trip.trim() ||
-      !values.budget.trim() ||
-      !values.travelStyle.trim() ||
+      !values.question.trim() ||
       !values.travelMode.trim() ||
       !values.message.trim()
     ) {
       setStatus({
         type: "error",
-        message: "Please complete all required fields before sending your inquiry.",
+        message: "Please complete the required fields before sending your message.",
       });
       return;
     }
@@ -42,24 +39,24 @@ export function ContactForm() {
     const lines = [
       `Name: ${values.name || "-"}`,
       `Email: ${values.email || "-"}`,
-      `Trip or destination: ${values.trip || "-"}`,
-      `Budget: ${values.budget || "-"}`,
-      `Travel style: ${values.travelStyle || "-"}`,
-      `Solo or couple: ${values.travelMode || "-"}`,
-      `Interested in destination updates: ${values.newsletter ? "Yes" : "No"}`,
+      `What are you trying to figure out?: ${values.question || "-"}`,
+      `Current location: ${values.currentLocation || "-"}`,
+      `Travelling solo or as a couple: ${values.travelMode || "-"}`,
+      `Approx monthly budget: ${values.monthlyBudget || "-"}`,
       "",
-      "Trip details:",
+      "Message:",
       values.message || "-",
     ];
 
-    const subject = encodeURIComponent("Remote Together planning inquiry");
+    const subject = encodeURIComponent("Remote Together contact inquiry");
     const body = encodeURIComponent(lines.join("\n"));
 
     setStatus({
       type: "success",
       message:
-        "Your inquiry is ready. Your email app should open with the form details prefilled.",
+        "Your message is ready. Your email app should open with everything prefilled.",
     });
+
     window.location.href = `mailto:hello@remotetogether.com?subject=${subject}&body=${body}`;
   };
 
@@ -79,6 +76,7 @@ export function ContactForm() {
             placeholder="Your name"
           />
         </label>
+
         <label className="space-y-2">
           <span className="text-sm font-semibold text-[var(--text)]">Email</span>
           <input
@@ -94,58 +92,45 @@ export function ContactForm() {
         </label>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2">
-        <label className="space-y-2">
-          <span className="text-sm font-semibold text-[var(--text)]">Trip or destination</span>
-          <input
-            type="text"
-            required
-            value={values.trip}
-            onChange={(event) =>
-              setValues((current) => ({ ...current, trip: event.target.value }))
-            }
-            className="form-input"
-            placeholder="Example: Portugal, Spain, or a 2-month Europe stay"
-          />
-        </label>
-        <label className="space-y-2">
-          <span className="text-sm font-semibold text-[var(--text)]">Budget</span>
-          <select
-            required
-            value={values.budget}
-            onChange={(event) =>
-              setValues((current) => ({ ...current, budget: event.target.value }))
-            }
-            className="form-input"
-          >
-            <option value="">Select one</option>
-            <option value="Under $2,000 / month">Under $2,000 / month</option>
-            <option value="$2,000 to $4,000 / month">$2,000 to $4,000 / month</option>
-            <option value="$4,000+ / month">$4,000+ / month</option>
-          </select>
-        </label>
-      </div>
+      <label className="block space-y-2">
+        <span className="text-sm font-semibold text-[var(--text)]">
+          What are you trying to figure out?
+        </span>
+        <input
+          type="text"
+          required
+          value={values.question}
+          onChange={(event) =>
+            setValues((current) => ({ ...current, question: event.target.value }))
+          }
+          className="form-input"
+          placeholder="Example: where to base for two months, how to set up a slower route, how to make the move sustainable"
+        />
+      </label>
 
       <div className="grid gap-5 md:grid-cols-2">
         <label className="space-y-2">
-          <span className="text-sm font-semibold text-[var(--text)]">Travel style</span>
-          <select
-            required
-            value={values.travelStyle}
+          <span className="text-sm font-semibold text-[var(--text)]">
+            Current location
+          </span>
+          <input
+            type="text"
+            value={values.currentLocation}
             onChange={(event) =>
-              setValues((current) => ({ ...current, travelStyle: event.target.value }))
+              setValues((current) => ({
+                ...current,
+                currentLocation: event.target.value,
+              }))
             }
             className="form-input"
-          >
-            <option value="">Select one</option>
-            <option value="City-based remote work">City-based remote work</option>
-            <option value="Slow travel">Slow travel</option>
-            <option value="Work-and-explore balance">Work-and-explore balance</option>
-            <option value="Deep-work focused">Deep-work focused</option>
-          </select>
+            placeholder="Optional"
+          />
         </label>
+
         <label className="space-y-2">
-          <span className="text-sm font-semibold text-[var(--text)]">Solo or couple</span>
+          <span className="text-sm font-semibold text-[var(--text)]">
+            Travelling solo or as a couple
+          </span>
           <select
             required
             value={values.travelMode}
@@ -156,10 +141,26 @@ export function ContactForm() {
           >
             <option value="">Select one</option>
             <option value="Solo">Solo</option>
-            <option value="Couple">Couple</option>
+            <option value="As a couple">As a couple</option>
+            <option value="Not sure yet">Not sure yet</option>
           </select>
         </label>
       </div>
+
+      <label className="block space-y-2">
+        <span className="text-sm font-semibold text-[var(--text)]">
+          Approx monthly budget
+        </span>
+        <input
+          type="text"
+          value={values.monthlyBudget}
+          onChange={(event) =>
+            setValues((current) => ({ ...current, monthlyBudget: event.target.value }))
+          }
+          className="form-input"
+          placeholder="Optional"
+        />
+      </label>
 
       <label className="block space-y-2">
         <span className="text-sm font-semibold text-[var(--text)]">Message</span>
@@ -170,22 +171,8 @@ export function ContactForm() {
             setValues((current) => ({ ...current, message: event.target.value }))
           }
           className="form-input min-h-[180px] resize-y"
-          placeholder="Tell us your destination shortlist, work schedule, timing, and what kind of recommendation you need."
+          placeholder="Share the context that matters: timeline, shortlist, work rhythm, constraints, or what feels unclear right now."
         />
-      </label>
-
-      <label id="newsletter" className="flex items-start gap-3 rounded-[1.2rem] bg-[rgba(255,255,255,0.44)] px-4 py-4">
-        <input
-          type="checkbox"
-          checked={values.newsletter}
-          onChange={(event) =>
-            setValues((current) => ({ ...current, newsletter: event.target.checked }))
-          }
-          className="mt-1 h-4 w-4 accent-[#26433f]"
-        />
-        <span className="text-sm leading-7 text-[var(--muted)]">
-          Also sign me up for destination updates and new remote-work travel notes.
-        </span>
       </label>
 
       {status.type !== "idle" ? (
@@ -200,14 +187,16 @@ export function ContactForm() {
         </div>
       ) : null}
 
-      <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
-        <p className="max-w-xl text-sm leading-7 text-[var(--muted)]">
-          Expect a reply within 48 hours. If your email app does not open automatically,
-          send your request directly to `hello@remotetogether.com`.
+      <div className="flex flex-col gap-4 pt-2">
+        <p className="text-sm leading-7 text-[var(--muted)]">
+          We usually reply within 48 hours. If your email app does not open automatically,
+          send your note directly to hello@remotetogether.com.
         </p>
-        <button type="submit" className="button-primary">
-          Book a Planning Call
-        </button>
+        <div>
+          <button type="submit" className="button-primary">
+            Send your message
+          </button>
+        </div>
       </div>
     </form>
   );
