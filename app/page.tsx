@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ConversionCta } from "@/components/conversion-cta";
 import { guideTopics, principles, serviceItems, stats } from "@/data/site";
 
 export default function HomePage() {
@@ -16,14 +17,11 @@ export default function HomePage() {
               for people who want to work while exploring the world without sacrificing
               routine, focus, or quality of life.
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Link href="/destinations" className="button-primary">
-                Explore Destinations
-              </Link>
-              <Link href="/services" className="button-secondary">
-                See Services
-              </Link>
-            </div>
+            <ConversionCta
+              align="center"
+              className="mt-8"
+              trustCopy="Reply within 48 hours. Best for remote workers, couples, and anyone trying to turn a good idea into a workable long-stay plan."
+            />
           </div>
 
           <div className="mx-auto mt-14 grid max-w-6xl gap-5 md:grid-cols-3">

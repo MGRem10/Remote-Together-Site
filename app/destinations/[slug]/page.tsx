@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { ConversionCta } from "@/components/conversion-cta";
 import { advisoryCountries } from "@/data/site";
 
 type CountryPageProps = {
@@ -29,6 +30,10 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
               Our tailored guide to {country.country}: where we would base ourselves,
               how long we would stay, and what kind of remote life it supports best.
             </p>
+            <ConversionCta
+              className="mt-8"
+              trustCopy={`Reply within 48 hours. Best for people deciding whether ${country.country} fits their workload, rhythm, and travel style.`}
+            />
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="section-panel rounded-[1.5rem] p-5">
                 <div className="text-xs uppercase tracking-[0.18em] text-[var(--accent-deep)]">

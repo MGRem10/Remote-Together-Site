@@ -157,6 +157,28 @@ img {
   background: rgba(255, 255, 255, 0.82);
 }
 
+.form-input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+  font: inherit;
+  padding: 0.95rem 1rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgba(38, 67, 63, 0.5);
+  box-shadow: 0 0 0 4px rgba(38, 67, 63, 0.08);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.form-input::placeholder {
+  color: rgba(95, 95, 87, 0.8);
+}
+
 .image-frame {
   position: relative;
   overflow: hidden;

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navItems } from "@/data/site";
+import { ctaTrustCopy, navItems, primaryCta, secondaryCta } from "@/data/site";
 
 export function SiteFooter() {
   return (
@@ -30,6 +30,15 @@ export function SiteFooter() {
           <div className="mt-4 space-y-3 text-sm text-[var(--muted)]">
             <p>hello@remotetogether.com</p>
             <p>Stories, destination notes, and practical guidance for working abroad.</p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Link href={primaryCta.href} className="button-primary">
+                {primaryCta.label}
+              </Link>
+              <Link href={secondaryCta.href} className="button-secondary">
+                {secondaryCta.label}
+              </Link>
+            </div>
+            <p className="pt-1 text-sm leading-7 text-[var(--muted)]">{ctaTrustCopy}</p>
           </div>
         </div>
       </div>

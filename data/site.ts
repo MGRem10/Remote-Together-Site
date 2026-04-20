@@ -35,6 +35,16 @@ export type ContinentGuide = {
   countries: string[];
 };
 
+export type ServiceItem = {
+  title: string;
+  body: string;
+  forWho: string;
+  includes: string[];
+  deliverable: string;
+  turnaround: string;
+  price: string;
+};
+
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
@@ -43,6 +53,19 @@ export const navItems = [
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
+
+export const primaryCta = {
+  href: "/contact#contact-form",
+  label: "Book a Planning Call",
+};
+
+export const secondaryCta = {
+  href: "/contact#newsletter",
+  label: "Get Destination Updates",
+};
+
+export const ctaTrustCopy =
+  "Reply within 48 hours. Best for remote workers, couples, and people planning longer, work-friendly stays.";
 
 export const featuredDestinations: Destination[] = [
   {
@@ -311,21 +334,95 @@ export const destinationFilters = [
   "Lower-cost options",
 ];
 
-export const serviceItems = [
+export const serviceItems: ServiceItem[] = [
   {
     title: "Destination Advisory",
     body: "We help you choose the right country, region, and base city for your workload, travel style, budget, and timing.",
+    forWho: "Best for remote workers or couples who are comparing a few destinations and need a clear recommendation before booking anything.",
+    includes: [
+      "A focused review of your work schedule, travel style, budget, and timing",
+      "Shortlist of the strongest country and city options",
+      "Clear tradeoffs on internet, housing, walkability, and day-to-day rhythm",
+    ],
+    deliverable: "A destination recommendation with the best-fit base city and a concise decision brief.",
+    turnaround: "2 to 4 business days",
+    price: "Starting from $190",
   },
   {
     title: "Personalized Remote Plan",
     body: "A tailored route with recommended stays, work-friendly neighborhoods, pacing advice, and practical logistics for each stop.",
+    forWho: "Best for people planning a multi-week or multi-stop remote-work trip and wanting the whole structure mapped out before they go.",
+    includes: [
+      "Recommended route and pacing for the trip",
+      "Neighborhood and stay guidance for each stop",
+      "Advice on work setup, transition days, and trip flow",
+    ],
+    deliverable: "A custom remote-work travel plan with route, recommended bases, and planning notes.",
+    turnaround: "4 to 6 business days",
+    price: "Starting from $390",
   },
   {
     title: "Booking Support",
     body: "Guidance on apartments, hotels, transfer flow, and the setup details that reduce friction once the trip becomes real.",
+    forWho: "Best for travelers who already know where they want to go but want help pressure-testing accommodation and logistics decisions.",
+    includes: [
+      "Review of shortlisted stays or booking options",
+      "Feedback on neighborhood fit, workability, and tradeoffs",
+      "Practical advice on arrival flow and local setup details",
+    ],
+    deliverable: "A refined booking shortlist and clear recommendations on what to book next.",
+    turnaround: "2 to 3 business days",
+    price: "Starting from $140",
   },
   {
     title: "Couples Travel Strategy",
     body: "Recommendations built around two schedules, two work styles, and a shared plan that still leaves room for enjoyment.",
+    forWho: "Best for couples balancing different work rhythms, energy levels, or expectations about what the trip should feel like.",
+    includes: [
+      "A two-person planning lens for destination and stay selection",
+      "Recommendations built around overlapping calendars and work styles",
+      "Guidance on pacing, routines, and shared decision points",
+    ],
+    deliverable: "A couples-focused travel strategy that supports both productivity and enjoyment.",
+    turnaround: "3 to 5 business days",
+    price: "Starting from $240",
+  },
+];
+
+export const serviceProcess = [
+  {
+    title: "Tell Us Your Trip",
+    body: "Share the destinations you are considering, your timeline, your work setup, and the tradeoffs that matter most.",
+  },
+  {
+    title: "We Build the Plan",
+    body: "We review the brief, shape the best route or destination recommendation, and organize it into something practical and actionable.",
+  },
+  {
+    title: "You Book With Confidence",
+    body: "You move forward with a clearer destination decision, stronger booking judgment, and fewer expensive mistakes.",
+  },
+];
+
+export const serviceFaqs = [
+  {
+    question: "How fixed is the pricing?",
+    answer:
+      "The prices shown are starting points for the most common scope. If the trip is more complex, multi-stop, or needs deeper booking support, we will clarify that before any work begins.",
+  },
+  {
+    question: "How quickly do you reply and deliver?",
+    answer:
+      "We aim to reply to new inquiries within 48 hours. Turnaround depends on the service, but most planning work is delivered within 2 to 6 business days.",
+  },
+  {
+    question: "How does support actually work?",
+    answer:
+      "Everything starts with the contact form. Once we understand the brief, we reply by email with the next step, scope, and what we need from you to complete the work.",
+  },
+  {
+    question: "Do you handle the bookings directly?",
+    answer:
+      "We guide the decision-making and can review options, but this page positions the service as advisory support rather than a full-service travel agency booking desk.",
   },
 ];
