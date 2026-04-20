@@ -214,9 +214,21 @@ export const guideTopics = [
 ];
 
 export const stats = [
-  { value: "20+", label: "destinations lived through" },
-  { value: "2", label: "perspectives on every place" },
-  { value: "100%", label: "advice shaped by actual workdays" },
+  {
+    value: "40+",
+    label: "nations lived through",
+    body: "Practical guidance to make every stay smoother, smarter, and more rewarding.",
+  },
+  {
+    value: "2",
+    label: "perspectives on every place",
+    body: "Traveling solo or as a couple, you get advice shaped by both points of view.",
+  },
+  {
+    value: "100%",
+    label: "immersed in local culture",
+    body: "Beyond the trip itself, we help you experience a place with real cultural depth.",
+  },
 ];
 
 export const destinationFilters = [

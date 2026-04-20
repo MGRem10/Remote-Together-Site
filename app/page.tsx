@@ -26,16 +26,24 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mx-auto mt-14 grid max-w-5xl gap-0 border-y border-[var(--border)] md:grid-cols-3">
+          <div className="mx-auto mt-14 grid max-w-6xl gap-5 md:grid-cols-3">
             {stats.map((stat) => (
-              <div key={stat.label} className="px-6 py-8 text-center md:border-l md:first:border-l-0 md:border-[var(--border)]">
-                <div className="font-[family-name:var(--font-heading)] text-5xl tracking-[-0.06em]">
-                  {stat.value}
+              <article
+                key={stat.label}
+                className="rounded-[1.75rem] border border-[rgba(0,0,0,0.08)] bg-[rgba(255,255,255,0.46)] p-4 text-left shadow-[0_18px_40px_rgba(31,28,24,0.08)]"
+              >
+                <div className="rounded-[1.4rem] bg-[#111111] px-5 py-6 text-white">
+                  <div className="font-[family-name:var(--font-heading)] text-6xl leading-none tracking-[-0.07em] md:text-7xl">
+                    {stat.value}
+                  </div>
+                  <div className="mt-3 text-base font-semibold leading-snug md:text-lg">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="mt-3 text-xs uppercase tracking-[0.22em] text-[var(--muted)]">
-                  {stat.label}
-                </div>
-              </div>
+                <p className="mt-5 px-1 text-lg font-semibold leading-8 text-[var(--text)] md:text-xl">
+                  {stat.body}
+                </p>
+              </article>
             ))}
           </div>
         </div>
