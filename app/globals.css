@@ -1655,48 +1655,35 @@ img {
   max-width: 52rem;
 }
 
-.services-process-band {
-  background: linear-gradient(180deg, rgba(255, 248, 241, 0.46), rgba(255, 255, 255, 0.08));
-}
-
-.services-process-card {
-  border-radius: 1.7rem;
-  border: 1px solid rgba(49, 83, 91, 0.12);
-  background: rgba(255, 255, 255, 0.78);
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
-}
-
-.services-process-step {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 999px;
-  background: rgba(49, 83, 91, 0.08);
-  padding: 0.5rem 0.8rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent-deep);
-}
-
 .services-shortlist-section {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(123, 162, 173, 0.04));
 }
 
-.services-selector-shell {
+.services-accordion-stack,
+.services-faq-stack,
+.services-example-grid,
+.services-expect-grid {
   display: grid;
   gap: 1rem;
 }
 
-.services-selector-row {
-  display: grid;
-  gap: 0.8rem;
+.service-accordion-item,
+.services-faq-item,
+.services-example-card,
+.services-process-card,
+.services-expect-card {
+  border-radius: 1.75rem;
+  border: 1px solid rgba(49, 83, 91, 0.12);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
-.service-selector-tab,
-.service-detail-header,
+.service-accordion-trigger,
 .service-detail-actions,
 .service-detail-meta,
+.service-accordion-trigger-main,
+.service-accordion-trigger-side,
 .services-faq-trigger {
   display: flex;
   align-items: center;
@@ -1704,32 +1691,31 @@ img {
   gap: 1rem;
 }
 
-.service-selector-tab {
+.service-accordion-trigger,
+.services-faq-trigger {
   width: 100%;
   text-align: left;
-  border-radius: 1.45rem;
-  border: 1px solid rgba(49, 83, 91, 0.12);
-  background: rgba(255, 255, 255, 0.76);
-  padding: 1rem 1.1rem;
-  box-shadow: var(--shadow);
+  background: transparent;
+  padding: 1.25rem 1.35rem;
   transition:
-    transform 200ms ease,
-    border-color 200ms ease,
     background-color 200ms ease,
-    box-shadow 200ms ease;
+    border-color 200ms ease;
 }
 
-.service-selector-tab:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+.service-accordion-trigger:hover,
+.services-faq-trigger:hover {
+  background: rgba(123, 162, 173, 0.04);
 }
 
-.service-selector-tab-active {
-  border-color: rgba(49, 83, 91, 0.24);
+.service-accordion-trigger-active {
   background: linear-gradient(180deg, rgba(123, 162, 173, 0.1), rgba(255, 255, 255, 0.26));
 }
 
-.service-selector-icon {
+.service-accordion-trigger-main {
+  justify-content: flex-start;
+}
+
+.service-accordion-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1744,51 +1730,40 @@ img {
   text-transform: uppercase;
 }
 
-.service-selector-copy {
+.service-accordion-copy {
   display: grid;
   gap: 0.35rem;
   min-width: 0;
 }
 
-.service-selector-title,
-.service-detail-title {
+.service-accordion-title,
+.service-detail-title,
+.services-faq-question {
   font-family: var(--font-heading);
-  font-size: clamp(1.3rem, 1.9vw, 1.55rem);
+  font-size: clamp(1.55rem, 2vw, 1.9rem);
   line-height: 1.08;
   letter-spacing: -0.04em;
   color: var(--text);
 }
 
-.service-selector-summary {
+.service-accordion-summary {
   color: var(--muted-strong);
   line-height: 1.72;
   font-size: 0.92rem;
+  max-width: 58ch;
 }
 
-.services-faq-toggle,
-.service-detail-header-meta {
-  color: var(--muted-strong);
+.service-accordion-trigger-side {
+  flex-shrink: 0;
 }
 
-.services-faq-toggle {
-  transition: transform 200ms ease;
+.service-accordion-price {
+  color: var(--warm-accent);
+  font-weight: 700;
+  text-align: right;
 }
 
-.services-detail-stack,
-.services-faq-stack {
-  display: grid;
-  gap: 1rem;
-}
-
-.service-detail-panel,
-.services-faq-item {
-  border-radius: 1.75rem;
-  border: 1px solid rgba(49, 83, 91, 0.12);
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
+.service-accordion-toggle,
 .services-faq-toggle {
   display: inline-flex;
   align-items: center;
@@ -1800,32 +1775,33 @@ img {
   color: var(--accent-deep);
   font-size: 1.15rem;
   line-height: 1;
+  transition: transform 200ms ease;
 }
 
+.service-accordion-toggle-open,
 .services-faq-toggle-open {
   transform: rotate(45deg);
 }
 
+.service-accordion-panel,
 .services-faq-answer {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 280ms ease;
 }
 
+.service-accordion-panel-open,
 .services-faq-answer-open {
   grid-template-rows: 1fr;
 }
 
-.service-detail-inner,
+.service-accordion-panel-inner,
 .services-faq-answer p {
   overflow: hidden;
 }
 
-.service-detail-inner {
+.service-accordion-panel-inner {
   padding: 1.35rem;
-}
-
-.service-detail-inner-open {
   padding-top: 0;
 }
 
@@ -1846,23 +1822,15 @@ img {
   margin-top: 1rem;
 }
 
+.service-detail-title {
+  margin: 0;
+}
+
 .service-detail-actions {
   margin-top: 1.15rem;
   padding-top: 1rem;
   border-top: 1px solid rgba(49, 83, 91, 0.1);
   flex-wrap: wrap;
-}
-
-.service-detail-header {
-  padding: 1.25rem 1.35rem 0.95rem;
-  align-items: flex-start;
-}
-
-.service-detail-header-meta {
-  display: grid;
-  gap: 0.35rem;
-  justify-items: end;
-  font-size: 0.92rem;
 }
 
 .service-detail-meta {
@@ -1875,17 +1843,10 @@ img {
   background: linear-gradient(180deg, rgba(255, 248, 243, 0.5), rgba(255, 255, 255, 0.08));
 }
 
-.services-expect-grid {
-  display: grid;
-  gap: 1rem;
-}
-
-.services-expect-card {
-  border-radius: 1.7rem;
-  border: 1px solid rgba(49, 83, 91, 0.12);
-  background: rgba(255, 255, 255, 0.8);
+.services-expect-card,
+.services-example-card,
+.services-process-card {
   padding: 1.5rem;
-  box-shadow: var(--shadow);
 }
 
 .services-expect-icon {
@@ -1903,16 +1864,28 @@ img {
   text-transform: uppercase;
 }
 
-.services-faq-section {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(123, 162, 173, 0.04));
+.services-example-section {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(123, 162, 173, 0.03));
 }
 
-.services-faq-question {
-  font-family: var(--font-heading);
-  font-size: clamp(1.45rem, 2vw, 1.8rem);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: var(--text);
+.services-process-band {
+  background: linear-gradient(180deg, rgba(255, 248, 241, 0.46), rgba(255, 255, 255, 0.08));
+}
+
+.services-process-step {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: rgba(49, 83, 91, 0.08);
+  padding: 0.5rem 0.8rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+.services-faq-section {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(123, 162, 173, 0.04));
 }
 
 .services-faq-answer p {
@@ -2000,15 +1973,13 @@ img {
     min-width: 100%;
   }
 
-  .service-detail-header,
+  .service-accordion-trigger,
+  .service-accordion-trigger-main,
+  .service-accordion-trigger-side,
   .service-detail-actions,
   .service-detail-meta,
   .services-faq-trigger {
     align-items: flex-start;
-  }
-
-  .service-detail-header-meta {
-    justify-items: start;
   }
 }
 
@@ -2067,12 +2038,9 @@ img {
     aspect-ratio: 2.2;
   }
 
-  .services-selector-row {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .service-detail-grid,
-  .services-expect-grid {
+  .services-expect-grid,
+  .services-example-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

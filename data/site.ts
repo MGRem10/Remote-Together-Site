@@ -1268,7 +1268,7 @@ export const serviceItems: ServiceItem[] = [
     price: "Starting from $190",
   },
   {
-    title: "Personalized Remote Plan",
+    title: "Personalised Remote Plan",
     body: "A tailored route with recommended stays, work-friendly neighborhoods, pacing advice, and practical logistics for each stop.",
     forWho: "Best for people planning a multi-week or multi-stop remote-work trip and wanting the whole structure mapped out before they go.",
     includes: [
@@ -1294,7 +1294,7 @@ export const serviceItems: ServiceItem[] = [
     price: "Starting from $140",
   },
   {
-    title: "Couples Travel Strategy",
+    title: "Couple travel strategy",
     body: "Recommendations built around two schedules, two work styles, and a shared plan that still leaves room for enjoyment.",
     forWho: "Best for couples balancing different work rhythms, energy levels, or expectations about what the trip should feel like.",
     includes: [

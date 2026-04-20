@@ -13,9 +13,8 @@ export function SiteFooter() {
         <div className="rounded-[2rem] border border-[rgba(255,250,241,0.1)] bg-[rgba(255,250,241,0.04)] px-6 py-7 shadow-[0_24px_70px_rgba(0,0,0,0.16)] md:px-8">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.75fr_0.75fr]">
             <div className="max-w-md">
-              <div className="eyebrow text-[rgba(255,250,241,0.58)]">Remote Together</div>
-              <h2 className="mt-4 font-[family-name:var(--font-heading)] text-[2.2rem] leading-[0.98] tracking-[-0.04em]">
-                Better destination decisions for people who need the trip to work.
+              <h2 className="font-[family-name:var(--font-heading)] text-[2.2rem] leading-[0.98] tracking-[-0.04em]">
+                Remote Together
               </h2>
               <p className="mt-4 max-w-sm text-sm leading-7 text-[rgba(255,250,241,0.7)]">
                 Remote-work travel guidance for couples and professionals choosing places

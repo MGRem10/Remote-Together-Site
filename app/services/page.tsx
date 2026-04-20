@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ConversionCta } from "@/components/conversion-cta";
-import { NewsletterBlock } from "@/components/newsletter-block";
-import { RelatedContent } from "@/components/related-content";
 import { Reveal } from "@/components/reveal";
 import { ServicesExplorer } from "@/components/services-explorer";
-import { primaryCta, secondaryCta, serviceProcess } from "@/data/site";
+import { primaryCta } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Destination advisory, personalized remote-work travel plans, booking support, and couples travel strategy for longer, work-friendly stays.",
+    "Destination advisory, personalised remote-work travel plans, booking support, and couple travel strategy for longer, work-friendly stays.",
   openGraph: {
     title: "Remote-Work Travel Planning Services",
     description:
-      "Explore destination advisory, planning, booking support, and couples strategy services for remote-work travel.",
+      "Explore destination advisory, planning, booking support, and couple travel strategy services for remote-work travel.",
   },
 };
 
@@ -41,38 +38,15 @@ export default function ServicesPage() {
                 {primaryCta.label}
               </Link>
             </div>
-            <ConversionCta
-              className="mt-7"
-              trustCopy="Best for remote workers, couples, and longer-stay travelers who want practical support before the booking becomes expensive."
-            />
+            <p className="mt-7 max-w-2xl text-sm leading-7 text-[var(--muted)]">
+              Best for remote workers, couples, and longer-stay travellers who want
+              practical support before the booking becomes expensive.
+            </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="section-space services-process-band">
-        <div className="container">
-          <Reveal className="section-intro max-w-3xl" delay={20}>
-            <div className="eyebrow">What to expect</div>
-            <h2 className="section-title mt-4">
-              A clear path from brief to recommendation, without unnecessary complexity.
-            </h2>
-          </Reveal>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {serviceProcess.map((step, index) => (
-              <Reveal key={step.title} as="article" className="services-process-card" delay={90 + index * 70}>
-                <div className="services-process-step">Step {index + 1}</div>
-                <h3 className="card-title mt-5">{step.title}</h3>
-                <p className="body-sm mt-4">{step.body}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <div id="service-shortlist">
-        <ServicesExplorer />
-      </div>
+      <ServicesExplorer />
 
       <section className="section-space services-cta-band">
         <div className="container">
@@ -89,43 +63,10 @@ export default function ServicesPage() {
               <Link href={primaryCta.href} className="button-primary">
                 {primaryCta.label}
               </Link>
-              <Link href={secondaryCta.href} className="button-secondary">
-                {secondaryCta.label}
-              </Link>
             </div>
           </Reveal>
         </div>
       </section>
-
-      <RelatedContent
-        eyebrow="Keep Exploring"
-        title="Use the rest of the site to sharpen the brief."
-        items={[
-          {
-            title: "Browse destinations",
-            description:
-              "Review published destination guides and see which countries already match your work style, budget, and travel rhythm.",
-            href: "/destinations",
-            meta: "Destinations",
-          },
-          {
-            title: "Read remote-work guidance",
-            description:
-              "Use the guide layer to pressure-test apartments, routines, and destination choices before you book.",
-            href: "/remote-work-travel",
-            meta: "Guides",
-          },
-          {
-            title: "Book a planning call",
-            description:
-              "If the decision already feels urgent, move straight to a tailored recommendation.",
-            href: "/contact#contact-form",
-            meta: "Contact",
-          },
-        ]}
-      />
-
-      <NewsletterBlock title="Get destination updates while you narrow the shortlist." />
     </>
   );
 }
