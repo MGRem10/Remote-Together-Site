@@ -56,8 +56,7 @@ export default function RemoteWorkTravelPage() {
         <div className="container grid gap-6 md:grid-cols-3">
           {guideSections.map((section) => (
             <article key={section.title} className="card rounded-[1.8rem] p-8">
-              <div className="eyebrow">Guide Section</div>
-              <h3 className="mt-4 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
+              <h3 className="font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
                 {section.title}
               </h3>
               <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{section.body}</p>

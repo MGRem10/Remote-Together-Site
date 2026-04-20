@@ -98,10 +98,10 @@ export default function HomePage() {
 
       <section className="section-space section-block">
         <div className="container grid gap-6 lg:grid-cols-3">
-          {principles.map((principle, index) => (
+          {principles.map((principle) => (
             <article key={principle.title} className="rounded-[1.5rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] p-8">
               <div className="text-xs uppercase tracking-[0.22em] text-[var(--accent-deep)]">
-                0{index + 1}
+                Editorial principle
               </div>
               <h3 className="mt-4 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
                 {principle.title}
@@ -170,8 +170,7 @@ export default function HomePage() {
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {guideTopics.map((topic) => (
               <article key={topic.title} className="rounded-[1.5rem] border border-[var(--border)] bg-[rgba(255,255,255,0.3)] p-8">
-                <div className="eyebrow">Guide</div>
-                <h3 className="mt-4 font-[family-name:var(--font-heading)] text-3xl leading-tight tracking-[-0.05em]">
+                <h3 className="font-[family-name:var(--font-heading)] text-3xl leading-tight tracking-[-0.05em]">
                   {topic.title}
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{topic.body}</p>

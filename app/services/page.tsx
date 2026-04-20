@@ -53,8 +53,7 @@ export default function ServicesPage() {
               <article key={service.title} className="section-panel rounded-[1.9rem] p-8">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
-                    <div className="eyebrow">Service</div>
-                    <h3 className="mt-4 font-[family-name:var(--font-heading)] text-4xl tracking-[-0.05em]">
+                    <h3 className="font-[family-name:var(--font-heading)] text-4xl tracking-[-0.05em]">
                       {service.title}
                     </h3>
                   </div>
@@ -134,7 +133,7 @@ export default function ServicesPage() {
                 className="rounded-[1.7rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] p-8"
               >
                 <div className="text-xs uppercase tracking-[0.22em] text-[var(--accent-deep)]">
-                  Step 0{index + 1}
+                  Step {index + 1}
                 </div>
                 <h3 className="mt-4 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
                   {step.title}
