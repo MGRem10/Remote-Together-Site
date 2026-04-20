@@ -94,7 +94,7 @@ export const ctaTrustCopy =
   "Reply within 48 hours. Best for remote workers, couples, and people planning longer, work-friendly stays.";
 
 export const authorProfile = {
-  name: "Matteo & Partner",
+  name: "Matteo & Alexandra",
   title: "Founders of Remote Together",
   bio: "A couple building remote-work trips around real deadlines, shared routines, and the lived details that decide whether a destination feels sustainable after week one.",
   yearsRemote: "6+ years",
