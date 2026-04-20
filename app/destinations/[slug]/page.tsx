@@ -1,7 +1,11 @@
+import type { Metadata } from "next";
 import { AuthorProfile } from "@/components/author-profile";
 import { notFound } from "next/navigation";
 import { ConversionCta } from "@/components/conversion-cta";
-import { advisoryCountries, destinationMethodology } from "@/data/site";
+import { NewsletterBlock } from "@/components/newsletter-block";
+import { RelatedContent } from "@/components/related-content";
+import { SchemaScript } from "@/components/schema-script";
+import { advisoryCountries, destinationMethodology, guideTopics } from "@/data/site";
 
 type CountryPageProps = {
   params: {
@@ -13,6 +17,24 @@ export function generateStaticParams() {
   return advisoryCountries.map((country) => ({ slug: country.slug }));
 }
 
+export function generateMetadata({ params }: CountryPageProps): Metadata {
+  const country = advisoryCountries.find((item) => item.slug === params.slug);
+
+  if (!country) {
+    return {};
+  }
+
+  return {
+    title: `${country.country} Remote-Work Guide`,
+    description: `Decision-first guide to ${country.country}: best base, internet, housing, budget, common mistakes, and who the destination really suits.`,
+    openGraph: {
+      title: `${country.country} Remote-Work Guide`,
+      description: `Decision-first guide to ${country.country}: best base, internet, housing, budget, common mistakes, and who the destination really suits.`,
+      images: [{ url: country.image }],
+    },
+  };
+}
+
 export default function CountryGuidePage({ params }: CountryPageProps) {
   const country = advisoryCountries.find((item) => item.slug === params.slug);
 
@@ -20,8 +42,35 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
     notFound();
   }
 
+  const relatedDestinations = advisoryCountries
+    .filter((item) => item.slug !== country.slug && item.region === country.region)
+    .slice(0, 3)
+    .map((item) => ({
+      title: item.country,
+      description: `Compare ${item.country} if you want another ${item.region.toLowerCase()} option with a different mix of cost, routine, and workability.`,
+      href: `/destinations/${item.slug}`,
+      meta: item.region,
+    }));
+
+  const relatedGuides = guideTopics.slice(0, 3).map((topic, index) => ({
+    title: topic.title,
+    description: topic.body,
+    href: "/remote-work-guides",
+    meta: `Guide topic ${index + 1}`,
+  }));
+
   return (
     <>
+      <SchemaScript
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Place",
+          name: country.country,
+          description: country.summary,
+          image: country.image,
+          url: `https://remotetogether.com/destinations/${country.slug}`,
+        }}
+      />
       <section className="section-space pt-8">
         <div className="container grid gap-8 lg:grid-cols-[1fr_360px]">
           <div className="section-intro">
@@ -248,6 +297,48 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
           </div>
         </div>
       </section>
+
+      <RelatedContent
+        eyebrow="Related Destinations"
+        title={`Compare ${country.country} with other published options.`}
+        items={relatedDestinations}
+      />
+
+      <RelatedContent
+        eyebrow="Related Guides"
+        title="Use these planning guides to pressure-test the decision."
+        items={relatedGuides}
+      />
+
+      <RelatedContent
+        eyebrow="Next Step"
+        title="Need something more specific than a public guide?"
+        items={[
+          {
+            title: "Explore planning services",
+            description:
+              "See how destination advisory, booking support, and custom planning work when you need more than a general recommendation.",
+            href: "/services",
+            meta: "Services",
+          },
+          {
+            title: "Read the remote-work guide",
+            description:
+              "Use the broader remote-work travel guidance to compare apartments, routines, and tradeoffs across destinations.",
+            href: "/remote-work-guides",
+            meta: "Guide",
+          },
+          {
+            title: "Book a planning call",
+            description:
+              "Move straight to a custom recommendation if your work schedule, partner dynamic, or route timing changes the answer.",
+            href: "/contact#contact-form",
+            meta: "Contact",
+          },
+        ]}
+      />
+
+      <NewsletterBlock title={`Get updates when more destinations like ${country.country} are published.`} />
 
       <AuthorProfile eyebrow="Guide Authors" />
     </>

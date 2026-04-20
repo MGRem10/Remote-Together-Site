@@ -319,7 +319,7 @@ export default function HomePage() {
                 Advice for choosing well, not just going somewhere.
               </h2>
             </div>
-            <Link href="/remote-work-travel" className="button-secondary">
+            <Link href="/remote-work-guides" className="button-secondary">
               Read all guides
             </Link>
           </Reveal>
@@ -335,7 +335,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="guide-card-title">{topic.title}</h3>
                 <p className="body-sm mt-4">{topic.body}</p>
-                <Link href="/remote-work-travel" className="guide-link">
+                <Link href="/remote-work-guides" className="guide-link">
                   Read the guide preview
                 </Link>
               </Reveal>

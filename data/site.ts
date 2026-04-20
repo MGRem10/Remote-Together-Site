@@ -78,11 +78,25 @@ export type Testimonial = {
   role: string;
 };
 
+export type GuideHubItem = {
+  title: string;
+  description: string;
+  category: string;
+  readingTime?: string;
+  featured?: boolean;
+};
+
+export type GuideHubCategory = {
+  title: string;
+  description: string;
+  guides: string[];
+};
+
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
   { href: "/services", label: "Services" },
-  { href: "/remote-work-travel", label: "Remote Work Travel" },
+  { href: "/remote-work-guides", label: "Remote Work Guides" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -1224,6 +1238,149 @@ export const guideTopics = [
   {
     title: "What we test before recommending a destination",
     body: "Internet backup, neighborhood noise, walkability, café culture, and whether the place still feels generous after week three.",
+  },
+];
+
+export const guideHubFeatured: GuideHubItem[] = [
+  {
+    title: "How to Choose Where to Live and Work Remotely",
+    description:
+      "A practical framework for judging countries, cities, and bases around workload, housing, rhythm, and how daily life actually feels after week one.",
+    category: "Choosing destinations",
+    readingTime: "6 min read",
+    featured: true,
+  },
+  {
+    title: "What Actually Matters When Working Abroad",
+    description:
+      "The filters that matter more than atmosphere: internet reliability, desk setup, neighborhood friction, and how a place holds up under real deadlines.",
+    category: "Setting up your life",
+    readingTime: "5 min read",
+    featured: true,
+  },
+  {
+    title: "Mistakes That Ruin Remote Work Travel",
+    description:
+      "The expensive planning errors that create avoidable stress once the booking is locked in, from weak apartments to bad pacing and poor base selection.",
+    category: "Costs & logistics",
+    readingTime: "5 min read",
+    featured: true,
+  },
+  {
+    title: "How to Build a Sustainable Remote Lifestyle",
+    description:
+      "How to structure movement, routines, and recovery so travel still feels expansive without collapsing your focus or your energy.",
+    category: "Work & lifestyle balance",
+    readingTime: "7 min read",
+    featured: true,
+  },
+];
+
+export const guideHubCategories: GuideHubCategory[] = [
+  {
+    title: "Choosing destinations",
+    description: "How to compare places before the shortlist becomes expensive.",
+    guides: [
+      "How to Choose Where to Live and Work Remotely",
+      "How to pick a city for a month, not a weekend",
+      "What we test before recommending a destination",
+    ],
+  },
+  {
+    title: "Setting up your life",
+    description: "How to make the apartment, neighborhood, and daily loop actually work.",
+    guides: [
+      "What Actually Matters When Working Abroad",
+      "Apartment filters that prevent productivity mistakes",
+      "How to settle into a new base without losing a week",
+    ],
+  },
+  {
+    title: "Work & lifestyle balance",
+    description: "How to protect focus without turning the trip into a grind.",
+    guides: [
+      "How to Build a Sustainable Remote Lifestyle",
+      "How to protect deep work while still enjoying the place",
+      "When a destination is beautiful but operationally wrong",
+    ],
+  },
+  {
+    title: "Couples remote travel",
+    description: "How shared routines, space, and expectations affect the trip.",
+    guides: [
+      "Working as a couple while constantly moving",
+      "How to align two work rhythms in one destination",
+      "Shared travel decisions that reduce friction later",
+    ],
+  },
+  {
+    title: "Costs & logistics",
+    description: "How to avoid expensive planning errors before they compound.",
+    guides: [
+      "Mistakes That Ruin Remote Work Travel",
+      "How to budget for longer stays more realistically",
+      "Booking sequences that reduce friction on arrival",
+    ],
+  },
+];
+
+export const guideHubAll: GuideHubItem[] = [
+  ...guideHubFeatured,
+  {
+    title: "Apartment filters that prevent productivity mistakes",
+    description:
+      "How to screen listings for desk setup, noise, Wi-Fi risk, and the invisible details that affect a full workweek.",
+    category: "Setting up your life",
+    readingTime: "4 min read",
+  },
+  {
+    title: "How to settle into a new base without losing a week",
+    description:
+      "A practical arrival sequence for testing calls, locating backups, and building a reliable daily loop quickly.",
+    category: "Setting up your life",
+    readingTime: "4 min read",
+  },
+  {
+    title: "How to protect deep work while still enjoying the place",
+    description:
+      "How to structure mornings, calls, and exploration so the trip supports focus instead of constantly interrupting it.",
+    category: "Work & lifestyle balance",
+    readingTime: "5 min read",
+  },
+  {
+    title: "When a destination is beautiful but operationally wrong",
+    description:
+      "How to identify places that look ideal online but break down under noise, weak housing, transport friction, or poor pace.",
+    category: "Work & lifestyle balance",
+    readingTime: "5 min read",
+  },
+  {
+    title: "How to align two work rhythms in one destination",
+    description:
+      "How couples can choose a place that works for different focus styles, schedules, and energy levels.",
+    category: "Couples remote travel",
+    readingTime: "5 min read",
+  },
+  {
+    title: "Shared travel decisions that reduce friction later",
+    description:
+      "The conversations couples should have before choosing a base, booking a stay, or setting trip expectations.",
+    category: "Couples remote travel",
+    readingTime: "4 min read",
+  },
+  {
+    title: "How to budget for longer stays more realistically",
+    description:
+      "A better way to estimate real monthly costs beyond headline rent, including work setup, transit, and convenience spending.",
+    category: "Costs & logistics",
+    readingTime: "4 min read",
+  },
+  {
+    title: "Booking sequences that reduce friction on arrival",
+    description:
+      "How to order bookings, transfers, and setup decisions so the first days feel controlled instead of chaotic.",
+    category: "Costs & logistics",
+    readingTime: "4 min read",
   },
 ];
 
