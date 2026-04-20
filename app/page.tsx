@@ -15,21 +15,53 @@ export default function HomePage() {
     <>
       <section className="section-space pb-10 pt-10">
         <div className="container">
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="mx-auto max-w-5xl text-center">
             <div className="eyebrow">Remote Together</div>
             <h1 className="display mt-5">
-              Remote-work travel advice from a couple actually living it.
+              Remote-work travel guidance for couples and professionals choosing where to live and work next.
             </h1>
             <p className="lead mx-auto mt-7 max-w-2xl">
-              We share destination guides, practical advice, and honest recommendations
-              for people who want to work while exploring the world without sacrificing
-              routine, focus, or quality of life.
+              We help you avoid beautiful-but-impractical destinations by showing which
+              places actually support focus, routine, good housing choices, and a better
+              long-stay experience.
             </p>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[var(--text)]">
+              Get clearer destination decisions, fewer booking mistakes, and a plan that
+              fits your workload before you commit time and money.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Link href="/contact#contact-form" className="button-primary">
+                Book a Planning Call
+              </Link>
+              <Link href="/destinations" className="button-secondary">
+                Browse Published Guides
+              </Link>
+            </div>
             <ConversionCta
               align="center"
-              className="mt-8"
-              trustCopy="Reply within 48 hours. Best for remote workers, couples, and anyone trying to turn a good idea into a workable long-stay plan."
+              className="mt-5"
+              trustCopy="For remote workers, couples, and longer-stay travelers who need a destination that works in real life, not just on paper."
             />
+          </div>
+
+          <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">
+            {[
+              "You are deciding between a few destinations and need a sharper recommendation.",
+              "You want to work remotely without sacrificing housing quality, routine, or daily ease.",
+              "You want practical planning support before booking a longer stay or shared trip.",
+            ].map((item, index) => (
+              <article key={item} className="content-card p-6 text-left">
+                <div className="icon-row">
+                  <span className="icon-badge">{index + 1}</span>
+                  <div>
+                    <div className="text-xs uppercase tracking-[0.18em] text-[var(--accent-deep)]">
+                      This is for you if...
+                    </div>
+                    <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
 
           <div className="mx-auto mt-14 grid max-w-6xl gap-5 md:grid-cols-3">
