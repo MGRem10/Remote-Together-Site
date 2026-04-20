@@ -32,12 +32,10 @@ export default function HomePage() {
                 key={stat.label}
                 className="rounded-[1.75rem] border border-[rgba(0,0,0,0.08)] bg-[rgba(255,255,255,0.46)] p-4 text-left shadow-[0_18px_40px_rgba(31,28,24,0.08)]"
               >
-                <div className="rounded-[1.4rem] bg-[#111111] px-5 py-6 text-white">
-                  <div className="font-[family-name:var(--font-heading)] text-6xl leading-none tracking-[-0.07em] md:text-7xl">
-                    {stat.value}
-                  </div>
-                  <div className="mt-3 text-base font-semibold leading-snug md:text-lg">
-                    {stat.label}
+                <div className="rounded-[1.4rem] bg-[#26433f] px-5 py-5 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-[family-name:var(--font-heading)] leading-none tracking-[-0.06em]">
+                    <span className="text-6xl md:text-7xl">{stat.value}</span>
+                    <span className="text-2xl md:text-3xl">{stat.label}</span>
                   </div>
                 </div>
                 <p className="mt-5 px-1 text-lg font-semibold leading-8 text-[var(--text)] md:text-xl">
