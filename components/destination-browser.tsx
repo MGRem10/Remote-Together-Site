@@ -51,7 +51,7 @@ export function DestinationBrowser({
 
   return (
     <div>
-      <div className="rounded-[1.8rem] border border-[var(--border)] bg-[rgba(255,255,255,0.42)] p-6 md:p-8">
+      <div className="summary-panel panel-pad">
         <div className="eyebrow">Filters</div>
         <div className="mt-5 flex flex-wrap gap-3">
           <button
@@ -118,7 +118,7 @@ export function DestinationBrowser({
           </label>
         </div>
 
-        <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+        <p className="body-sm mt-4">
           Published guides are prioritized by default. Turn on upcoming destinations if
           you want to see what is currently being researched next.
         </p>
@@ -130,7 +130,7 @@ export function DestinationBrowser({
             <Link
               key={item.name}
               href={`/destinations/${item.guideSlug}`}
-              className="group rounded-[1.6rem] border border-[rgba(38,67,63,0.18)] bg-[rgba(255,255,255,0.5)] p-7 shadow-[var(--shadow)] transition-transform duration-200 hover:-translate-y-1"
+              className="group content-card card-pad transition-transform duration-200 hover:-translate-y-1"
             >
               <div className="flex items-center justify-between gap-3">
                 <span className="rounded-full bg-[rgba(38,67,63,0.12)] px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-deep)]">
@@ -140,10 +140,10 @@ export function DestinationBrowser({
                   {formatBudget(item.budget)}
                 </span>
               </div>
-              <h3 className="mt-5 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em] text-[var(--text)]">
+              <h3 className="card-title mt-5">
                 {item.name}
               </h3>
-              <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+              <p className="body-sm mt-4">
                 Full destination guide with our best base, workability read, and the key
                 tradeoffs to know before booking.
               </p>
@@ -163,7 +163,7 @@ export function DestinationBrowser({
           ) : (
             <article
               key={item.name}
-              className="rounded-[1.6rem] border border-[var(--border)] bg-[rgba(255,255,255,0.28)] p-7"
+              className="content-card card-pad"
             >
               <div className="flex items-center justify-between gap-3">
                 <span className="rounded-full bg-[rgba(95,95,87,0.12)] px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
@@ -173,13 +173,13 @@ export function DestinationBrowser({
                   {formatBudget(item.budget)}
                 </span>
               </div>
-              <h3 className="mt-5 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em] text-[var(--text)]">
+              <h3 className="card-title mt-5">
                 {item.name}
               </h3>
               <div className="mt-4 text-xs uppercase tracking-[0.18em] text-[var(--accent-deep)]">
                 {item.contentType}
               </div>
-              <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+              <p className="body-sm mt-4">
                 This destination is in the browse queue. Subscribe for updates if you
                 want to hear when the guide goes live.
               </p>
@@ -204,7 +204,7 @@ export function DestinationBrowser({
       </div>
 
       {filteredItems.length === 0 ? (
-        <div className="mt-8 rounded-[1.6rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] p-7 text-sm leading-7 text-[var(--muted)]">
+        <div className="content-card card-pad mt-8 body-sm">
           No destinations match those filters yet. Try widening the budget, turning off
           a fit filter, or including upcoming destinations.
         </div>

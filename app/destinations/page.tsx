@@ -6,7 +6,7 @@ export default function DestinationsPage() {
   return (
     <>
       <section className="section-space pt-8">
-        <div className="container max-w-4xl">
+        <div className="container section-intro">
           <div className="eyebrow">Destinations</div>
           <h1 className="section-title mt-4 max-w-3xl">
             Browse by continent, then narrow down by country.
@@ -34,7 +34,7 @@ export default function DestinationsPage() {
           {continents.map((continent) => (
             <article
               key={continent.slug}
-              className="mx-auto max-w-[760px] rounded-[2rem] border border-[var(--border)] bg-[rgba(255,255,255,0.42)] p-5 shadow-[var(--shadow)] md:p-6"
+              className="mx-auto max-w-[760px] content-card card-pad"
             >
               <div className="flex flex-col items-center gap-5 text-center md:flex-row md:items-center md:text-left">
                 <div className="relative h-[120px] w-[180px] shrink-0 overflow-hidden rounded-[1.4rem] md:h-[140px] md:w-[210px]">
@@ -46,10 +46,10 @@ export default function DestinationsPage() {
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col justify-between">
                   <div>
-                    <h2 className="font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em] md:text-4xl">
+                    <h2 className="card-title">
                       {continent.name}
                     </h2>
-                    <p className="mt-3 text-base leading-7 text-[var(--muted)]">
+                    <p className="body-md mt-3">
                       {continent.description}
                     </p>
                   </div>
