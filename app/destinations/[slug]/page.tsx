@@ -26,7 +26,7 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
         <div className="container grid gap-8 lg:grid-cols-[1fr_360px]">
           <div className="section-intro">
             <div className="eyebrow">{country.region}</div>
-            <h1 className="display mt-4">{country.country}</h1>
+            <h1 className="page-title mt-4">{country.country}</h1>
             <p className="lead mt-6">
               A decision-first guide to {country.country}: where to base yourself, who it
               suits best, what usually goes wrong, and whether it works for the kind of
@@ -44,7 +44,7 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
                 { label: "Realistic budget", value: country.realisticBudget },
                 { label: "Stay range", value: country.stay },
               ].map((item) => (
-                <div key={item.label} className="content-card p-5">
+                <div key={item.label} className="content-card card-pad">
                   <div className="text-xs uppercase tracking-[0.18em] text-[var(--accent-deep)]">
                     {item.label}
                   </div>
@@ -57,7 +57,7 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
           </div>
 
           <aside className="lg:sticky lg:top-24 lg:self-start">
-            <div className="summary-panel p-8 md:p-9">
+            <div className="summary-panel panel-pad">
               <div className="eyebrow">Quick Decision Summary</div>
               <div className="mt-4 text-xs uppercase tracking-[0.18em] text-[var(--accent-deep)]">
                 Score {country.score}/100
@@ -90,13 +90,13 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
             <h2 className="section-title mt-4">Who this destination is actually for.</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            <article className="content-card p-8">
+            <article className="content-card panel-pad">
               <div className="text-xs uppercase tracking-[0.18em] text-[var(--accent-deep)]">
                 Best for
               </div>
               <p className="mt-4 text-base leading-8 text-[var(--muted)]">{country.bestFor}</p>
             </article>
-            <article className="content-card p-8">
+            <article className="content-card panel-pad">
               <div className="text-xs uppercase tracking-[0.18em] text-[var(--accent-deep)]">
                 Who should avoid it
               </div>
@@ -112,7 +112,7 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
             <div className="eyebrow">Our Read</div>
             <h2 className="section-title mt-4">What makes {country.country} work in practice.</h2>
           </div>
-          <div className="summary-panel p-8 md:p-10">
+          <div className="summary-panel panel-pad">
             <p className="section-copy text-base leading-8 text-[var(--muted)]">{country.whyItWorks}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               {country.tags.map((tag) => (
@@ -130,7 +130,7 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
 
       <section className="section-space section-block section-alt">
         <div className="container grid gap-6 lg:grid-cols-3">
-          <article className="content-card p-8">
+          <article className="content-card panel-pad">
             <div className="eyebrow">Top Base Areas</div>
             <div className="mt-5 space-y-3">
               {country.topAreas.map((area) => (
@@ -140,11 +140,11 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
               ))}
             </div>
           </article>
-          <article className="content-card p-8">
+          <article className="content-card panel-pad">
             <div className="eyebrow">Internet and Coworking</div>
             <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{country.internetNotes}</p>
           </article>
-          <article className="content-card p-8">
+          <article className="content-card panel-pad">
             <div className="eyebrow">Housing Advice</div>
             <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{country.housingAdvice}</p>
           </article>
@@ -153,14 +153,14 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
 
       <section className="section-space section-block">
         <div className="container grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <article className="content-card p-8">
+          <article className="content-card panel-pad">
             <div className="eyebrow">Couples</div>
-            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
+            <h2 className="card-title mt-4">
               Couple suitability
             </h2>
-            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{country.coupleNotes}</p>
+            <p className="body-sm mt-4">{country.coupleNotes}</p>
           </article>
-          <article className="content-card p-8">
+          <article className="content-card panel-pad">
             <div className="eyebrow">Common Mistakes</div>
             <div className="bullet-list mt-5">
               {country.commonMistakes.map((item) => (
@@ -198,19 +198,19 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
 
       <section className="section-space section-block">
         <div className="container grid gap-6 md:grid-cols-2">
-          <article className="content-card p-8">
+          <article className="content-card panel-pad">
             <div className="eyebrow">When To Go</div>
-            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
+            <h2 className="card-title mt-4">
               {country.idealTiming}
             </h2>
-            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+            <p className="body-sm mt-4">
               This is the timing that gives the best balance between atmosphere,
               climate, and a workable day-to-day setup.
             </p>
           </article>
-          <article className="content-card p-8">
+          <article className="content-card panel-pad">
             <div className="eyebrow">What To Watch</div>
-            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{country.watchOutFor}</p>
+            <p className="body-sm mt-4">{country.watchOutFor}</p>
           </article>
         </div>
       </section>
@@ -236,7 +236,7 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
 
       <section className="section-space section-block">
         <div className="container">
-          <div className="summary-panel p-8 md:p-10">
+          <div className="summary-panel panel-pad">
             <div className="eyebrow">Need Something More Specific?</div>
             <h2 className="section-title mt-4">Want a custom recommendation instead?</h2>
             <p className="section-copy mt-5 text-base leading-8 text-[var(--muted)]">

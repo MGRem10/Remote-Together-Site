@@ -18,7 +18,7 @@ export default function ServicesPage() {
               not just describe the idea of traveling better.
             </p>
           </div>
-          <div className="summary-panel p-8 md:p-10">
+          <div className="summary-panel panel-pad">
             <div className="eyebrow">Who this is for</div>
             <p className="section-copy mt-5 text-base leading-8 text-[var(--muted)]">
               Best for remote workers, couples, and longer-stay travelers who want a
@@ -31,7 +31,7 @@ export default function ServicesPage() {
                 "Starting-from pricing shown upfront",
                 "Advisory support built around real workweeks",
               ].map((item) => (
-                <div key={item} className="icon-row content-card p-4">
+                <div key={item} className="icon-row content-card card-pad">
                   <span className="icon-badge">+</span>
                   <span className="text-sm font-medium text-[var(--text)]">{item}</span>
                 </div>
@@ -51,13 +51,13 @@ export default function ServicesPage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {serviceItems.map((service, index) => (
-              <article key={service.title} className="content-card p-8">
+              <article key={service.title} className="content-card panel-pad">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
                     <div className="text-xs uppercase tracking-[0.2em] text-[var(--accent-deep)]">
                       Package {index + 1}
                     </div>
-                    <h3 className="font-[family-name:var(--font-heading)] text-4xl tracking-[-0.05em]">
+                    <h3 className="card-title">
                       {service.title}
                     </h3>
                   </div>
@@ -66,7 +66,7 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                <p className="section-copy mt-5 text-sm leading-7 text-[var(--muted)]">{service.body}</p>
+                <p className="section-copy body-sm mt-5">{service.body}</p>
 
                 <div className="comparison-block mt-8 md:grid-cols-2 md:grid">
                   <div className="comparison-item">
@@ -132,20 +132,17 @@ export default function ServicesPage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {serviceProcess.map((step, index) => (
-              <article
-                key={step.title}
-                className="content-card p-8"
-              >
+              <article key={step.title} className="content-card panel-pad">
                 <div className="icon-row">
                   <span className="icon-badge">{index + 1}</span>
                   <div className="text-xs uppercase tracking-[0.22em] text-[var(--accent-deep)]">
                     Step {index + 1}
                   </div>
                 </div>
-                <h3 className="mt-4 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
+                <h3 className="card-title mt-4">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{step.body}</p>
+                <p className="body-sm mt-4">{step.body}</p>
               </article>
             ))}
           </div>
@@ -160,11 +157,11 @@ export default function ServicesPage() {
           </div>
           <div className="space-y-4">
             {serviceFaqs.map((faq) => (
-              <article key={faq.question} className="content-card p-7">
-                <h3 className="font-[family-name:var(--font-heading)] text-2xl tracking-[-0.04em]">
+              <article key={faq.question} className="content-card card-pad">
+                <h3 className="card-title">
                   {faq.question}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{faq.answer}</p>
+                <p className="body-sm mt-4">{faq.answer}</p>
               </article>
             ))}
           </div>
@@ -173,7 +170,7 @@ export default function ServicesPage() {
 
       <section className="section-space section-block">
         <div className="container">
-          <div className="summary-panel p-8 md:p-10">
+          <div className="summary-panel panel-pad">
             <div className="eyebrow">Next Step</div>
             <h2 className="section-title mt-4">Book a planning call and get the brief moving.</h2>
             <p className="section-copy mt-5 text-base leading-8 text-[var(--muted)]">

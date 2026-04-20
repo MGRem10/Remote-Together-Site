@@ -29,20 +29,20 @@ export default function RemoteWorkTravelPage() {
 
       <section className="section-space pt-0">
         <div className="container grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-[2rem] border border-[var(--border)] p-8 md:p-10">
+          <div className="content-card panel-pad">
             <div className="eyebrow">Field Notes</div>
             <h2 className="section-title mt-4">
               Remote travel works better when your systems are more thoughtful than your itinerary.
             </h2>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--muted)]">
+            <p className="section-copy body-md mt-6">
               The most durable trips are rarely the most packed ones. We optimize for
               good apartments, repeatable morning routines, reliable internet, and a
               sense that daily life is still pleasurable after deadlines land.
             </p>
           </div>
-          <div className="card rounded-[2rem] p-8">
+          <div className="content-card panel-pad">
             <div className="eyebrow">What we cover</div>
-            <ul className="mt-5 space-y-4 text-sm leading-7 text-[var(--muted)]">
+            <ul className="mt-5 space-y-4 body-sm">
               <li>Choosing destinations around real workloads and time zones.</li>
               <li>Apartment filters that prevent expensive productivity mistakes.</li>
               <li>How to maintain focus while still letting travel feel expansive.</li>
@@ -55,11 +55,11 @@ export default function RemoteWorkTravelPage() {
       <section className="section-space pt-0">
         <div className="container grid gap-6 md:grid-cols-3">
           {guideSections.map((section) => (
-            <article key={section.title} className="card rounded-[1.8rem] p-8">
-              <h3 className="font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
+            <article key={section.title} className="content-card panel-pad">
+              <h3 className="card-title">
                 {section.title}
               </h3>
-              <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{section.body}</p>
+              <p className="body-sm mt-4">{section.body}</p>
             </article>
           ))}
         </div>
@@ -73,11 +73,8 @@ export default function RemoteWorkTravelPage() {
           </div>
           <div className="grid gap-4">
             {destinationMethodology.map((item) => (
-              <div
-                key={item}
-                className="rounded-[1.5rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] p-6"
-              >
-                <p className="text-sm leading-7 text-[var(--muted)]">{item}</p>
+              <div key={item} className="comparison-item">
+                <p className="body-sm">{item}</p>
               </div>
             ))}
           </div>

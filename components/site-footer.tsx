@@ -7,10 +7,10 @@ export function SiteFooter() {
       <div className="container py-12 md:py-14">
         <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr_0.9fr] md:items-start">
           <div className="max-w-md">
-            <div className="font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
+            <div className="card-title">
               Remote Together
             </div>
-            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+            <p className="body-sm mt-4">
               Remote-work travel advice for people who want places that support focus,
               routine, and a richer day-to-day life abroad.
             </p>

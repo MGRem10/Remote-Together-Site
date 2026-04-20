@@ -17,7 +17,7 @@ export default function HomePage() {
         <div className="container">
           <div className="mx-auto max-w-5xl text-center">
             <div className="eyebrow">Remote Together</div>
-            <h1 className="display mt-5">
+            <h1 className="page-title mt-5">
               Remote-work travel guidance for couples and professionals choosing where to live and work next.
             </h1>
             <p className="lead mx-auto mt-7 max-w-2xl">
@@ -50,7 +50,7 @@ export default function HomePage() {
               "You want to work remotely without sacrificing housing quality, routine, or daily ease.",
               "You want practical planning support before booking a longer stay or shared trip.",
             ].map((item, index) => (
-              <article key={item} className="content-card p-6 text-left">
+              <article key={item} className="content-card card-pad text-left">
                 <div className="icon-row">
                   <span className="icon-badge">{index + 1}</span>
                   <div>
@@ -68,7 +68,7 @@ export default function HomePage() {
             {stats.map((stat) => (
               <article
                 key={stat.label}
-                className="rounded-[1.75rem] border border-[rgba(0,0,0,0.08)] bg-[rgba(255,255,255,0.46)] p-4 text-left shadow-[0_18px_40px_rgba(31,28,24,0.08)]"
+                className="content-card card-pad text-left"
               >
                 <div className="rounded-[1.4rem] bg-[#26433f] px-5 py-5 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-[family-name:var(--font-heading)] leading-none tracking-[-0.06em]">
@@ -128,14 +128,14 @@ export default function HomePage() {
       <section className="section-space section-block section-alt">
         <div className="container grid gap-6 lg:grid-cols-3">
           {principles.map((principle) => (
-            <article key={principle.title} className="content-card p-8">
+            <article key={principle.title} className="content-card card-pad">
               <div className="text-xs uppercase tracking-[0.22em] text-[var(--accent-deep)]">
                 Editorial principle
               </div>
-              <h3 className="mt-4 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
+              <h3 className="card-title mt-4">
                 {principle.title}
               </h3>
-              <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+              <p className="body-sm mt-4">
                 {principle.body}
               </p>
             </article>
@@ -169,11 +169,11 @@ export default function HomePage() {
           </div>
           <div className="grid gap-5 md:grid-cols-2">
             {serviceItems.slice(0, 4).map((service) => (
-              <article key={service.title} className="content-card p-7">
-                <h3 className="font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
+              <article key={service.title} className="content-card card-pad">
+                <h3 className="card-title">
                   {service.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{service.body}</p>
+                <p className="body-sm mt-4">{service.body}</p>
               </article>
             ))}
           </div>
@@ -195,11 +195,11 @@ export default function HomePage() {
           </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {guideTopics.map((topic) => (
-              <article key={topic.title} className="content-card p-8">
-                <h3 className="font-[family-name:var(--font-heading)] text-3xl leading-tight tracking-[-0.05em]">
+              <article key={topic.title} className="content-card card-pad">
+                <h3 className="card-title">
                   {topic.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{topic.body}</p>
+                <p className="body-sm mt-4">{topic.body}</p>
               </article>
             ))}
           </div>
@@ -214,8 +214,8 @@ export default function HomePage() {
           </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {testimonials.map((testimonial) => (
-              <article key={testimonial.quote} className="card rounded-[1.8rem] p-8">
-                <p className="text-base leading-8 text-[var(--muted)]">“{testimonial.quote}”</p>
+              <article key={testimonial.quote} className="content-card card-pad">
+                <p className="body-md">“{testimonial.quote}”</p>
                 <div className="mt-6 border-t border-[var(--border)] pt-5">
                   <div className="font-semibold text-[var(--text)]">{testimonial.name}</div>
                   <div className="mt-1 text-sm text-[var(--muted)]">{testimonial.role}</div>

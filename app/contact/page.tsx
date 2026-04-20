@@ -16,12 +16,12 @@ export default function ContactPage() {
 
       <section className="section-space pt-0">
         <div className="container grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="card rounded-[2rem] p-8 md:p-10">
+          <div className="content-card panel-pad">
             <div className="eyebrow">Planning Call</div>
-            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-4xl tracking-[-0.05em]">
+            <h2 className="card-title mt-4">
               Share the trip, timing, and work setup you are planning around.
             </h2>
-            <p className="mt-5 text-sm leading-7 text-[var(--muted)]">
+            <p className="body-sm mt-5">
               This service is strongest for remote workers, couples, and longer stays
               where destination choice affects focus, comfort, and how the trip feels
               after the first few days.
@@ -32,8 +32,8 @@ export default function ContactPage() {
                 "Best for destination selection, route shaping, and remote-work planning.",
                 "You can also opt into destination updates from the same form.",
               ].map((item) => (
-                <div key={item} className="rounded-[1.4rem] bg-[var(--background-soft)] px-5 py-4">
-                  <p className="text-sm leading-7 text-[var(--muted)]">{item}</p>
+                <div key={item} className="comparison-item">
+                  <p className="body-sm">{item}</p>
                 </div>
               ))}
             </div>
@@ -52,16 +52,16 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-          <div className="rounded-[2rem] border border-[var(--border)] bg-[rgba(255,255,255,0.56)] p-8 md:p-10">
+          <div className="summary-panel panel-pad">
             <div className="eyebrow">Contact Form</div>
-            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-4xl tracking-[-0.05em]">
+            <h2 className="card-title mt-4">
               Book a Planning Call
             </h2>
-            <p className="mt-5 text-sm leading-7 text-[var(--muted)]">
+            <p className="body-sm mt-5">
               Include the countries you are weighing, your work rhythm, and the kind of
               stay you want to build. The more specific the brief, the sharper the plan.
             </p>
-            <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+            <p className="body-sm mt-3">
               We usually respond within 48 hours, often sooner on weekdays.
             </p>
             <div className="mt-8">
