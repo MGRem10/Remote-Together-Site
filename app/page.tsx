@@ -5,7 +5,6 @@ import {
   guideTopics,
   principles,
   serviceItems,
-  stats,
   testimonials,
   trustProofPoints,
 } from "@/data/site";
@@ -64,24 +63,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="mx-auto mt-14 grid max-w-6xl gap-5 md:grid-cols-3">
-            {stats.map((stat) => (
-              <article
-                key={stat.label}
-                className="content-card card-pad text-left"
-              >
-                <div className="rounded-[1.4rem] bg-[#26433f] px-5 py-5 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
-                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-[family-name:var(--font-heading)] leading-none tracking-[-0.06em]">
-                    <span className="text-6xl md:text-7xl">{stat.value}</span>
-                    <span className="text-2xl md:text-3xl">{stat.label}</span>
-                  </div>
-                </div>
-                <p className="mt-5 px-1 text-lg font-semibold leading-8 text-[var(--text)] md:text-xl">
-                  {stat.body}
-                </p>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
