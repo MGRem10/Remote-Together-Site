@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AuthorProfile } from "@/components/author-profile";
+import { GuideCard } from "@/components/guide-card";
 import { Reveal } from "@/components/reveal";
 import { guideHubAll, guideHubCategories, guideHubFeatured, primaryCta } from "@/data/site";
 
@@ -54,13 +55,8 @@ export default function RemoteWorkGuidesPage() {
 
           <div className="guides-hub-featured-grid mt-10">
             {guideHubFeatured.map((guide, index) => (
-              <Reveal key={guide.title} as="article" className="guides-hub-featured-card" delay={90 + index * 70}>
-                <div className="guides-hub-card-top">
-                  <span className="guide-pill">{guide.category}</span>
-                  <span className="guide-meta">{guide.readingTime}</span>
-                </div>
-                <h3 className="guides-hub-featured-title">{guide.title}</h3>
-                <p className="body-sm mt-4">{guide.description}</p>
+              <Reveal key={guide.slug} delay={90 + index * 70}>
+                <GuideCard guide={guide} variant="featured" />
               </Reveal>
             ))}
           </div>
@@ -82,12 +78,21 @@ export default function RemoteWorkGuidesPage() {
                 <h3 className="card-title">{category.title}</h3>
                 <p className="body-sm mt-4">{category.description}</p>
                 <div className="guides-hub-link-list">
-                  {category.guides.map((guide) => (
-                    <div key={guide} className="guides-hub-link-row">
-                      <span className="guides-hub-link-dot" />
-                      <span>{guide}</span>
-                    </div>
-                  ))}
+                  {category.guides.map((slug) => {
+                    const guide = guideHubAll.find((item) => item.slug === slug);
+                    if (!guide) return null;
+
+                    return (
+                      <Link
+                        key={guide.slug}
+                        href={`/remote-work-guides/${guide.slug}`}
+                        className="guides-hub-link-row"
+                      >
+                        <span className="guides-hub-link-dot" />
+                        <span>{guide.title}</span>
+                      </Link>
+                    );
+                  })}
                 </div>
               </Reveal>
             ))}
@@ -119,13 +124,8 @@ export default function RemoteWorkGuidesPage() {
 
           <div className="guides-hub-all-grid mt-10">
             {guideHubAll.map((guide, index) => (
-              <Reveal key={guide.title} as="article" className="guides-hub-all-card" delay={80 + index * 35}>
-                <div className="guides-hub-card-top">
-                  <span className="guide-pill">{guide.category}</span>
-                  {guide.readingTime ? <span className="guide-meta">{guide.readingTime}</span> : null}
-                </div>
-                <h3 className="guides-hub-all-title">{guide.title}</h3>
-                <p className="body-sm mt-4">{guide.description}</p>
+              <Reveal key={guide.slug} delay={80 + index * 35}>
+                <GuideCard guide={guide} />
               </Reveal>
             ))}
           </div>

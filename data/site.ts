@@ -79,6 +79,7 @@ export type Testimonial = {
 };
 
 export type GuideHubItem = {
+  slug: string;
   title: string;
   description: string;
   category: string;
@@ -90,6 +91,30 @@ export type GuideHubCategory = {
   title: string;
   description: string;
   guides: string[];
+};
+
+export type GuideArticleSection = {
+  title: string;
+  paragraphs: string[];
+  bullets?: string[];
+};
+
+export type GuideArticle = GuideHubItem & {
+  subtitle: string;
+  keyTakeaways: string[];
+  introduction: string[];
+  sections: GuideArticleSection[];
+  framework: {
+    title: string;
+    intro: string;
+    steps: { title: string; body: string }[];
+  };
+  application: {
+    title: string;
+    intro: string;
+    examples: { title: string; body: string }[];
+  };
+  relatedSlugs: string[];
 };
 
 export const navItems = [
@@ -1241,148 +1266,701 @@ export const guideTopics = [
   },
 ];
 
-export const guideHubFeatured: GuideHubItem[] = [
+export const guideArticles: GuideArticle[] = [
   {
+    slug: "choose-where-to-live-and-work-remotely",
     title: "How to Choose Where to Live and Work Remotely",
+    subtitle: "A practical framework for choosing a destination that still works after the novelty fades.",
     description:
       "A practical framework for judging countries, cities, and bases around workload, housing, rhythm, and how daily life actually feels after week one.",
     category: "Choosing destinations",
     readingTime: "6 min read",
     featured: true,
+    keyTakeaways: [
+      "Choose around workability first, not atmosphere alone.",
+      "Judge the city, neighborhood, and apartment as three separate decisions.",
+      "The best destination is usually the one with fewer hidden frictions, not the most exciting photos.",
+      "Longer stays reward reliability, calmer routines, and cleaner logistics.",
+    ],
+    introduction: [
+      "Most bad remote-work trips fail before arrival, when the destination is chosen for mood rather than function. A beautiful city can still be the wrong base if the apartment setup is weak, the daily loop is awkward, or the workday never settles.",
+      "This guide gives you a cleaner way to compare destinations before the shortlist becomes expensive. The aim is not to find the most aspirational place. It is to find the place that supports focus, routine, and a better month of living abroad.",
+    ],
+    sections: [
+      {
+        title: "Start with the demands of your workweek",
+        paragraphs: [
+          "Begin with your actual workload: calls, focus blocks, deadlines, and whether your schedule tolerates noise or time-zone drag. If the work pattern is demanding, the destination has to earn the right to stay on the shortlist.",
+        ],
+        bullets: [
+          "How many calls require reliable video",
+          "Whether mornings need to be protected for deep work",
+          "How often you can tolerate changing apartments or neighborhoods",
+        ],
+      },
+      {
+        title: "Separate the city decision from the stay decision",
+        paragraphs: [
+          "A good country can contain the wrong city, and a good city can still contain the wrong apartment. Keeping those layers separate stops you from overrating a destination too early.",
+        ],
+        bullets: [
+          "Country: visa ease, cost, climate, general infrastructure",
+          "City or base: rhythm, walkability, backup options, social energy",
+          "Stay: desk setup, noise, heating or cooling, internet proof",
+        ],
+      },
+    ],
+    framework: {
+      title: "The three-layer destination filter",
+      intro: "Use this sequence before a destination makes it onto the final shortlist.",
+      steps: [
+        { title: "Filter the country", body: "Eliminate places that clearly fail on budget, timing, or visa practicality." },
+        { title: "Test the base city", body: "Compare neighborhoods, daily convenience, and whether the city’s rhythm fits your work style." },
+        { title: "Pressure-test the stay", body: "Do not assume the apartment works until you have evidence on desk setup, noise, and internet." },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "Here is what the framework looks like in real planning decisions.",
+      examples: [
+        { title: "Couple choosing between Lisbon and a coastal town", body: "Lisbon may win if both people need backup cafés, more apartment choice, and better walkability during a dense work month." },
+        { title: "Solo worker choosing between Bali and Italy", body: "Bali may be the cleaner operational choice if reliable coworking and easier setup matter more than atmosphere." },
+      ],
+    },
+    relatedSlugs: [
+      "what-actually-matters-when-working-abroad",
+      "what-we-test-before-recommending-a-destination",
+      "mistakes-that-ruin-remote-work-travel",
+    ],
   },
   {
+    slug: "what-actually-matters-when-working-abroad",
     title: "What Actually Matters When Working Abroad",
+    subtitle: "The filters that matter more than atmosphere when you are living and working abroad.",
     description:
       "The filters that matter more than atmosphere: internet reliability, desk setup, neighborhood friction, and how a place holds up under real deadlines.",
     category: "Setting up your life",
     readingTime: "5 min read",
     featured: true,
+    keyTakeaways: [
+      "Apartment quality affects the trip more than destination branding.",
+      "Backup options matter when your workday cannot fail.",
+      "Neighborhood friction compounds faster than most people expect.",
+      "Daily ease is one of the strongest predictors of whether a stay feels sustainable.",
+    ],
+    introduction: [
+      "When people say a destination was great for remote work, they are usually talking about a few boring but crucial details that never make it into glossy travel content. The apartment worked. The internet held up. The grocery loop was easy. The workday did not constantly break.",
+      "This guide isolates those details so you can judge a destination on the things that actually shape day-to-day life abroad.",
+    ],
+    sections: [
+      {
+        title: "Housing decides more than people think",
+        paragraphs: [
+          "The stay is where most work friction is won or lost. A weak apartment can ruin an otherwise strong city by making calls stressful, mornings awkward, or recovery impossible.",
+        ],
+        bullets: [
+          "Desk or table height that works for actual laptop use",
+          "Street noise, building noise, and nighttime spillover",
+          "Heating, cooling, and light for full-day use",
+        ],
+      },
+      {
+        title: "Daily loops matter more than landmarks",
+        paragraphs: [
+          "Once you are working, the useful question is not what is famous nearby. It is how easy the day feels. Better remote-work destinations usually have a simpler loop between home, food, coffee, transport, and backup workspaces.",
+        ],
+      },
+    ],
+    framework: {
+      title: "The workability checklist",
+      intro: "Score every stay or neighborhood against these essentials.",
+      steps: [
+        { title: "Call reliability", body: "Can you confidently run video meetings from home, with a backup café nearby if needed?" },
+        { title: "Work posture", body: "Will the furniture support real work for several hours, not just a quick email?" },
+        { title: "Daily convenience", body: "Can errands, food, and movement happen without consuming energy you need for work?" },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "These filters usually change the final decision more than expected.",
+      examples: [
+        { title: "Stylish apartment, weak desk setup", body: "If the apartment only works visually, the city rating should come down because the stay still fails the workweek test." },
+        { title: "Beautiful area, awkward daily loop", body: "A scenic base may still be wrong if groceries, transport, or backup workspaces add friction every day." },
+      ],
+    },
+    relatedSlugs: [
+      "apartment-filters-that-prevent-productivity-mistakes",
+      "how-to-settle-into-a-new-base-without-losing-a-week",
+      "when-a-destination-is-beautiful-but-operationally-wrong",
+    ],
   },
   {
+    slug: "mistakes-that-ruin-remote-work-travel",
     title: "Mistakes That Ruin Remote Work Travel",
+    subtitle: "The avoidable planning errors that create expensive friction once the booking is locked in.",
     description:
       "The expensive planning errors that create avoidable stress once the booking is locked in, from weak apartments to bad pacing and poor base selection.",
     category: "Costs & logistics",
     readingTime: "5 min read",
     featured: true,
+    keyTakeaways: [
+      "Most expensive mistakes come from optimism during planning.",
+      "Bad pacing creates burnout even when the destinations are good.",
+      "A weak apartment can cost more than choosing a slightly pricier but better-fit stay.",
+      "Setup days should be treated as operational days, not leisure days.",
+    ],
+    introduction: [
+      "Remote work travel breaks down when people plan as if the trip will feel like a holiday and then try to layer a full workload on top. The problem is rarely one huge decision. It is a stack of small optimistic assumptions that fail together.",
+      "This guide highlights the mistakes that create the most friction so you can avoid spending money to learn the lesson later.",
+    ],
+    sections: [
+      {
+        title: "Booking for atmosphere instead of function",
+        paragraphs: [
+          "The most common mistake is overvaluing mood and undervaluing workability. If the stay is weak, the trip becomes a recovery exercise instead of a workable month.",
+        ],
+      },
+      {
+        title: "Moving too often",
+        paragraphs: [
+          "Frequent changes look efficient on paper but often destroy focus. Every move resets sleep, groceries, workspace confidence, and local orientation.",
+        ],
+        bullets: [
+          "Arrival days are operational, not productive",
+          "Short stays increase booking pressure and decision fatigue",
+          "A calmer trip usually means fewer, better bases",
+        ],
+      },
+    ],
+    framework: {
+      title: "The pre-booking error check",
+      intro: "Use this before confirming the itinerary or accommodation.",
+      steps: [
+        { title: "Challenge the optimistic assumption", body: "Ask what you are assuming will be fine without proof, especially on internet, desk setup, and noise." },
+        { title: "Reduce unnecessary transitions", body: "Cut any move that does not materially improve the trip." },
+        { title: "Protect the first days", body: "Keep setup time in the plan so the stay can become functional quickly." },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "Here is how the same mistake usually appears in real trips.",
+      examples: [
+        { title: "Four cities in one month", body: "The itinerary sounds exciting, but it often trades one coherent month of work for four partial setup cycles." },
+        { title: "Cheap apartment with weak reviews", body: "Saving on the stay can be more expensive if it forces coworking, taxis, or rebooking mid-trip." },
+      ],
+    },
+    relatedSlugs: [
+      "booking-sequences-that-reduce-friction-on-arrival",
+      "how-to-budget-for-longer-stays-more-realistically",
+      "how-to-build-a-sustainable-remote-lifestyle",
+    ],
   },
   {
+    slug: "how-to-build-a-sustainable-remote-lifestyle",
     title: "How to Build a Sustainable Remote Lifestyle",
+    subtitle: "A calmer system for balancing movement, work, recovery, and daily life abroad.",
     description:
       "How to structure movement, routines, and recovery so travel still feels expansive without collapsing your focus or your energy.",
     category: "Work & lifestyle balance",
     readingTime: "7 min read",
     featured: true,
+    keyTakeaways: [
+      "Sustainable remote travel depends on repeatable routines, not constant novelty.",
+      "The best trips leave enough room for work, rest, and ordinary life.",
+      "You need recovery built into the structure, not added later.",
+      "A longer trip usually improves when it becomes slightly less ambitious.",
+    ],
+    introduction: [
+      "The remote lifestyle becomes exhausting when every week is treated like a new project. Travel can still feel expansive, but it needs enough sameness to let work and recovery settle.",
+      "This guide is about building a rhythm you can actually maintain, especially over longer stays or multi-stop trips.",
+    ],
+    sections: [
+      {
+        title: "Protect the repeatable parts of the day",
+        paragraphs: [
+          "Routine is not the opposite of good travel. It is what makes good travel sustainable. When meals, work blocks, and exercise become predictable, the rest of the trip becomes easier to enjoy.",
+        ],
+      },
+      {
+        title: "Build around energy, not just logistics",
+        paragraphs: [
+          "A route can be efficient on paper and still drain you. Sustainable plans account for social energy, transition fatigue, and whether the destination gives back enough calm to offset the workload.",
+        ],
+      },
+    ],
+    framework: {
+      title: "The sustainable travel system",
+      intro: "Use these decisions to keep the trip livable over time.",
+      steps: [
+        { title: "Stabilise the week", body: "Create repeatable work blocks, grocery habits, and movement routines before you optimise for exploration." },
+        { title: "Limit decision load", body: "Fewer bases, clearer routines, and better defaults keep the trip lighter mentally." },
+        { title: "Protect recovery", body: "Design the trip so there is still space for quiet, not just productivity and sightseeing." },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "A sustainable trip usually looks simpler than the first draft.",
+      examples: [
+        { title: "Two strong bases instead of four weak ones", body: "A calmer structure gives each destination time to become functional and enjoyable." },
+        { title: "Recovery day after arrival", body: "Treating one day as setup often protects the rest of the week from low-grade chaos." },
+      ],
+    },
+    relatedSlugs: [
+      "how-to-protect-deep-work-while-still-enjoying-the-place",
+      "how-to-settle-into-a-new-base-without-losing-a-week",
+      "how-to-align-two-work-rhythms-in-one-destination",
+    ],
+  },
+  {
+    slug: "apartment-filters-that-prevent-productivity-mistakes",
+    title: "Apartment filters that prevent productivity mistakes",
+    subtitle: "How to evaluate stays before they quietly damage your focus and comfort.",
+    description:
+      "How to screen listings for desk setup, noise, Wi-Fi risk, and the invisible details that affect a full workweek.",
+    category: "Setting up your life",
+    readingTime: "4 min read",
+    keyTakeaways: [
+      "Desk quality matters more than stylish decor.",
+      "Noise risk should be treated like a major work variable.",
+      "Internet claims are not enough without proof.",
+    ],
+    introduction: [
+      "A weak apartment can ruin a strong destination. The goal is to assess the stay like a working environment, not a weekend rental.",
+    ],
+    sections: [
+      {
+        title: "Look for proof, not promises",
+        paragraphs: ["Listings tend to overstate comfort and understate constraints. Ask for visual or written proof wherever the setup matters."],
+        bullets: ["Desk photos", "Internet screenshot", "Street-facing windows", "Heating or cooling details"],
+      },
+    ],
+    framework: {
+      title: "The apartment filter",
+      intro: "Run every shortlist through these checks.",
+      steps: [
+        { title: "Work setup", body: "Desk, chair, plug access, and enough light for real work." },
+        { title: "Noise and sleep", body: "Street exposure, nightlife spillover, building noise, and window quality." },
+        { title: "Infrastructure", body: "Reliable internet, backup options, and basic home comfort." },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "The same apartment can feel very different once the workday starts.",
+      examples: [
+        { title: "Good photos, no desk", body: "That stay is often usable for leisure but not for a serious work month." },
+      ],
+    },
+    relatedSlugs: [
+      "what-actually-matters-when-working-abroad",
+      "how-to-settle-into-a-new-base-without-losing-a-week",
+      "booking-sequences-that-reduce-friction-on-arrival",
+    ],
+  },
+  {
+    slug: "how-to-settle-into-a-new-base-without-losing-a-week",
+    title: "How to settle into a new base without losing a week",
+    subtitle: "A practical arrival sequence for making a new destination functional fast.",
+    description:
+      "A practical arrival sequence for testing calls, locating backups, and building a reliable daily loop quickly.",
+    category: "Setting up your life",
+    readingTime: "4 min read",
+    keyTakeaways: [
+      "Arrival days should be treated as setup, not as regular workdays.",
+      "Testing calls and locating backups early prevents stress later.",
+      "A simple daily loop reduces decision fatigue fast.",
+    ],
+    introduction: [
+      "A new destination does not become workable automatically. The first two days should be used to stabilise the basics before you expect the week to run smoothly.",
+    ],
+    sections: [
+      {
+        title: "Use the first 48 hours deliberately",
+        paragraphs: ["The first wins should be operational: internet checks, groceries, a backup café, and confidence that the apartment actually works."],
+      },
+    ],
+    framework: {
+      title: "The arrival framework",
+      intro: "Follow this sequence after check-in.",
+      steps: [
+        { title: "Test the apartment", body: "Run calls, check noise, and confirm the work setup immediately." },
+        { title: "Map the backups", body: "Find coffee, groceries, pharmacy, and one alternative workspace." },
+        { title: "Stabilise the week", body: "Set work hours and one repeatable daily loop before adding more exploration." },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "A controlled arrival usually changes the entire feel of the week.",
+      examples: [
+        { title: "Landing late in a new city", body: "Keep the first full day light so setup replaces panic and guesswork." },
+      ],
+    },
+    relatedSlugs: [
+      "apartment-filters-that-prevent-productivity-mistakes",
+      "booking-sequences-that-reduce-friction-on-arrival",
+      "how-to-build-a-sustainable-remote-lifestyle",
+    ],
+  },
+  {
+    slug: "how-to-protect-deep-work-while-still-enjoying-the-place",
+    title: "How to protect deep work while still enjoying the place",
+    subtitle: "A better balance between focused workdays and the feeling of travel.",
+    description:
+      "How to structure mornings, calls, and exploration so the trip supports focus instead of constantly interrupting it.",
+    category: "Work & lifestyle balance",
+    readingTime: "5 min read",
+    keyTakeaways: [
+      "Protect focus first, then build the trip around it.",
+      "Most tension comes from trying to multitask travel and work at the same time.",
+      "Exploration works better when it has boundaries.",
+    ],
+    introduction: [
+      "Remote work travel feels worse when every day is half work and half tourism. Deep work needs protected time, and travel feels better when it is not crammed into the same window.",
+    ],
+    sections: [
+      {
+        title: "Separate focus from exploration",
+        paragraphs: ["The cleanest trips usually create distinct windows for focused work and lighter exploration rather than mixing them constantly."],
+      },
+    ],
+    framework: {
+      title: "The focus-protection system",
+      intro: "Use these decisions to keep the workweek intact.",
+      steps: [
+        { title: "Lock the focus block", body: "Decide in advance when work cannot be interrupted." },
+        { title: "Keep exploration local on workdays", body: "Use low-friction activities that do not cost recovery time." },
+        { title: "Let weekends hold the wider plan", body: "Save longer movement or more ambitious plans for lower-pressure days." },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "A better split usually looks calmer than expected.",
+      examples: [
+        { title: "Strong mornings, light evenings", body: "Many remote workers perform best when mornings are protected and exploration stays small on workdays." },
+      ],
+    },
+    relatedSlugs: [
+      "how-to-build-a-sustainable-remote-lifestyle",
+      "what-actually-matters-when-working-abroad",
+      "when-a-destination-is-beautiful-but-operationally-wrong",
+    ],
+  },
+  {
+    slug: "when-a-destination-is-beautiful-but-operationally-wrong",
+    title: "When a destination is beautiful but operationally wrong",
+    subtitle: "How to recognise places that look perfect online but work poorly in practice.",
+    description:
+      "How to identify places that look ideal online but break down under noise, weak housing, transport friction, or poor pace.",
+    category: "Work & lifestyle balance",
+    readingTime: "5 min read",
+    keyTakeaways: [
+      "Beauty often hides work friction.",
+      "Transport and neighborhood drag compound quickly.",
+      "Operational quality matters more than first impressions on longer stays.",
+    ],
+    introduction: [
+      "Some destinations are easy to love online and exhausting to live in. They can still be good places to visit, but they may be the wrong base for remote work.",
+    ],
+    sections: [
+      {
+        title: "Watch for friction hidden behind atmosphere",
+        paragraphs: ["Noise, distance, weak apartments, and poor daily convenience are the usual signals that a destination will feel worse over time."],
+      },
+    ],
+    framework: {
+      title: "The friction test",
+      intro: "Use this to decide whether a beautiful place is still the wrong working base.",
+      steps: [
+        { title: "Measure the daily loop", body: "If every task requires more movement or effort than it should, friction will accumulate." },
+        { title: "Check apartment quality", body: "If the housing is weak, the destination has to work twice as hard to compensate." },
+        { title: "Question the mood premium", body: "Ask whether you are paying extra for feeling rather than function." },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "This usually shows up in destinations that are strong for a weekend but weak for a month.",
+      examples: [
+        { title: "Scenic coastal stay with weak logistics", body: "It can be rewarding emotionally but still be the wrong choice during a dense work period." },
+      ],
+    },
+    relatedSlugs: [
+      "how-to-choose-where-to-live-and-work-remotely",
+      "what-actually-matters-when-working-abroad",
+      "mistakes-that-ruin-remote-work-travel",
+    ],
+  },
+  {
+    slug: "how-to-align-two-work-rhythms-in-one-destination",
+    title: "How to align two work rhythms in one destination",
+    subtitle: "How couples can choose a base that works for different schedules, focus styles, and energy levels.",
+    description:
+      "How couples can choose a place that works for different focus styles, schedules, and energy levels.",
+    category: "Couples remote travel",
+    readingTime: "5 min read",
+    keyTakeaways: [
+      "Couples should choose around the stricter work requirement first.",
+      "Space and energy expectations need to be named early.",
+      "A destination that works for one person can still fail the shared trip.",
+    ],
+    introduction: [
+      "Traveling as a couple adds another layer to every destination decision. A city can feel manageable for one person and stressful for two if the work rhythms, social needs, or apartment setup do not align.",
+    ],
+    sections: [
+      {
+        title: "Choose around the shared reality, not the average preference",
+        paragraphs: ["The decision should account for the tighter schedule, louder work style, or higher need for quiet, not the abstract midpoint between both people."],
+      },
+    ],
+    framework: {
+      title: "The couples alignment framework",
+      intro: "Use this before you commit to a base together.",
+      steps: [
+        { title: "Compare work patterns", body: "Map calls, deep-work needs, and whether both people need silence at the same times." },
+        { title: "Define private-space needs", body: "Decide how much room, routine separation, or neighborhood calm is necessary." },
+        { title: "Stress-test the stay", body: "Choose apartments and bases that reduce pressure rather than adding it." },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "The best couples decisions usually feel slightly more conservative and much more workable.",
+      examples: [
+        { title: "One person on calls, one person in deep work", body: "A slightly larger apartment or calmer neighborhood often matters more than a more central location." },
+      ],
+    },
+    relatedSlugs: [
+      "shared-travel-decisions-that-reduce-friction-later",
+      "how-to-build-a-sustainable-remote-lifestyle",
+      "how-to-choose-where-to-live-and-work-remotely",
+    ],
+  },
+  {
+    slug: "shared-travel-decisions-that-reduce-friction-later",
+    title: "Shared travel decisions that reduce friction later",
+    subtitle: "The conversations couples should have before the destination and stay are locked in.",
+    description:
+      "The conversations couples should have before choosing a base, booking a stay, or setting trip expectations.",
+    category: "Couples remote travel",
+    readingTime: "4 min read",
+    keyTakeaways: [
+      "Most conflict comes from assumptions, not logistics.",
+      "Budget, space, and pace should be made explicit early.",
+      "Shared expectations often matter more than the destination itself.",
+    ],
+    introduction: [
+      "The smoother couples trips are usually the ones where expectations were named before the booking. That includes pace, privacy, money, and how much the trip should feel like work versus travel.",
+    ],
+    sections: [
+      {
+        title: "Clarify the real priorities early",
+        paragraphs: ["If one person wants calm and the other wants density, that difference needs to shape the destination choice rather than becoming a surprise later."],
+      },
+    ],
+    framework: {
+      title: "The shared decision checklist",
+      intro: "Use these questions before choosing the base.",
+      steps: [
+        { title: "Name the non-negotiables", body: "Quiet, cost ceiling, social energy, and work support should be obvious before booking." },
+        { title: "Agree on the pace", body: "Decide whether the trip is slower, exploratory, or more stability-focused." },
+        { title: "Set the apartment standard", body: "Align on how much comfort and space the stay actually needs." },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "A single conversation before booking usually prevents multiple problems later.",
+      examples: [
+        { title: "Higher budget for a better apartment", body: "Couples often travel better when they spend slightly more on space and comfort instead of saving on the stay." },
+      ],
+    },
+    relatedSlugs: [
+      "how-to-align-two-work-rhythms-in-one-destination",
+      "how-to-build-a-sustainable-remote-lifestyle",
+      "mistakes-that-ruin-remote-work-travel",
+    ],
+  },
+  {
+    slug: "how-to-budget-for-longer-stays-more-realistically",
+    title: "How to budget for longer stays more realistically",
+    subtitle: "A better way to estimate the real monthly cost of living and working abroad.",
+    description:
+      "A better way to estimate real monthly costs beyond headline rent, including work setup, transit, and convenience spending.",
+    category: "Costs & logistics",
+    readingTime: "4 min read",
+    keyTakeaways: [
+      "Headline rent is only one part of the monthly reality.",
+      "Convenience spending rises when the setup is weak.",
+      "A better apartment can reduce hidden costs later.",
+    ],
+    introduction: [
+      "Long-stay budgets often fail because they are built around rent and flights rather than the real shape of the month. Work setup, transport friction, backup options, and convenience spending all change the total.",
+    ],
+    sections: [
+      {
+        title: "Think in full-month operating cost",
+        paragraphs: ["A realistic budget should include groceries, transit, coworking or coffee spend, setup friction, and the cost of correcting weak decisions."],
+      },
+    ],
+    framework: {
+      title: "The realistic budget model",
+      intro: "Use these layers instead of a simple rent-plus-flight estimate.",
+      steps: [
+        { title: "Base cost", body: "Rent, utilities, transport, groceries, and routine spending." },
+        { title: "Work cost", body: "Coffee shops, coworking, mobile data, and backup transport." },
+        { title: "Correction cost", body: "The amount you may spend fixing a weak apartment or awkward base choice." },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "The right question is not whether a place is cheap, but whether it stays efficient for the whole month.",
+      examples: [
+        { title: "Cheap stay, expensive month", body: "A weak apartment often creates extra spending on workspace, transport, and last-minute fixes." },
+      ],
+    },
+    relatedSlugs: [
+      "mistakes-that-ruin-remote-work-travel",
+      "booking-sequences-that-reduce-friction-on-arrival",
+      "how-to-choose-where-to-live-and-work-remotely",
+    ],
+  },
+  {
+    slug: "booking-sequences-that-reduce-friction-on-arrival",
+    title: "Booking sequences that reduce friction on arrival",
+    subtitle: "How to order bookings and setup decisions so the first days feel controlled instead of chaotic.",
+    description:
+      "How to order bookings, transfers, and setup decisions so the first days feel controlled instead of chaotic.",
+    category: "Costs & logistics",
+    readingTime: "4 min read",
+    keyTakeaways: [
+      "The order of bookings matters as much as the bookings themselves.",
+      "Arrival friction drops when transfers and setup are treated as one system.",
+      "Leaving less to chance usually creates a calmer first week.",
+    ],
+    introduction: [
+      "A destination can still start badly if the arrival sequence is messy. When airport transfer, check-in, groceries, and work setup are treated as separate problems, the first days absorb unnecessary stress.",
+    ],
+    sections: [
+      {
+        title: "Sequence the basics before you land",
+        paragraphs: ["The more predictable the arrival sequence, the faster the base becomes functional and the less energy gets wasted in the first 48 hours."],
+      },
+    ],
+    framework: {
+      title: "The arrival-sequence framework",
+      intro: "Use this order whenever you are entering a new base.",
+      steps: [
+        { title: "Secure the first night logistics", body: "Transfer, check-in confidence, and immediate access should already be clear." },
+        { title: "Protect the first essentials", body: "Know where food, pharmacy, and one backup workspace are before the week begins." },
+        { title: "Delay non-essential decisions", body: "Do not crowd arrival day with too many optional choices." },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "A calmer arrival often creates a dramatically better first impression of the destination.",
+      examples: [
+        { title: "Late arrival into a new city", body: "The best sequence is often airport, check-in, food, sleep, then setup the next morning." },
+      ],
+    },
+    relatedSlugs: [
+      "how-to-settle-into-a-new-base-without-losing-a-week",
+      "apartment-filters-that-prevent-productivity-mistakes",
+      "mistakes-that-ruin-remote-work-travel",
+    ],
+  },
+  {
+    slug: "what-we-test-before-recommending-a-destination",
+    title: "What we test before recommending a destination",
+    subtitle: "The evaluation system behind every destination recommendation on the site.",
+    description:
+      "Internet backup, neighborhood noise, walkability, café culture, and whether the place still feels generous after week three.",
+    category: "Choosing destinations",
+    readingTime: "5 min read",
+    keyTakeaways: [
+      "We rate destinations on workability, not just appeal.",
+      "Tradeoffs matter as much as highlights.",
+      "A recommendation is only useful if it survives real workdays.",
+    ],
+    introduction: [
+      "The destination layer on this site is not built from listicles or quick impressions. Recommendations come from a repeatable set of filters that prioritise how a place performs once the trip becomes real.",
+    ],
+    sections: [
+      {
+        title: "We test the destination as a system",
+        paragraphs: ["The city, neighborhood, and stay all need to support one another. A beautiful city with weak housing still scores lower than a calmer city with stronger day-to-day function."],
+      },
+    ],
+    framework: {
+      title: "The recommendation framework",
+      intro: "These are the main layers behind every country guide.",
+      steps: [
+        { title: "Work reliability", body: "Internet, backups, and whether focus can be protected." },
+        { title: "Housing quality", body: "Desk setup, comfort, and whether the apartment supports a real month of use." },
+        { title: "Daily ease", body: "Walkability, errands, transport, and how the city feels after several workdays." },
+      ],
+    },
+    application: {
+      title: "Practical application",
+      intro: "This is why some obvious destinations score lower than expected and some quieter ones rise.",
+      examples: [
+        { title: "Strong city, weak apartment inventory", body: "The destination may still be appealing, but its guide should reflect the housing risk clearly." },
+      ],
+    },
+    relatedSlugs: [
+      "how-to-choose-where-to-live-and-work-remotely",
+      "what-actually-matters-when-working-abroad",
+      "when-a-destination-is-beautiful-but-operationally-wrong",
+    ],
   },
 ];
+
+export const guideHubFeatured: GuideHubItem[] = guideArticles.filter((guide) => guide.featured);
 
 export const guideHubCategories: GuideHubCategory[] = [
   {
     title: "Choosing destinations",
     description: "How to compare places before the shortlist becomes expensive.",
     guides: [
-      "How to Choose Where to Live and Work Remotely",
-      "How to pick a city for a month, not a weekend",
-      "What we test before recommending a destination",
+      "choose-where-to-live-and-work-remotely",
+      "what-we-test-before-recommending-a-destination",
+      "mistakes-that-ruin-remote-work-travel",
     ],
   },
   {
     title: "Setting up your life",
     description: "How to make the apartment, neighborhood, and daily loop actually work.",
     guides: [
-      "What Actually Matters When Working Abroad",
-      "Apartment filters that prevent productivity mistakes",
-      "How to settle into a new base without losing a week",
+      "what-actually-matters-when-working-abroad",
+      "apartment-filters-that-prevent-productivity-mistakes",
+      "how-to-settle-into-a-new-base-without-losing-a-week",
     ],
   },
   {
     title: "Work & lifestyle balance",
     description: "How to protect focus without turning the trip into a grind.",
     guides: [
-      "How to Build a Sustainable Remote Lifestyle",
-      "How to protect deep work while still enjoying the place",
-      "When a destination is beautiful but operationally wrong",
+      "how-to-build-a-sustainable-remote-lifestyle",
+      "how-to-protect-deep-work-while-still-enjoying-the-place",
+      "when-a-destination-is-beautiful-but-operationally-wrong",
     ],
   },
   {
     title: "Couples remote travel",
     description: "How shared routines, space, and expectations affect the trip.",
     guides: [
-      "Working as a couple while constantly moving",
-      "How to align two work rhythms in one destination",
-      "Shared travel decisions that reduce friction later",
+      "how-to-align-two-work-rhythms-in-one-destination",
+      "shared-travel-decisions-that-reduce-friction-later",
+      "how-to-build-a-sustainable-remote-lifestyle",
     ],
   },
   {
     title: "Costs & logistics",
     description: "How to avoid expensive planning errors before they compound.",
     guides: [
-      "Mistakes That Ruin Remote Work Travel",
-      "How to budget for longer stays more realistically",
-      "Booking sequences that reduce friction on arrival",
+      "mistakes-that-ruin-remote-work-travel",
+      "how-to-budget-for-longer-stays-more-realistically",
+      "booking-sequences-that-reduce-friction-on-arrival",
     ],
   },
 ];
 
-export const guideHubAll: GuideHubItem[] = [
-  ...guideHubFeatured,
-  {
-    title: "Apartment filters that prevent productivity mistakes",
-    description:
-      "How to screen listings for desk setup, noise, Wi-Fi risk, and the invisible details that affect a full workweek.",
-    category: "Setting up your life",
-    readingTime: "4 min read",
-  },
-  {
-    title: "How to settle into a new base without losing a week",
-    description:
-      "A practical arrival sequence for testing calls, locating backups, and building a reliable daily loop quickly.",
-    category: "Setting up your life",
-    readingTime: "4 min read",
-  },
-  {
-    title: "How to protect deep work while still enjoying the place",
-    description:
-      "How to structure mornings, calls, and exploration so the trip supports focus instead of constantly interrupting it.",
-    category: "Work & lifestyle balance",
-    readingTime: "5 min read",
-  },
-  {
-    title: "When a destination is beautiful but operationally wrong",
-    description:
-      "How to identify places that look ideal online but break down under noise, weak housing, transport friction, or poor pace.",
-    category: "Work & lifestyle balance",
-    readingTime: "5 min read",
-  },
-  {
-    title: "How to align two work rhythms in one destination",
-    description:
-      "How couples can choose a place that works for different focus styles, schedules, and energy levels.",
-    category: "Couples remote travel",
-    readingTime: "5 min read",
-  },
-  {
-    title: "Shared travel decisions that reduce friction later",
-    description:
-      "The conversations couples should have before choosing a base, booking a stay, or setting trip expectations.",
-    category: "Couples remote travel",
-    readingTime: "4 min read",
-  },
-  {
-    title: "How to budget for longer stays more realistically",
-    description:
-      "A better way to estimate real monthly costs beyond headline rent, including work setup, transit, and convenience spending.",
-    category: "Costs & logistics",
-    readingTime: "4 min read",
-  },
-  {
-    title: "Booking sequences that reduce friction on arrival",
-    description:
-      "How to order bookings, transfers, and setup decisions so the first days feel controlled instead of chaotic.",
-    category: "Costs & logistics",
-    readingTime: "4 min read",
-  },
-];
+export const guideHubAll: GuideHubItem[] = guideArticles;
 
 export const stats = [
   {
