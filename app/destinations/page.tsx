@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { continents } from "@/data/site";
+import { DestinationBrowser } from "@/components/destination-browser";
+import { browseDestinations, continents } from "@/data/site";
 
 export default function DestinationsPage() {
   return (
@@ -15,6 +16,16 @@ export default function DestinationsPage() {
             destination platforms, but tailored to remote-work travel and long-stay
             decision making.
           </p>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+            Published guides are shown first by default. Turn on upcoming destinations
+            only when you want to browse the research pipeline as well.
+          </p>
+        </div>
+      </section>
+
+      <section className="section-space section-block pt-10">
+        <div className="container max-w-6xl">
+          <DestinationBrowser items={browseDestinations} showContinentFilter />
         </div>
       </section>
 
@@ -49,7 +60,12 @@ export default function DestinationsPage() {
                         {continent.kicker}
                       </div>
                       <div className="mt-2 text-sm font-semibold text-[var(--text)]">
-                        {continent.countries.length} countries to browse
+                        {
+                          browseDestinations.filter(
+                            (item) => item.continentSlug === continent.slug && item.status === "published",
+                          ).length
+                        }{" "}
+                        published guides
                       </div>
                     </div>
                     <Link

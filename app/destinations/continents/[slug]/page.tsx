@@ -1,6 +1,7 @@
+import { DestinationBrowser } from "@/components/destination-browser";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { advisoryCountries, continents } from "@/data/site";
+import { browseDestinations, continents } from "@/data/site";
 
 type ContinentPageProps = {
   params: {
@@ -18,6 +19,10 @@ export default function ContinentPage({ params }: ContinentPageProps) {
   if (!continent) {
     notFound();
   }
+
+  const items = browseDestinations.filter(
+    (item) => item.continentSlug === continent.slug,
+  );
 
   return (
     <>
@@ -54,54 +59,13 @@ export default function ContinentPage({ params }: ContinentPageProps) {
               <h2 className="section-title mt-4">Choose a country in {continent.name}.</h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-[var(--muted)]">
-              Countries with full destination guides are clickable. The rest are part of
-              the browse structure and can be expanded with full guides later.
+              Published guides appear first by default. You can include upcoming
+              destinations when you want to see what is currently in research.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {continent.countries.map((countryName) => {
-              const guide = advisoryCountries.find((item) => item.country === countryName);
-
-              if (guide) {
-                return (
-                  <Link
-                    key={countryName}
-                    href={`/destinations/${guide.slug}`}
-                    className="group rounded-[1.6rem] border border-[var(--border)] bg-[rgba(255,255,255,0.46)] p-7 shadow-[var(--shadow)] transition-transform duration-200 hover:-translate-y-1"
-                  >
-                    <div className="text-xs uppercase tracking-[0.18em] text-[var(--accent-deep)]">
-                      Full guide available
-                    </div>
-                    <h3 className="mt-4 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em] text-[var(--text)]">
-                      {countryName}
-                    </h3>
-                    <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-                      Open the full country guide for our recommended base, workability
-                      read, and key tradeoffs.
-                    </p>
-                  </Link>
-                );
-              }
-
-              return (
-                <article
-                  key={countryName}
-                  className="rounded-[1.6rem] border border-[var(--border)] bg-[rgba(255,255,255,0.32)] p-7"
-                >
-                  <div className="text-xs uppercase tracking-[0.18em] text-[var(--accent-deep)]">
-                    Coming soon
-                  </div>
-                  <h3 className="mt-4 font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em] text-[var(--text)]">
-                    {countryName}
-                  </h3>
-                  <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-                    Included in the regional browse now, with room to add a full guide as
-                    the editorial library expands.
-                  </p>
-                </article>
-              );
-            })}
+          <div className="mt-10">
+            <DestinationBrowser items={items} />
           </div>
         </div>
       </section>
