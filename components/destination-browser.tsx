@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { Reveal } from "@/components/reveal";
 import { BrowseDestination, secondaryCta } from "@/data/site";
 
 type DestinationBrowserProps = {
@@ -47,13 +48,23 @@ export function DestinationBrowser({
       }
       return true;
     });
-  }, [items, showContinentFilter, continent, publishedOnly, showUpcoming, couplesOnly, deepWorkOnly, budget]);
+  }, [budget, continent, couplesOnly, deepWorkOnly, items, publishedOnly, showContinentFilter, showUpcoming]);
 
   return (
-    <div>
-      <div className="summary-panel panel-pad">
-        <div className="eyebrow">Filters</div>
-        <div className="mt-5 flex flex-wrap gap-3">
+    <div className="destination-browser">
+      <Reveal className="destination-filter-panel" delay={20}>
+        <div className="destination-filter-head">
+          <div>
+            <div className="eyebrow">Filter the browse</div>
+            <h3 className="destination-filter-title">Find destinations that fit the trip.</h3>
+          </div>
+          <p className="body-sm max-w-xl">
+            Published guides stay visible first by default. Turn on upcoming destinations
+            only when you want to explore the research pipeline as well.
+          </p>
+        </div>
+
+        <div className="destination-chip-row">
           <button
             type="button"
             onClick={() => setPublishedOnly((current) => !current)}
@@ -84,7 +95,7 @@ export function DestinationBrowser({
           </button>
         </div>
 
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
+        <div className="destination-filter-grid">
           {showContinentFilter ? (
             <label className="space-y-2">
               <span className="text-sm font-semibold text-[var(--text)]">Continent</span>
@@ -117,108 +128,105 @@ export function DestinationBrowser({
             </select>
           </label>
         </div>
+      </Reveal>
 
-        <p className="body-sm mt-4">
-          Published guides are prioritized by default. Turn on upcoming destinations if
-          you want to see what is currently being researched next.
-        </p>
-      </div>
-
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {filteredItems.map((item) =>
+      <div className="destination-card-grid">
+        {filteredItems.map((item, index) =>
           item.status === "published" && item.guideSlug ? (
-            <Link
-              key={item.name}
-              href={`/destinations/${item.guideSlug}`}
-              className="group content-card card-pad transition-transform duration-200 hover:-translate-y-1"
-            >
-              <div className="flex items-center justify-between gap-3">
-                <span className="rounded-full bg-[rgba(38,67,63,0.12)] px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-deep)]">
-                  Published guide
-                </span>
-                <span className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                  {formatBudget(item.budget)}
-                </span>
-              </div>
-              <h3 className="card-title mt-5">
-                {item.name}
-              </h3>
-              <p className="body-sm mt-4">
-                Full destination guide with our best base, workability read, and the key
-                tradeoffs to know before booking.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {item.bestForCouples ? (
-                  <span className="rounded-full bg-[rgba(255,255,255,0.8)] px-3 py-2 text-xs uppercase tracking-[0.14em] text-[var(--text)]">
-                    Best for couples
-                  </span>
-                ) : null}
-                {item.bestForDeepWork ? (
-                  <span className="rounded-full bg-[rgba(255,255,255,0.8)] px-3 py-2 text-xs uppercase tracking-[0.14em] text-[var(--text)]">
-                    Best for deep work
-                  </span>
-                ) : null}
-              </div>
-            </Link>
-          ) : (
-            <article
-              key={item.name}
-              className="content-card card-pad"
-            >
-              <div className="flex items-center justify-between gap-3">
-                <span className="rounded-full bg-[rgba(95,95,87,0.12)] px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
-                  In research
-                </span>
-                <span className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                  {formatBudget(item.budget)}
-                </span>
-              </div>
-              <h3 className="card-title mt-5">
-                {item.name}
-              </h3>
-              <div className="mt-4 text-xs uppercase tracking-[0.18em] text-[var(--accent-deep)]">
-                {item.contentType}
-              </div>
-              <p className="body-sm mt-4">
-                This destination is in the browse queue. Subscribe for updates if you
-                want to hear when the guide goes live.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {item.bestForCouples ? (
-                  <span className="rounded-full bg-[rgba(255,255,255,0.72)] px-3 py-2 text-xs uppercase tracking-[0.14em] text-[var(--text)]">
-                    Best for couples
-                  </span>
-                ) : null}
-                {item.bestForDeepWork ? (
-                  <span className="rounded-full bg-[rgba(255,255,255,0.72)] px-3 py-2 text-xs uppercase tracking-[0.14em] text-[var(--text)]">
-                    Best for deep work
-                  </span>
-                ) : null}
-              </div>
-              <Link href={secondaryCta.href} className="button-secondary mt-6">
-                {secondaryCta.label}
+            <Reveal key={item.name} as="article" delay={80 + index * 45}>
+              <Link href={`/destinations/${item.guideSlug}`} className="destination-card-link">
+                <div className="destination-card-image-shell">
+                  <div
+                    className="destination-card-image"
+                    style={{ backgroundImage: `url(${item.image})` }}
+                  />
+                  <div className="destination-card-overlay" />
+                  <div className="destination-card-status-row">
+                    <span className="destination-status-badge destination-status-published">
+                      Published guide
+                    </span>
+                    <span className="destination-budget-badge">{formatBudget(item.budget)}</span>
+                  </div>
+                  <div className="destination-card-top-meta">
+                    <span>{item.stayStyle}</span>
+                    <span>{item.workability}</span>
+                  </div>
+                </div>
+
+                <div className="destination-card-body">
+                  <div className="destination-card-title-row">
+                    <h3 className="destination-card-title">{item.name}</h3>
+                    <span className="destination-card-arrow" aria-hidden="true">
+                      →
+                    </span>
+                  </div>
+                  <p className="destination-card-copy">{item.positioning}</p>
+                  <div className="destination-tag-row">
+                    {item.bestForCouples ? (
+                      <span className="destination-tag">Best for couples</span>
+                    ) : null}
+                    {item.bestForDeepWork ? (
+                      <span className="destination-tag">Best for deep work</span>
+                    ) : null}
+                  </div>
+                </div>
               </Link>
-            </article>
+            </Reveal>
+          ) : (
+            <Reveal key={item.name} as="article" delay={80 + index * 45} className="destination-card-upcoming">
+              <div className="destination-card-image-shell">
+                <div
+                  className="destination-card-image"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                />
+                <div className="destination-card-overlay" />
+                <div className="destination-card-status-row">
+                  <span className="destination-status-badge destination-status-upcoming">
+                    In research
+                  </span>
+                  <span className="destination-budget-badge">{formatBudget(item.budget)}</span>
+                </div>
+                <div className="destination-card-top-meta">
+                  <span>{item.stayStyle}</span>
+                  <span>{item.workability}</span>
+                </div>
+              </div>
+
+              <div className="destination-card-body">
+                <div className="destination-card-title-row">
+                  <h3 className="destination-card-title">{item.name}</h3>
+                </div>
+                <p className="destination-card-copy">{item.positioning}</p>
+                <div className="destination-upcoming-meta">{item.contentType}</div>
+                <div className="destination-tag-row">
+                  {item.bestForCouples ? (
+                    <span className="destination-tag">Best for couples</span>
+                  ) : null}
+                  {item.bestForDeepWork ? (
+                    <span className="destination-tag">Best for deep work</span>
+                  ) : null}
+                </div>
+                <Link href={secondaryCta.href} className="button-secondary mt-5">
+                  {secondaryCta.label}
+                </Link>
+              </div>
+            </Reveal>
           ),
         )}
       </div>
 
       {filteredItems.length === 0 ? (
-        <div className="content-card card-pad mt-8 body-sm">
-          No destinations match those filters yet. Try widening the budget, turning off
-          a fit filter, or including upcoming destinations.
-        </div>
+        <Reveal className="destination-empty-state" delay={60}>
+          No destinations match those filters yet. Try widening the budget, turning off a
+          fit filter, or including upcoming destinations.
+        </Reveal>
       ) : null}
     </div>
   );
 }
 
 function filterClassName(active: boolean) {
-  return `rounded-full border px-4 py-3 text-sm transition-colors ${
-    active
-      ? "border-[rgba(38,67,63,0.24)] bg-[rgba(38,67,63,0.12)] text-[var(--text)]"
-      : "border-[var(--border)] bg-[rgba(255,255,255,0.7)] text-[var(--muted)]"
-  }`;
+  return `destination-filter-chip ${active ? "destination-filter-chip-active" : ""}`;
 }
 
 function formatBudget(value: BrowseDestination["budget"]) {

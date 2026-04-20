@@ -40,6 +40,9 @@ export type ContinentGuide = {
   kicker: string;
   description: string;
   image: string;
+  accent: string;
+  highlights: string[];
+  featuredLabel: string;
   countries: string[];
 };
 
@@ -52,6 +55,10 @@ export type BrowseDestination = {
   budget: "low" | "mid" | "high";
   bestForCouples: boolean;
   bestForDeepWork: boolean;
+  image: string;
+  positioning: string;
+  stayStyle: string;
+  workability: string;
   guideSlug?: string;
 };
 
@@ -385,6 +392,9 @@ export const continents: ContinentGuide[] = [
       "Browse countries where the rhythm is slower, the culture is layered, and the remote-work setup depends heavily on choosing the right base.",
     image:
       "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1400&q=80",
+    accent: "Layered culture, slower rhythm, stronger base selection",
+    highlights: ["Couples", "Island bases", "Cultural depth"],
+    featuredLabel: "Best when you want texture, warmth, and a more selective setup.",
     countries: ["Morocco", "Kenya", "Cape Verde", "Egypt", "South Africa", "Tunisia", "Mauritius"],
   },
   {
@@ -395,6 +405,9 @@ export const continents: ContinentGuide[] = [
       "A mix of highly optimized nomad infrastructure, major cultural capitals, and lower-cost long-stay options with very different day-to-day rhythms.",
     image:
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80",
+    accent: "Nomad infrastructure, tropical living, strong range of tradeoffs",
+    highlights: ["Deep work", "Lower cost", "Coworking hubs"],
+    featuredLabel: "Best when you want infrastructure, value, and varied energy levels.",
     countries: ["Indonesia", "Thailand", "Vietnam", "Japan", "Sri Lanka", "Malaysia", "Singapore", "United Arab Emirates"],
   },
   {
@@ -405,6 +418,9 @@ export const continents: ContinentGuide[] = [
       "The strongest all-round region for balanced routines, strong transport links, and destinations that support both demanding workweeks and good daily life.",
     image:
       "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1400&q=80",
+    accent: "Reliable logistics, easier long stays, stronger all-round workability",
+    highlights: ["Long stays", "Walkability", "Easy logistics"],
+    featuredLabel: "Best when you want the safest all-round choice for longer work trips.",
     countries: ["Portugal", "Spain", "Italy", "France", "Greece", "Croatia", "Germany", "Malta"],
   },
   {
@@ -415,6 +431,9 @@ export const continents: ContinentGuide[] = [
       "Ideal when you want serious infrastructure, cultural density, and a broad range of urban or nature-adjacent setups across the continent.",
     image:
       "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=1400&q=80",
+    accent: "Urban depth, coast access, serious infrastructure",
+    highlights: ["City energy", "Reliable internet", "Couple-friendly"],
+    featuredLabel: "Best when you want confident logistics with bigger-city optionality.",
     countries: ["Mexico", "Canada", "United States", "Costa Rica", "Panama", "Dominican Republic"],
   },
   {
@@ -425,6 +444,9 @@ export const continents: ContinentGuide[] = [
       "A strong region for travelers who want atmosphere, cultural immersion, and more emotional texture in everyday life without giving up adventure.",
     image:
       "https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?auto=format&fit=crop&w=1400&q=80",
+    accent: "Creative cities, emotional texture, lower-cost depth",
+    highlights: ["Lower budget", "Cultural immersion", "Adventure"],
+    featuredLabel: "Best when you want more feeling, more contrast, and stronger everyday character.",
     countries: ["Colombia", "Brazil", "Argentina", "Peru", "Ecuador", "Chile", "Uruguay"],
   },
   {
@@ -435,11 +457,305 @@ export const continents: ContinentGuide[] = [
       "Smaller in coverage but compelling for people who want nature, surf, and a more spacious lifestyle with dependable daily logistics.",
     image:
       "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80",
+    accent: "Nature-led living, surf culture, spacious rhythms",
+    highlights: ["English-speaking ease", "Nature", "Slower pace"],
+    featuredLabel: "Best when you want a calmer, outdoors-led long-stay base.",
     countries: ["Australia", "New Zealand", "Fiji", "French Polynesia"],
   },
 ];
 
-export const browseDestinations: BrowseDestination[] = [
+const browseDestinationVisuals: Record<
+  string,
+  Pick<BrowseDestination, "image" | "positioning" | "stayStyle" | "workability">
+> = {
+  Morocco: {
+    image:
+      "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Color, design, and cultural depth with a more selective remote-work setup.",
+    stayStyle: "Culture-rich city base",
+    workability: "Base-dependent",
+  },
+  Kenya: {
+    image:
+      "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1400&q=80",
+    positioning: "East African energy with business hubs and nature access in the same trip.",
+    stayStyle: "Urban plus safari contrast",
+    workability: "Strong in key hubs",
+  },
+  "Cape Verde": {
+    image:
+      "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Atlantic island living for slower weeks, ocean air, and lighter routines.",
+    stayStyle: "Island work-and-reset",
+    workability: "Selective but promising",
+  },
+  Egypt: {
+    image:
+      "https://images.unsplash.com/photo-1539650116574-75c0c6d73f2f?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Historic density, low costs, and high contrast between beauty and friction.",
+    stayStyle: "City tradeoff choice",
+    workability: "Variable",
+  },
+  "South Africa": {
+    image:
+      "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1400&q=80",
+    positioning: "One of the most compelling lifestyle mixes for work, scenery, and urban depth.",
+    stayStyle: "Long-stay city rotation",
+    workability: "High with caveats",
+  },
+  Tunisia: {
+    image:
+      "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Mediterranean ease with lower-cost living and a more research-heavy setup.",
+    stayStyle: "Value-led coastal base",
+    workability: "Emerging",
+  },
+  Mauritius: {
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Premium island living with stronger comfort, cleaner logistics, and slower pacing.",
+    stayStyle: "Refined island stay",
+    workability: "Comfort-first",
+  },
+  Indonesia: {
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80",
+    positioning: "A highly optimized remote-work base with tropical lifestyle and social density.",
+    stayStyle: "Coworking-led tropical base",
+    workability: "Excellent in hubs",
+  },
+  Thailand: {
+    image:
+      "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Strong value, proven nomad infrastructure, and easier transitions between bases.",
+    stayStyle: "Flexible long-stay circuit",
+    workability: "Very strong",
+  },
+  Vietnam: {
+    image:
+      "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Fast-moving city energy and strong value if you want focus with intensity.",
+    stayStyle: "Urban value play",
+    workability: "Best for deep work",
+  },
+  Japan: {
+    image:
+      "https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Precision, design, and calm efficiency with a higher-cost, high-reward feel.",
+    stayStyle: "Premium city rhythm",
+    workability: "High-end reliable",
+  },
+  "Sri Lanka": {
+    image:
+      "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Coastal beauty and lower-cost living with more variable practical infrastructure.",
+    stayStyle: "Surf-and-reset base",
+    workability: "Selective",
+  },
+  Malaysia: {
+    image:
+      "https://images.unsplash.com/photo-1508964942454-1a56651d54ac?auto=format&fit=crop&w=1400&q=80",
+    positioning: "An underrated balance of infrastructure, city ease, and everyday comfort.",
+    stayStyle: "Comfortable urban base",
+    workability: "Quietly excellent",
+  },
+  Singapore: {
+    image:
+      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1400&q=80",
+    positioning: "One of the cleanest deep-work environments if budget matters less than precision.",
+    stayStyle: "Premium business base",
+    workability: "Exceptional",
+  },
+  "United Arab Emirates": {
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=80",
+    positioning: "High-comfort infrastructure and sharp convenience with a polished urban feel.",
+    stayStyle: "High-efficiency city base",
+    workability: "Very strong",
+  },
+  Portugal: {
+    image:
+      "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1400&q=80",
+    positioning: "One of the easiest all-round choices for long stays, routine, and daily quality.",
+    stayStyle: "Balanced long stay",
+    workability: "Outstanding",
+  },
+  Spain: {
+    image:
+      "https://images.unsplash.com/photo-1509840841025-9088ba78a826?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Sun, city structure, and a calmer emotional tempo without losing convenience.",
+    stayStyle: "Climate-led city balance",
+    workability: "Very strong",
+  },
+  Italy: {
+    image:
+      "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Beauty and slower living for people willing to be more selective about logistics.",
+    stayStyle: "Atmosphere-first stay",
+    workability: "Variable but rewarding",
+  },
+  France: {
+    image:
+      "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Design, food, and urban depth with stronger pricing and city-specific tradeoffs.",
+    stayStyle: "City-culture long stay",
+    workability: "Strong in major bases",
+  },
+  Greece: {
+    image:
+      "https://images.unsplash.com/photo-1503152394-c571994fd383?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Light, islands, and shoulder-season magic when you choose around the crowds.",
+    stayStyle: "Seasonal coastal base",
+    workability: "Best selectively",
+  },
+  Croatia: {
+    image:
+      "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Adriatic beauty and digital-nomad momentum with stronger summer tradeoffs.",
+    stayStyle: "Coastal work base",
+    workability: "Strong outside peak",
+  },
+  Germany: {
+    image:
+      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Efficient infrastructure and serious deep-work conditions in bigger urban hubs.",
+    stayStyle: "City deep-work base",
+    workability: "Excellent",
+  },
+  Malta: {
+    image:
+      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Compact island living with English-speaking ease and a seasonal social pulse.",
+    stayStyle: "Accessible island stay",
+    workability: "Good with caveats",
+  },
+  Mexico: {
+    image:
+      "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Strong city choice, food, culture, and enough infrastructure for longer stays.",
+    stayStyle: "Culture-rich urban base",
+    workability: "Very strong",
+  },
+  Canada: {
+    image:
+      "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Clean logistics and strong urban comfort for longer, higher-budget work trips.",
+    stayStyle: "High-comfort city stay",
+    workability: "Reliable",
+  },
+  "United States": {
+    image:
+      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Huge range, strong city infrastructure, and very wide variation by base choice.",
+    stayStyle: "Flexible city rotation",
+    workability: "High in major hubs",
+  },
+  "Costa Rica": {
+    image:
+      "https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Nature, surf, and lifestyle value when work expectations are calibrated well.",
+    stayStyle: "Nature-forward reset stay",
+    workability: "Good selectively",
+  },
+  Panama: {
+    image:
+      "https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?auto=format&fit=crop&w=1400&q=80",
+    positioning: "A practical bridge between city efficiency and easier Central American logistics.",
+    stayStyle: "Practical urban base",
+    workability: "Strong",
+  },
+  "Dominican Republic": {
+    image:
+      "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Caribbean access with more variability between resort imagery and real workability.",
+    stayStyle: "Island lifestyle choice",
+    workability: "More selective",
+  },
+  Colombia: {
+    image:
+      "https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Creative city energy, stronger value, and emotionally rich daily life.",
+    stayStyle: "Value-led city base",
+    workability: "Strong in core cities",
+  },
+  Brazil: {
+    image:
+      "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1400&q=80",
+    positioning: "High-energy urban life and coast access with bigger differences between destinations.",
+    stayStyle: "City-and-coast split",
+    workability: "Strong selectively",
+  },
+  Argentina: {
+    image:
+      "https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?auto=format&fit=crop&w=1400&q=80",
+    positioning: "A compelling value and culture play for people who want city depth and character.",
+    stayStyle: "Urban value stay",
+    workability: "Best for independent planners",
+  },
+  Peru: {
+    image:
+      "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1400&q=80",
+    positioning: "History, altitude, and contrast for people who want texture over frictionless ease.",
+    stayStyle: "Adventure-leaning base",
+    workability: "Variable",
+  },
+  Ecuador: {
+    image:
+      "https://images.unsplash.com/photo-1442544213729-6a15f1611937?auto=format&fit=crop&w=1400&q=80",
+    positioning: "An appealing middle ground of value, mountains, and city balance.",
+    stayStyle: "Balanced mountain-city stay",
+    workability: "Promising",
+  },
+  Chile: {
+    image:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Long-distance geography, stronger costs, and a more orderly deep-work feel.",
+    stayStyle: "Structured city base",
+    workability: "Good for focus",
+  },
+  Uruguay: {
+    image:
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Calmer, cleaner urban living with a more understated coastal rhythm.",
+    stayStyle: "Refined slow stay",
+    workability: "Quietly strong",
+  },
+  Australia: {
+    image:
+      "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Big skies, high comfort, and strong daily infrastructure for longer bases.",
+    stayStyle: "Outdoor-led city stay",
+    workability: "High-comfort",
+  },
+  "New Zealand": {
+    image:
+      "https://images.unsplash.com/photo-1469521669194-babb45599def?auto=format&fit=crop&w=1400&q=80",
+    positioning: "Nature, calm, and cleaner lifestyle pacing if you are comfortable with distance.",
+    stayStyle: "Nature-first long stay",
+    workability: "Reliable but remote",
+  },
+  Fiji: {
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80",
+    positioning: "A reset-oriented island choice for slower weeks and premium tropical atmosphere.",
+    stayStyle: "Island recharge stay",
+    workability: "Limited",
+  },
+  "French Polynesia": {
+    image:
+      "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80",
+    positioning: "A dreamier premium island option for people optimizing around beauty and pace.",
+    stayStyle: "Premium island escape",
+    workability: "Low-pressure best",
+  },
+};
+
+type BrowseDestinationSeed = Omit<
+  BrowseDestination,
+  "image" | "positioning" | "stayStyle" | "workability"
+>;
+
+export const browseDestinations: BrowseDestination[] = ([
   {
     name: "Morocco",
     continent: "Africa",
@@ -845,7 +1161,17 @@ export const browseDestinations: BrowseDestination[] = [
     bestForCouples: true,
     bestForDeepWork: false,
   },
-];
+ ] as BrowseDestinationSeed[]).map((item) => {
+  const visual = browseDestinationVisuals[item.name]!;
+
+  return {
+    ...item,
+    image: visual.image,
+    positioning: visual.positioning,
+    stayStyle: visual.stayStyle,
+    workability: visual.workability,
+  };
+});
 
 export const principles = [
   {
