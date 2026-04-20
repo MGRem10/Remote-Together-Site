@@ -1268,74 +1268,93 @@ export const guideTopics = [
 
 export const guideArticles: GuideArticle[] = [
   {
-    slug: "choose-where-to-live-and-work-remotely",
+    slug: "how-to-choose-where-to-live",
     title: "How to Choose Where to Live and Work Remotely",
-    subtitle: "A practical framework for choosing a destination that still works after the novelty fades.",
+    subtitle: "A practical framework for choosing places that actually work for your life, not just your Instagram.",
     description:
       "A practical framework for judging countries, cities, and bases around workload, housing, rhythm, and how daily life actually feels after week one.",
     category: "Choosing destinations",
     readingTime: "6 min read",
     featured: true,
     keyTakeaways: [
-      "Choose around workability first, not atmosphere alone.",
-      "Judge the city, neighborhood, and apartment as three separate decisions.",
-      "The best destination is usually the one with fewer hidden frictions, not the most exciting photos.",
-      "Longer stays reward reliability, calmer routines, and cleaner logistics.",
+      "The best place is not the most popular one, it is the one that fits your work, lifestyle, and rhythm.",
+      "Internet, housing, and daily routine matter more than views or vibe.",
+      "Cost of living is important, but value and sustainability matter more.",
+      "You should choose destinations based on how you live, not how you travel.",
+      "Most people optimise for the wrong things and burn out quickly.",
     ],
     introduction: [
-      "Most bad remote-work trips fail before arrival, when the destination is chosen for mood rather than function. A beautiful city can still be the wrong base if the apartment setup is weak, the daily loop is awkward, or the workday never settles.",
-      "This guide gives you a cleaner way to compare destinations before the shortlist becomes expensive. The aim is not to find the most aspirational place. It is to find the place that supports focus, routine, and a better month of living abroad.",
+      "Most people choose remote-work destinations the same way they choose holidays: they optimise for weather, aesthetics, social buzz, and whatever place feels exciting right now. That approach works for a week away. It usually breaks down when you are trying to live, work, recover, and stay productive for longer.",
+      "A better choice comes from understanding how you actually function. The right place is the one that supports your workload, your energy, your budget, and your day-to-day rhythm. This guide gives you a simple way to evaluate destinations more realistically before the wrong decision becomes expensive.",
     ],
     sections: [
       {
-        title: "Start with the demands of your workweek",
+        title: "What most people get wrong",
         paragraphs: [
-          "Begin with your actual workload: calls, focus blocks, deadlines, and whether your schedule tolerates noise or time-zone drag. If the work pattern is demanding, the destination has to earn the right to stay on the shortlist.",
+          "Most people optimise for image rather than fit. They choose for beauty, popularity, or the idea of a destination instead of asking whether it will still feel good on a Wednesday afternoon after calls, errands, and a full workday.",
         ],
         bullets: [
-          "How many calls require reliable video",
-          "Whether mornings need to be protected for deep work",
-          "How often you can tolerate changing apartments or neighborhoods",
+          "They prioritise vibe over housing quality, internet, and routine.",
+          "They compare destinations as if they are planning a trip, not building a temporary life.",
+          "They underestimate how quickly friction compounds when the base is wrong.",
+          "They assume low cost automatically means good value.",
         ],
       },
       {
-        title: "Separate the city decision from the stay decision",
+        title: "What actually matters",
         paragraphs: [
-          "A good country can contain the wrong city, and a good city can still contain the wrong apartment. Keeping those layers separate stops you from overrating a destination too early.",
+          "The right destination usually wins on boring things. It supports your work. It makes daily life easier. It reduces small operational problems instead of creating more of them.",
         ],
         bullets: [
-          "Country: visa ease, cost, climate, general infrastructure",
-          "City or base: rhythm, walkability, backup options, social energy",
-          "Stay: desk setup, noise, heating or cooling, internet proof",
+          "Reliable internet and backup options",
+          "Housing quality, including desk setup, noise, and comfort",
+          "A daily loop that makes groceries, movement, and work feel easy",
+          "A pace and environment that match your social energy and attention span",
+          "Value over headline cheapness",
+        ],
+      },
+      {
+        title: "How to apply this in practice",
+        paragraphs: [
+          "When you compare destinations, use the same logic you would use for choosing where to live at home. Ask whether the place supports the way you actually spend your days, not the way you imagine yourself traveling.",
+          "That usually means narrowing the shortlist, pressure-testing the apartment layer, and comparing how the destination will feel after the first few days of novelty wear off.",
+        ],
+        bullets: [
+          "Shortlist fewer places and compare them more seriously.",
+          "Treat the city, neighborhood, and apartment as separate decisions.",
+          "Use Destinations as the place where these principles become country-specific.",
+          "Use View Services if you want help applying the framework to your own situation.",
         ],
       },
     ],
     framework: {
-      title: "The three-layer destination filter",
-      intro: "Use this sequence before a destination makes it onto the final shortlist.",
+      title: "A simple framework to choose better",
+      intro: "Use this sequence before a destination makes it onto the shortlist.",
       steps: [
-        { title: "Filter the country", body: "Eliminate places that clearly fail on budget, timing, or visa practicality." },
-        { title: "Test the base city", body: "Compare neighborhoods, daily convenience, and whether the city’s rhythm fits your work style." },
-        { title: "Pressure-test the stay", body: "Do not assume the apartment works until you have evidence on desk setup, noise, and internet." },
+        { title: "Start with your real life", body: "Define your actual work needs, budget comfort, social energy, and how much structure you need day to day." },
+        { title: "Filter for sustainability", body: "Remove places that look exciting but create obvious friction around time zones, logistics, housing, or pace." },
+        { title: "Compare value, not just cost", body: "Choose the place that gives you the strongest overall setup for the money, not simply the cheapest option." },
+        { title: "Pressure-test the stay", body: "Before booking, confirm the apartment, neighborhood, and daily loop actually support the lifestyle you want." },
       ],
     },
     application: {
       title: "Practical application",
-      intro: "Here is what the framework looks like in real planning decisions.",
+      intro: "Here is what this framework looks like in real-world decisions.",
       examples: [
-        { title: "Couple choosing between Lisbon and a coastal town", body: "Lisbon may win if both people need backup cafés, more apartment choice, and better walkability during a dense work month." },
-        { title: "Solo worker choosing between Bali and Italy", body: "Bali may be the cleaner operational choice if reliable coworking and easier setup matter more than atmosphere." },
+        { title: "A couple choosing between Lisbon and a coastal town", body: "Lisbon may be the better choice if both people need stronger apartment selection, backup cafés, and a calmer workweek structure, even if the coastal town feels more romantic on paper." },
+        { title: "A solo worker choosing between Bali and Italy", body: "Bali may be the better operational choice if reliable coworking, easier setup, and lower friction matter more than atmosphere and beauty." },
+        { title: "A long-stay traveller comparing cheap versus good value", body: "A slightly more expensive city may still win if the apartment quality, walkability, and work setup reduce stress every day for the whole month." },
       ],
     },
     relatedSlugs: [
       "what-actually-matters-when-working-abroad",
-      "what-we-test-before-recommending-a-destination",
       "mistakes-that-ruin-remote-work-travel",
+      "how-to-settle-into-a-new-base-without-losing-a-week",
     ],
   },
   {
     slug: "what-actually-matters-when-working-abroad",
-    title: "What Actually Matters When Working Abroad",
+    title: "What Actually Matters When Working Remotely Abroad",
     subtitle: "The filters that matter more than atmosphere when you are living and working abroad.",
     description:
       "The filters that matter more than atmosphere: internet reliability, desk setup, neighborhood friction, and how a place holds up under real deadlines.",
@@ -1396,7 +1415,7 @@ export const guideArticles: GuideArticle[] = [
   },
   {
     slug: "mistakes-that-ruin-remote-work-travel",
-    title: "Mistakes That Ruin Remote Work Travel",
+    title: "The Biggest Mistakes in Remote Work Travel",
     subtitle: "The avoidable planning errors that create expensive friction once the booking is locked in.",
     description:
       "The expensive planning errors that create avoidable stress once the booking is locked in, from weak apartments to bad pacing and poor base selection.",
@@ -1558,7 +1577,7 @@ export const guideArticles: GuideArticle[] = [
   },
   {
     slug: "how-to-settle-into-a-new-base-without-losing-a-week",
-    title: "How to settle into a new base without losing a week",
+    title: "How to Set Up Your Life for Long-Term Remote Travel",
     subtitle: "A practical arrival sequence for making a new destination functional fast.",
     description:
       "A practical arrival sequence for testing calls, locating backups, and building a reliable daily loop quickly.",
@@ -1683,7 +1702,7 @@ export const guideArticles: GuideArticle[] = [
       ],
     },
     relatedSlugs: [
-      "how-to-choose-where-to-live-and-work-remotely",
+      "how-to-choose-where-to-live",
       "what-actually-matters-when-working-abroad",
       "mistakes-that-ruin-remote-work-travel",
     ],
@@ -1729,7 +1748,7 @@ export const guideArticles: GuideArticle[] = [
     relatedSlugs: [
       "shared-travel-decisions-that-reduce-friction-later",
       "how-to-build-a-sustainable-remote-lifestyle",
-      "how-to-choose-where-to-live-and-work-remotely",
+      "how-to-choose-where-to-live",
     ],
   },
   {
@@ -1817,7 +1836,7 @@ export const guideArticles: GuideArticle[] = [
     relatedSlugs: [
       "mistakes-that-ruin-remote-work-travel",
       "booking-sequences-that-reduce-friction-on-arrival",
-      "how-to-choose-where-to-live-and-work-remotely",
+      "how-to-choose-where-to-live",
     ],
   },
   {
@@ -1903,7 +1922,7 @@ export const guideArticles: GuideArticle[] = [
       ],
     },
     relatedSlugs: [
-      "how-to-choose-where-to-live-and-work-remotely",
+      "how-to-choose-where-to-live",
       "what-actually-matters-when-working-abroad",
       "when-a-destination-is-beautiful-but-operationally-wrong",
     ],
@@ -1917,7 +1936,7 @@ export const guideHubCategories: GuideHubCategory[] = [
     title: "Choosing destinations",
     description: "How to compare places before the shortlist becomes expensive.",
     guides: [
-      "choose-where-to-live-and-work-remotely",
+      "how-to-choose-where-to-live",
       "what-we-test-before-recommending-a-destination",
       "mistakes-that-ruin-remote-work-travel",
     ],

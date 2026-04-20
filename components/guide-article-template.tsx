@@ -114,10 +114,10 @@ export function GuideArticleTemplate({
                 <div className="eyebrow">Where to go next</div>
                 <div className="guide-article-next-links">
                   <Link href="/destinations" className="guides-hub-inline-link">
-                    See where these principles apply
+                    Destinations
                   </Link>
                   <Link href="/services" className="guides-hub-inline-link">
-                    Prefer personalised advice?
+                    View Services
                   </Link>
                   <Link href="/remote-work-guides" className="guides-hub-inline-link">
                     Explore more guides
@@ -132,9 +132,9 @@ export function GuideArticleTemplate({
       <section className="section-space guide-article-soft-cta">
         <div className="container">
           <Reveal className="guide-article-soft-cta-shell" delay={20}>
-            <div className="eyebrow text-[rgba(255,250,241,0.64)]">Need help applying this?</div>
+            <div className="eyebrow text-[rgba(255,250,241,0.64)]">Need a clearer next step?</div>
             <h2 className="section-title mt-4 max-w-3xl text-[var(--paper)]">
-              Want help applying this to your situation?
+              Prefer not to figure this out yourself?
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[rgba(255,250,241,0.76)]">
               Use the same thinking in a destination brief, route plan, or booking review
