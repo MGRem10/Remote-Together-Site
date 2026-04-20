@@ -37,6 +37,20 @@ export default function ContactPage() {
                 </div>
               ))}
             </div>
+            <div className="mt-8 border-t border-[var(--border)] pt-6">
+              <div className="eyebrow">Elsewhere</div>
+              <div className="mt-4 flex flex-wrap gap-4 text-sm text-[var(--muted)]">
+                <a href="#" className="hover:text-[var(--text)]">
+                  Instagram
+                </a>
+                <a href="#" className="hover:text-[var(--text)]">
+                  LinkedIn
+                </a>
+                <a href="mailto:hello@remotetogether.com" className="hover:text-[var(--text)]">
+                  Email
+                </a>
+              </div>
+            </div>
           </div>
           <div className="rounded-[2rem] border border-[var(--border)] bg-[rgba(255,255,255,0.56)] p-8 md:p-10">
             <div className="eyebrow">Contact Form</div>
@@ -46,6 +60,9 @@ export default function ContactPage() {
             <p className="mt-5 text-sm leading-7 text-[var(--muted)]">
               Include the countries you are weighing, your work rhythm, and the kind of
               stay you want to build. The more specific the brief, the sharper the plan.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+              We usually respond within 48 hours, often sooner on weekdays.
             </p>
             <div className="mt-8">
               <ContactForm />
