@@ -23,52 +23,29 @@ export default function ServicesPage() {
     <>
       <section className="services-hero section-space pt-8 md:pt-12">
         <div className="container">
-          <div className="services-hero-shell">
-            <Reveal className="services-hero-copy" delay={20}>
-              <div className="eyebrow">Services</div>
-              <h1 className="display mt-4">
-                Remote-work travel planning you can actually act on.
-              </h1>
-              <p className="lead mt-6 max-w-2xl">
-                Choose the right destination, shape the trip properly, and book with more
-                confidence. Each service is designed to solve a specific planning problem,
-                not just describe the idea of traveling better.
-              </p>
-              <div className="hero-cta-row mt-8">
-                <Link href="#service-shortlist" className="button-primary">
-                  Explore Services
-                </Link>
-                <Link href={primaryCta.href} className="button-secondary">
-                  {primaryCta.label}
-                </Link>
-              </div>
-            </Reveal>
-
-            <Reveal className="services-hero-panel" delay={120}>
-              <div className="services-hero-panel-card">
-                <div className="eyebrow text-[rgba(255,250,241,0.66)]">Planning lens</div>
-                <h2 className="services-hero-panel-title">
-                  A calmer way to move from vague trip idea to clear booking decision.
-                </h2>
-                <div className="services-hero-panel-grid">
-                  {[
-                    "Destination fit before money is committed",
-                    "Planning built around real workweeks",
-                    "Clear scope and starting-from pricing",
-                    "Reply within 48 hours",
-                  ].map((item) => (
-                    <div key={item} className="services-hero-panel-item">
-                      {item}
-                    </div>
-                  ))}
-                </div>
-                <ConversionCta
-                  className="mt-7"
-                  trustCopy="Best for remote workers, couples, and longer-stay travelers who want practical support before the booking becomes expensive."
-                />
-              </div>
-            </Reveal>
-          </div>
+          <Reveal className="services-hero-copy services-hero-copy-solo" delay={20}>
+            <div className="eyebrow">Services</div>
+            <h1 className="display mt-4">
+              Remote-work travel planning you can actually act on.
+            </h1>
+            <p className="lead mt-6 max-w-2xl">
+              Choose the right destination, shape the trip properly, and book with more
+              confidence. Each service is designed to solve a specific planning problem,
+              not just describe the idea of traveling better.
+            </p>
+            <div className="hero-cta-row mt-8">
+              <Link href="#service-shortlist" className="button-primary">
+                Explore Services
+              </Link>
+              <Link href={primaryCta.href} className="button-secondary">
+                {primaryCta.label}
+              </Link>
+            </div>
+            <ConversionCta
+              className="mt-7"
+              trustCopy="Best for remote workers, couples, and longer-stay travelers who want practical support before the booking becomes expensive."
+            />
+          </Reveal>
         </div>
       </section>
 

@@ -47,6 +47,8 @@ const expectItems = [
 export function ServicesExplorer() {
   const [openService, setOpenService] = useState(serviceItems[0].title);
   const [openFaq, setOpenFaq] = useState(serviceFaqs[0].question);
+  const activeIndex = serviceItems.findIndex((service) => service.title === openService);
+  const activeService = serviceItems[activeIndex] ?? serviceItems[0];
 
   return (
     <>
@@ -59,93 +61,82 @@ export function ServicesExplorer() {
             </h2>
           </Reveal>
 
-          <div className="services-shortlist-grid mt-10">
-            {serviceItems.map((service, index) => {
-              const active = openService === service.title;
+          <Reveal className="services-selector-shell mt-10" delay={90}>
+            <div className="services-selector-row" role="tablist" aria-label="Services">
+              {serviceItems.map((service, index) => {
+                const active = openService === service.title;
 
-              return (
-                <Reveal key={service.title} as="article" className="service-short-card" delay={90 + index * 70}>
+                return (
                   <button
+                    key={service.title}
                     type="button"
+                    role="tab"
+                    aria-selected={active}
+                    aria-controls={`service-panel-${index}`}
                     onClick={() => setOpenService(service.title)}
-                    className={`service-short-card-button ${active ? "service-short-card-button-active" : ""}`}
-                    aria-expanded={active}
+                    className={`service-selector-tab ${active ? "service-selector-tab-active" : ""}`}
                   >
-                    <div className="service-short-top">
-                      <span className="service-short-icon">{serviceIcons[index]}</span>
-                      <span className="service-short-price">{service.price}</span>
-                    </div>
-                    <h3 className="service-short-title">{service.title}</h3>
-                    <p className="service-short-body">{service.body}</p>
-                    <div className="service-short-footer">
-                      <span>Open service details</span>
-                      <span className={`service-short-arrow ${active ? "service-short-arrow-open" : ""}`}>
-                        ↓
-                      </span>
-                    </div>
-                  </button>
-                </Reveal>
-              );
-            })}
-          </div>
-
-          <div className="services-detail-stack mt-8">
-            {serviceItems.map((service, index) => {
-              const active = openService === service.title;
-
-              return (
-                <Reveal key={service.title} as="article" className="service-detail-panel" delay={120 + index * 40}>
-                  <button
-                    type="button"
-                    onClick={() => setOpenService(active ? "" : service.title)}
-                    className="service-detail-trigger"
-                    aria-expanded={active}
-                  >
-                    <div>
-                      <div className="eyebrow">Service details</div>
-                      <h3 className="service-detail-title">{service.title}</h3>
-                    </div>
-                    <span className={`service-detail-toggle ${active ? "service-detail-toggle-open" : ""}`}>
-                      +
+                    <span className="service-selector-icon">{serviceIcons[index]}</span>
+                    <span className="service-selector-copy">
+                      <span className="service-selector-title">{service.title}</span>
+                      <span className="service-selector-summary">{service.body}</span>
                     </span>
                   </button>
+                );
+              })}
+            </div>
 
-                  <div className={`service-detail-content ${active ? "service-detail-content-open" : ""}`}>
-                    <div className="service-detail-inner">
-                      <div className="service-detail-grid">
-                        <InfoCard label="Who it is for" body={service.forWho} />
-                        <InfoCard label="What problem it solves" body={serviceProblems[service.title]} />
-                        <InfoCard label="What you receive" body={service.deliverable} />
-                        <InfoCard label="When to choose this" body={serviceMoments[service.title]} />
-                      </div>
+            <div
+              id={`service-panel-${activeIndex}`}
+              role="tabpanel"
+              className="service-detail-panel service-detail-panel-active"
+            >
+              <div className="service-detail-header">
+                <div>
+                  <div className="eyebrow">Service details</div>
+                  <h3 className="service-detail-title">{activeService.title}</h3>
+                </div>
+                <div className="service-detail-header-meta">
+                  <span>{activeService.turnaround}</span>
+                  <span>{activeService.price}</span>
+                </div>
+              </div>
 
-                      <div className="service-includes-panel">
-                        <div className="eyebrow">What is included</div>
-                        <div className="bullet-list mt-4">
-                          {service.includes.map((item) => (
-                            <div key={item} className="bullet-row text-sm">
-                              <span className="bullet-dot" />
-                              <span>{item}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+              <div className="service-detail-inner service-detail-inner-open">
+                <div className="service-detail-grid">
+                  <InfoCard label="Who it is for" body={activeService.forWho} />
+                  <InfoCard label="What problem it solves" body={serviceProblems[activeService.title]} />
+                  <InfoCard label="What you receive" body={activeService.deliverable} />
+                  <InfoCard label="When to choose this" body={serviceMoments[activeService.title]} />
+                </div>
 
-                      <div className="service-detail-actions">
-                        <div className="service-detail-meta">
-                          <span>{service.turnaround}</span>
-                          <span>{service.price}</span>
-                        </div>
-                        <Link href={`${primaryCta.href}?service=${encodeURIComponent(service.title)}`} className="button-primary">
-                          Enquire about this service
-                        </Link>
+                <div className="service-includes-panel">
+                  <div className="eyebrow">What is included</div>
+                  <div className="bullet-list mt-4">
+                    {activeService.includes.map((item) => (
+                      <div key={item} className="bullet-row text-sm">
+                        <span className="bullet-dot" />
+                        <span>{item}</span>
                       </div>
-                    </div>
+                    ))}
                   </div>
-                </Reveal>
-              );
-            })}
-          </div>
+                </div>
+
+                <div className="service-detail-actions">
+                  <div className="service-detail-meta">
+                    <span>{activeService.turnaround}</span>
+                    <span>{activeService.price}</span>
+                  </div>
+                  <Link
+                    href={`${primaryCta.href}?service=${encodeURIComponent(activeService.title)}`}
+                    className="button-primary"
+                  >
+                    Enquire about this service
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
