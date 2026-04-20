@@ -76,6 +76,10 @@ img {
   border-top: 1px solid var(--border);
 }
 
+.section-alt {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.14));
+}
+
 .eyebrow {
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -109,6 +113,7 @@ img {
   font-size: 1.04rem;
   line-height: 1.82;
   color: var(--muted);
+  max-width: 64ch;
 }
 
 .card {
@@ -121,6 +126,84 @@ img {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.18));
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+}
+
+.content-card {
+  border: 1px solid var(--border);
+  border-radius: 1.6rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.24));
+  box-shadow: var(--shadow);
+}
+
+.summary-panel {
+  border: 1px solid rgba(38, 67, 63, 0.16);
+  border-radius: 1.9rem;
+  background: linear-gradient(180deg, rgba(38, 67, 63, 0.08), rgba(255, 255, 255, 0.4));
+  box-shadow: var(--shadow-lg);
+}
+
+.icon-row {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(38, 67, 63, 0.12);
+  color: var(--accent-deep);
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.comparison-block {
+  display: grid;
+  gap: 1rem;
+}
+
+.comparison-item {
+  display: grid;
+  gap: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 1.3rem;
+  background: rgba(255, 255, 255, 0.46);
+  padding: 1rem 1.1rem;
+}
+
+.bullet-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.bullet-row {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.bullet-dot {
+  margin-top: 0.72rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: var(--accent-deep);
+  flex-shrink: 0;
+}
+
+.section-intro {
+  max-width: 44rem;
+}
+
+.section-copy {
+  max-width: 64ch;
 }
 
 .button-primary,

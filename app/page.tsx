@@ -82,10 +82,7 @@ export default function HomePage() {
           </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {trustProofPoints.map((point) => (
-              <article
-                key={point.title}
-                className="rounded-[1.7rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] p-8"
-              >
+              <article key={point.title} className="content-card p-8">
                 <h3 className="font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
                   {point.title}
                 </h3>
@@ -96,10 +93,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-space section-block">
+      <section className="section-space section-block section-alt">
         <div className="container grid gap-6 lg:grid-cols-3">
           {principles.map((principle) => (
-            <article key={principle.title} className="rounded-[1.5rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] p-8">
+            <article key={principle.title} className="content-card p-8">
               <div className="text-xs uppercase tracking-[0.22em] text-[var(--accent-deep)]">
                 Editorial principle
               </div>
@@ -122,10 +119,7 @@ export default function HomePage() {
           </div>
           <div className="grid gap-4">
             {destinationMethodology.slice(0, 4).map((item) => (
-              <div
-                key={item}
-                className="rounded-[1.5rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] p-6"
-              >
+              <div key={item} className="comparison-item">
                 <p className="text-sm leading-7 text-[var(--muted)]">{item}</p>
               </div>
             ))}
@@ -135,7 +129,7 @@ export default function HomePage() {
 
       <section className="section-space section-block">
         <div className="container grid gap-12 lg:grid-cols-[0.78fr_1.22fr]">
-          <div>
+          <div className="section-intro">
             <div className="eyebrow">Services</div>
             <h2 className="section-title mt-4 max-w-md">
               Advisory and planning for people who want the trip to actually work.
@@ -143,7 +137,7 @@ export default function HomePage() {
           </div>
           <div className="grid gap-5 md:grid-cols-2">
             {serviceItems.slice(0, 4).map((service) => (
-              <article key={service.title} className="rounded-[1.5rem] border border-[var(--border)] bg-[rgba(255,255,255,0.3)] p-7">
+              <article key={service.title} className="content-card p-7">
                 <h3 className="font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
                   {service.title}
                 </h3>
@@ -154,7 +148,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-space section-block">
+      <section className="section-space section-block section-alt">
         <div className="container">
           <div className="flex items-end justify-between gap-6">
             <div>
@@ -169,7 +163,7 @@ export default function HomePage() {
           </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {guideTopics.map((topic) => (
-              <article key={topic.title} className="rounded-[1.5rem] border border-[var(--border)] bg-[rgba(255,255,255,0.3)] p-8">
+              <article key={topic.title} className="content-card p-8">
                 <h3 className="font-[family-name:var(--font-heading)] text-3xl leading-tight tracking-[-0.05em]">
                   {topic.title}
                 </h3>
