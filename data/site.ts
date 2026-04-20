@@ -21,6 +21,14 @@ export type CountryGuide = {
   cost: string;
   stay: string;
   bestFor: string;
+  avoidIf: string;
+  topAreas: string[];
+  internetNotes: string;
+  housingAdvice: string;
+  coupleNotes: string;
+  realisticBudget: string;
+  commonMistakes: string[];
+  stayByTraveler: { traveler: string; length: string }[];
   score: string;
   image: string;
   tags: string[];
@@ -199,6 +207,25 @@ export const advisoryCountries: CountryGuide[] = [
     cost: "Mid",
     stay: "4 to 10 weeks",
     bestFor: "First long remote stay",
+    avoidIf: "You want ultra-low housing costs or completely quiet central neighborhoods.",
+    topAreas: ["Lisbon", "Porto", "Ericeira"],
+    internetNotes:
+      "Internet is generally strong in Lisbon and Porto, and coworking options are easy to find. The main risk is apartment-specific setup, not citywide connectivity.",
+    housingAdvice:
+      "Prioritize apartments with explicit desk photos, heating clarity for cooler months, and walking-distance groceries. Good long-stay inventory moves fast in the best neighborhoods.",
+    coupleNotes:
+      "Portugal works especially well for couples because it balances ease, beauty, and routine. Shared workweeks feel manageable when you choose a calmer neighborhood instead of the most obvious tourist core.",
+    realisticBudget: "$2,200 to $3,800 per month for a couple, depending on season and city.",
+    commonMistakes: [
+      "Booking too centrally and paying a premium for noise and tourist spillover.",
+      "Assuming every stylish apartment has a workable desk setup.",
+      "Underestimating how fast strong long-stay inventory disappears in spring and autumn.",
+    ],
+    stayByTraveler: [
+      { traveler: "Solo remote worker", length: "4 to 6 weeks" },
+      { traveler: "Couple", length: "1 to 3 months" },
+      { traveler: "First-time long-stay traveler", length: "1 month" },
+    ],
     score: "94",
     image: "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1400&q=80",
     tags: ["Walkable", "Reliable Wi-Fi", "Cafes", "Good for couples"],
@@ -216,6 +243,25 @@ export const advisoryCountries: CountryGuide[] = [
     cost: "Mid",
     stay: "1 to 3 months",
     bestFor: "Sun, city structure, balance",
+    avoidIf: "You dislike summer heat, seasonal crowds, or cities that slow down sharply in August.",
+    topAreas: ["Valencia", "Madrid", "Malaga"],
+    internetNotes:
+      "Spain is reliably strong for home internet and urban coworking, especially in larger cities. Backup cafés are easy to find, but neighborhood noise still matters.",
+    housingAdvice:
+      "Check insulation, air conditioning, and street noise carefully. Ground-floor flats and older buildings can feel charming online and exhausting in practice.",
+    coupleNotes:
+      "Spain suits couples who want climate, city energy, and a social rhythm without the intensity of faster-moving hubs. Valencia is often the best balance point.",
+    realisticBudget: "$2,300 to $4,000 per month for a couple, with major variation between cities and seasons.",
+    commonMistakes: [
+      "Booking beach-first areas that work for holidays but not for focused weekdays.",
+      "Choosing August without accounting for local closures and heat.",
+      "Assuming all coastal cities have the same workability level.",
+    ],
+    stayByTraveler: [
+      { traveler: "Solo remote worker", length: "3 to 6 weeks" },
+      { traveler: "Couple", length: "1 to 2 months" },
+      { traveler: "Slow traveler seeking sun", length: "2 to 3 months" },
+    ],
     score: "91",
     image: "https://images.unsplash.com/photo-1509840841025-9088ba78a826?auto=format&fit=crop&w=1400&q=80",
     tags: ["Sea access", "Lower pressure", "Great weather", "Long-stay friendly"],
@@ -233,6 +279,25 @@ export const advisoryCountries: CountryGuide[] = [
     cost: "Mid to high",
     stay: "2 to 6 weeks",
     bestFor: "Slow travel and design lovers",
+    avoidIf: "You need frictionless logistics, highly consistent internet, or efficient last-minute booking options.",
+    topAreas: ["Puglia", "Florence", "Milan"],
+    internetNotes:
+      "Internet quality varies more than in the strongest European remote-work markets. Coworking is limited outside major cities, so apartment Wi-Fi has to be checked more carefully.",
+    housingAdvice:
+      "Look hard at heating, air conditioning, building age, stairs, and workspace photos. Beautiful apartments often hide the exact practical problems that affect a real workweek.",
+    coupleNotes:
+      "Italy is excellent for couples who care about beauty, food, and slower living, but it works best when both people are comfortable with a bit more planning friction.",
+    realisticBudget: "$2,500 to $4,500 per month for a couple, often higher in the most desirable periods.",
+    commonMistakes: [
+      "Choosing for atmosphere alone and ignoring internet or workspace quality.",
+      "Assuming smaller towns will be as easy operationally as larger Italian cities.",
+      "Booking shoulder-season stays without checking heating and humidity details.",
+    ],
+    stayByTraveler: [
+      { traveler: "Solo remote worker", length: "2 to 4 weeks" },
+      { traveler: "Couple", length: "3 to 6 weeks" },
+      { traveler: "Design and food-focused traveler", length: "1 month" },
+    ],
     score: "84",
     image: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?auto=format&fit=crop&w=1400&q=80",
     tags: ["Beautiful stays", "Slower pace", "Food", "More variable logistics"],
@@ -250,6 +315,25 @@ export const advisoryCountries: CountryGuide[] = [
     cost: "Low to mid",
     stay: "1 to 4 months",
     bestFor: "Community and convenience",
+    avoidIf: "You want quiet, low-stimulation living or strongly dislike heavily optimized nomad hubs.",
+    topAreas: ["Canggu", "Ubud", "Sanur"],
+    internetNotes:
+      "Coworking infrastructure is one of Indonesia's strengths in the main Bali hubs. The issue is less speed than choosing a neighborhood where noise and traffic do not sabotage the workday.",
+    housingAdvice:
+      "Pick your exact area before your villa. A beautiful stay in the wrong part of Canggu can destroy your focus with traffic, construction noise, and poor walkability.",
+    coupleNotes:
+      "Indonesia can work very well for couples when one person wants community and the other wants routine, but only if the neighborhood is calm enough to support both.",
+    realisticBudget: "$1,700 to $3,200 per month for a couple, depending on villa standards and transport habits.",
+    commonMistakes: [
+      "Booking based on aesthetics without understanding neighborhood noise.",
+      "Staying too far from your daily work and food loop.",
+      "Assuming every Bali area offers the same balance of calm, convenience, and social life.",
+    ],
+    stayByTraveler: [
+      { traveler: "Solo remote worker", length: "1 to 2 months" },
+      { traveler: "Couple", length: "1 to 3 months" },
+      { traveler: "Community-seeking nomad", length: "2 to 4 months" },
+    ],
     score: "92",
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80",
     tags: ["Coworking", "Surf", "Social", "Tropical"],
@@ -267,6 +351,25 @@ export const advisoryCountries: CountryGuide[] = [
     cost: "Mid",
     stay: "1 to 3 months",
     bestFor: "Big-city energy",
+    avoidIf: "You need calm by default, dislike urban intensity, or want a destination with minimal neighborhood tradeoffs.",
+    topAreas: ["Mexico City", "Oaxaca", "Playa del Carmen"],
+    internetNotes:
+      "Strong internet is available in major urban bases, and coworking is well established in Mexico City. Reliability depends heavily on the exact building and neighborhood.",
+    housingAdvice:
+      "Prioritize neighborhood fit over apartment aesthetics. A good apartment in the wrong area can mean noise, safety stress, and a daily rhythm that never settles.",
+    coupleNotes:
+      "Mexico works well for couples who enjoy real city life, food culture, and strong emotional texture, but it requires more active filtering to find the right base together.",
+    realisticBudget: "$2,100 to $3,900 per month for a couple, depending on city, safety preferences, and housing quality.",
+    commonMistakes: [
+      "Choosing a neighborhood based on hype instead of day-to-day livability.",
+      "Underestimating commute time and noise levels in bigger cities.",
+      "Treating Mexico as one uniform experience instead of a set of very different city options.",
+    ],
+    stayByTraveler: [
+      { traveler: "Solo remote worker", length: "3 to 6 weeks" },
+      { traveler: "Couple", length: "1 to 2 months" },
+      { traveler: "Urban culture-focused traveler", length: "1 month" },
+    ],
     score: "90",
     image: "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=1400&q=80",
     tags: ["Culture", "Food", "Neighborhood depth", "Urban"],
