@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   aboutStats,
   authorProfile,
@@ -6,6 +7,17 @@ import {
   trustProofPoints,
 } from "@/data/site";
 import { PageHero } from "@/components/page-hero";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn who is behind Remote Together, how the destinations are evaluated, and why the site focuses on workability, routine, and long-stay quality of life.",
+  openGraph: {
+    title: "About Remote Together",
+    description:
+      "Meet the team behind Remote Together and see how the destination evaluation process works.",
+  },
+};
 
 export default function AboutPage() {
   return (

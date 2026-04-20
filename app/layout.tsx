@@ -4,9 +4,20 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Remote Together",
+  metadataBase: new URL("https://remotetogether.com"),
+  title: {
+    default: "Remote Together",
+    template: "%s | Remote Together",
+  },
   description:
     "Editorial destination guides and remote-work travel advice for couples, digital nomads, and people who want places that support both work and life.",
+  openGraph: {
+    title: "Remote Together",
+    description:
+      "Editorial destination guides and remote-work travel advice for couples, digital nomads, and people who want places that support both work and life.",
+    siteName: "Remote Together",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

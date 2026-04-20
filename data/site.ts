@@ -104,15 +104,22 @@ export type GuideArticle = GuideHubItem & {
   keyTakeaways: string[];
   introduction: string[];
   sections: GuideArticleSection[];
-  framework: {
+  framework?: {
     title: string;
     intro: string;
     steps: { title: string; body: string }[];
   };
-  application: {
+  application?: {
     title: string;
     intro: string;
     examples: { title: string; body: string }[];
+  };
+  softCta?: {
+    eyebrow?: string;
+    title: string;
+    body?: string;
+    buttonLabel: string;
+    buttonHref: string;
   };
   relatedSlugs: string[];
 };
@@ -1347,70 +1354,93 @@ export const guideArticles: GuideArticle[] = [
       ],
     },
     relatedSlugs: [
-      "what-actually-matters-when-working-abroad",
+      "what-actually-matters-remote-work",
       "mistakes-that-ruin-remote-work-travel",
       "how-to-settle-into-a-new-base-without-losing-a-week",
     ],
   },
   {
-    slug: "what-actually-matters-when-working-abroad",
+    slug: "what-actually-matters-remote-work",
     title: "What Actually Matters When Working Remotely Abroad",
-    subtitle: "The filters that matter more than atmosphere when you are living and working abroad.",
+    subtitle: "The real factors that determine whether a place works for your life, not just your travel experience.",
     description:
-      "The filters that matter more than atmosphere: internet reliability, desk setup, neighborhood friction, and how a place holds up under real deadlines.",
+      "What actually makes a place work for remote life abroad: reliable internet, good housing, daily ease, lower friction, and a setup you can sustain beyond the first rush of travel.",
     category: "Setting up your life",
     readingTime: "5 min read",
     featured: true,
     keyTakeaways: [
-      "Apartment quality affects the trip more than destination branding.",
-      "Backup options matter when your workday cannot fail.",
-      "Neighborhood friction compounds faster than most people expect.",
-      "Daily ease is one of the strongest predictors of whether a stay feels sustainable.",
+      "Most people focus on the wrong things when choosing a destination.",
+      "Internet reliability, housing quality, and daily routine matter more than scenery.",
+      "A place can be beautiful but completely impractical for remote work.",
+      "The best destinations minimise friction, not maximise excitement.",
+      "Sustainable setups always outperform perfect short-term experiences.",
     ],
     introduction: [
-      "When people say a destination was great for remote work, they are usually talking about a few boring but crucial details that never make it into glossy travel content. The apartment worked. The internet held up. The grocery loop was easy. The workday did not constantly break.",
-      "This guide isolates those details so you can judge a destination on the things that actually shape day-to-day life abroad.",
+      "Most people choose places to work remotely abroad the way they choose places to travel. They look at weather, visuals, social energy, and whatever destination feels exciting in the moment. That logic makes sense for a short trip. It breaks down quickly when you are trying to live a normal life, keep your work stable, and feel good after the novelty wears off.",
+      "A place can be stunning and still be wrong for remote work. If the internet fails, the apartment is uncomfortable, the neighborhood creates friction, or your routine never settles, the destination stops feeling generous very fast. What matters most is not how impressive the place looks on arrival. It is whether daily life becomes easy enough to support your work, your energy, and the way you actually want to live.",
     ],
     sections: [
       {
-        title: "Housing decides more than people think",
+        title: "The gap between travel and living",
         paragraphs: [
-          "The stay is where most work friction is won or lost. A weak apartment can ruin an otherwise strong city by making calls stressful, mornings awkward, or recovery impossible.",
+          "Travel and living are not judged by the same standards. A destination that feels exciting for five days can feel draining by week three if every normal task takes more effort than it should.",
+          "When you live somewhere, you stop noticing the highlights first. You start noticing the things you repeat every day: where you work, how you sleep, how long errands take, whether the apartment helps or fights you, and how much energy basic life requires.",
         ],
         bullets: [
-          "Desk or table height that works for actual laptop use",
-          "Street noise, building noise, and nighttime spillover",
-          "Heating, cooling, and light for full-day use",
+          "Travel rewards novelty, but living rewards stability.",
+          "A strong destination has to survive ordinary weekdays, not just good first impressions.",
+          "The better question is not would I like to visit here, but could I work and live well here for a month.",
         ],
       },
       {
-        title: "Daily loops matter more than landmarks",
+        title: "The 5 things that actually matter",
         paragraphs: [
-          "Once you are working, the useful question is not what is famous nearby. It is how easy the day feels. Better remote-work destinations usually have a simpler loop between home, food, coffee, transport, and backup workspaces.",
+          "The places that work best for remote life usually win on a handful of practical variables. None of them are glamorous, but together they decide whether the destination feels supportive or exhausting.",
+        ],
+        bullets: [
+          "Internet reliability: not average speed on paper, but whether calls, uploads, and normal workdays feel dependable.",
+          "Housing quality: desk setup, light, noise, temperature, and whether the apartment is comfortable enough to use for real work.",
+          "Daily routine: groceries, coffee, movement, and backup options should be easy enough that they do not consume attention.",
+          "Work-life fit: the place should match your pace, social energy, and how much structure you need to feel steady.",
+          "Friction level: the best setup removes small recurring problems instead of asking you to constantly work around them.",
+        ],
+      },
+      {
+        title: "Why most advice is misleading",
+        paragraphs: [
+          "A lot of remote work advice is still filtered through travel media. It overvalues aesthetics, cheapness, popularity, and the general mood of a place, while underweighting what daily life actually feels like once work begins.",
+          "That is why people end up in destinations that look perfect online but perform badly in practice. The recommendation was built for aspiration, not for lived reality.",
+        ],
+        bullets: [
+          "Most lists focus on excitement and scenery more than operational quality.",
+          "Cheap destinations are often presented as obvious wins even when the housing or work setup is weak.",
+          "Short-term experiences get mistaken for long-term livability.",
+          "The usual advice rarely accounts for recovery, routine, or how friction compounds over time.",
+        ],
+      },
+      {
+        title: "A better way to evaluate a place",
+        paragraphs: [
+          "A better evaluation starts with your real life. Think about your workload, your need for quiet, your budget comfort, your routine, and the conditions that help you stay productive without feeling trapped.",
+          "Then judge a destination by how well it reduces friction across the full day. The best places are not always the most exciting ones. They are the ones that make work easier, decisions lighter, and ordinary life calmer.",
+        ],
+        bullets: [
+          "Start with your actual needs, not the destination's reputation.",
+          "Separate the country, city, neighborhood, and apartment instead of treating them as one decision.",
+          "Choose based on ease, reliability, and sustainability over novelty.",
+          "Use Destinations to compare place-specific fit, and View Services if you want help choosing the right setup.",
         ],
       },
     ],
-    framework: {
-      title: "The workability checklist",
-      intro: "Score every stay or neighborhood against these essentials.",
-      steps: [
-        { title: "Call reliability", body: "Can you confidently run video meetings from home, with a backup café nearby if needed?" },
-        { title: "Work posture", body: "Will the furniture support real work for several hours, not just a quick email?" },
-        { title: "Daily convenience", body: "Can errands, food, and movement happen without consuming energy you need for work?" },
-      ],
-    },
-    application: {
-      title: "Practical application",
-      intro: "These filters usually change the final decision more than expected.",
-      examples: [
-        { title: "Stylish apartment, weak desk setup", body: "If the apartment only works visually, the city rating should come down because the stay still fails the workweek test." },
-        { title: "Beautiful area, awkward daily loop", body: "A scenic base may still be wrong if groceries, transport, or backup workspaces add friction every day." },
-      ],
+    softCta: {
+      title: "Want help choosing the right setup?",
+      buttonLabel: "Services",
+      buttonHref: "/services",
     },
     relatedSlugs: [
-      "apartment-filters-that-prevent-productivity-mistakes",
+      "how-to-choose-where-to-live",
+      "mistakes-that-ruin-remote-work-travel",
       "how-to-settle-into-a-new-base-without-losing-a-week",
-      "when-a-destination-is-beautiful-but-operationally-wrong",
     ],
   },
   {
@@ -1570,7 +1600,7 @@ export const guideArticles: GuideArticle[] = [
       ],
     },
     relatedSlugs: [
-      "what-actually-matters-when-working-abroad",
+      "what-actually-matters-remote-work",
       "how-to-settle-into-a-new-base-without-losing-a-week",
       "booking-sequences-that-reduce-friction-on-arrival",
     ],
@@ -1659,7 +1689,7 @@ export const guideArticles: GuideArticle[] = [
     },
     relatedSlugs: [
       "how-to-build-a-sustainable-remote-lifestyle",
-      "what-actually-matters-when-working-abroad",
+      "what-actually-matters-remote-work",
       "when-a-destination-is-beautiful-but-operationally-wrong",
     ],
   },
@@ -1703,7 +1733,7 @@ export const guideArticles: GuideArticle[] = [
     },
     relatedSlugs: [
       "how-to-choose-where-to-live",
-      "what-actually-matters-when-working-abroad",
+      "what-actually-matters-remote-work",
       "mistakes-that-ruin-remote-work-travel",
     ],
   },
@@ -1923,7 +1953,7 @@ export const guideArticles: GuideArticle[] = [
     },
     relatedSlugs: [
       "how-to-choose-where-to-live",
-      "what-actually-matters-when-working-abroad",
+      "what-actually-matters-remote-work",
       "when-a-destination-is-beautiful-but-operationally-wrong",
     ],
   },
@@ -1945,7 +1975,7 @@ export const guideHubCategories: GuideHubCategory[] = [
     title: "Setting up your life",
     description: "How to make the apartment, neighborhood, and daily loop actually work.",
     guides: [
-      "what-actually-matters-when-working-abroad",
+      "what-actually-matters-remote-work",
       "apartment-filters-that-prevent-productivity-mistakes",
       "how-to-settle-into-a-new-base-without-losing-a-week",
     ],

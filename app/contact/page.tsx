@@ -1,6 +1,18 @@
+import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
 import { primaryCta, secondaryCta } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch for destination selection, custom remote-work travel planning, route shaping, and longer-stay advice.",
+  openGraph: {
+    title: "Contact Remote Together",
+    description:
+      "Use the contact form for destination selection, route shaping, and custom remote-work travel planning.",
+  },
+};
 
 export default function ContactPage() {
   return (
