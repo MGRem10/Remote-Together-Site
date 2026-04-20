@@ -26,6 +26,15 @@ export type CountryGuide = {
   tags: string[];
 };
 
+export type ContinentGuide = {
+  slug: string;
+  name: string;
+  kicker: string;
+  description: string;
+  image: string;
+  countries: string[];
+};
+
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
@@ -156,6 +165,69 @@ export const advisoryCountries: CountryGuide[] = [
     score: "90",
     image: "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=1400&q=80",
     tags: ["Culture", "Food", "Neighborhood depth", "Urban"],
+  },
+];
+
+export const continents: ContinentGuide[] = [
+  {
+    slug: "africa",
+    name: "Africa",
+    kicker: "From Atlantic islands to East African bases",
+    description:
+      "Browse countries where the rhythm is slower, the culture is layered, and the remote-work setup depends heavily on choosing the right base.",
+    image:
+      "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1400&q=80",
+    countries: ["Morocco", "Kenya", "Cape Verde", "Egypt", "South Africa", "Tunisia", "Mauritius"],
+  },
+  {
+    slug: "asia",
+    name: "Asia",
+    kicker: "Remote-work ecosystems, tropical hubs, and deep contrasts",
+    description:
+      "A mix of highly optimized nomad infrastructure, major cultural capitals, and lower-cost long-stay options with very different day-to-day rhythms.",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80",
+    countries: ["Indonesia", "Thailand", "Vietnam", "Japan", "Sri Lanka", "Malaysia", "Singapore", "United Arab Emirates"],
+  },
+  {
+    slug: "europe",
+    name: "Europe",
+    kicker: "Reliable infrastructure and easy long-stay living",
+    description:
+      "The strongest all-round region for balanced routines, strong transport links, and destinations that support both demanding workweeks and good daily life.",
+    image:
+      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1400&q=80",
+    countries: ["Portugal", "Spain", "Italy", "France", "Greece", "Croatia", "Germany", "Malta"],
+  },
+  {
+    slug: "north-america",
+    name: "North America",
+    kicker: "Big-city depth, coast access, and strong urban bases",
+    description:
+      "Ideal when you want serious infrastructure, cultural density, and a broad range of urban or nature-adjacent setups across the continent.",
+    image:
+      "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=1400&q=80",
+    countries: ["Mexico", "Canada", "United States", "Costa Rica", "Panama", "Dominican Republic"],
+  },
+  {
+    slug: "south-america",
+    name: "South America",
+    kicker: "Creative cities, mountain bases, and lower-cost depth",
+    description:
+      "A strong region for travelers who want atmosphere, cultural immersion, and more emotional texture in everyday life without giving up adventure.",
+    image:
+      "https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?auto=format&fit=crop&w=1400&q=80",
+    countries: ["Colombia", "Brazil", "Argentina", "Peru", "Ecuador", "Chile", "Uruguay"],
+  },
+  {
+    slug: "oceania",
+    name: "Oceania",
+    kicker: "Island living, English-speaking ease, and slower pace",
+    description:
+      "Smaller in coverage but compelling for people who want nature, surf, and a more spacious lifestyle with dependable daily logistics.",
+    image:
+      "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80",
+    countries: ["Australia", "New Zealand", "Fiji", "French Polynesia"],
   },
 ];
 
