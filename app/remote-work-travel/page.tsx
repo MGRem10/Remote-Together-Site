@@ -1,4 +1,6 @@
+import { AuthorProfile } from "@/components/author-profile";
 import { PageHero } from "@/components/page-hero";
+import { destinationMethodology } from "@/data/site";
 
 const guideSections = [
   {
@@ -63,6 +65,27 @@ export default function RemoteWorkTravelPage() {
           ))}
         </div>
       </section>
+
+      <section className="section-space section-block">
+        <div className="container grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+          <div>
+            <div className="eyebrow">Methodology</div>
+            <h2 className="section-title mt-4">The filters behind every recommendation.</h2>
+          </div>
+          <div className="grid gap-4">
+            {destinationMethodology.map((item) => (
+              <div
+                key={item}
+                className="rounded-[1.5rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] p-6"
+              >
+                <p className="text-sm leading-7 text-[var(--muted)]">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <AuthorProfile eyebrow="Written By" />
     </>
   );
 }

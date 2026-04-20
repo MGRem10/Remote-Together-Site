@@ -1,6 +1,14 @@
 import Link from "next/link";
 import { ConversionCta } from "@/components/conversion-cta";
-import { guideTopics, principles, serviceItems, stats } from "@/data/site";
+import {
+  destinationMethodology,
+  guideTopics,
+  principles,
+  serviceItems,
+  stats,
+  testimonials,
+  trustProofPoints,
+} from "@/data/site";
 
 export default function HomePage() {
   return (
@@ -65,6 +73,30 @@ export default function HomePage() {
       </section>
 
       <section className="section-space section-block">
+        <div className="container">
+          <div className="max-w-3xl">
+            <div className="eyebrow">Trust Signals</div>
+            <h2 className="section-title mt-4">
+              Why people use this advice instead of generic destination lists.
+            </h2>
+          </div>
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            {trustProofPoints.map((point) => (
+              <article
+                key={point.title}
+                className="rounded-[1.7rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] p-8"
+              >
+                <h3 className="font-[family-name:var(--font-heading)] text-3xl tracking-[-0.05em]">
+                  {point.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{point.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space section-block">
         <div className="container grid gap-6 lg:grid-cols-3">
           {principles.map((principle, index) => (
             <article key={principle.title} className="rounded-[1.5rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] p-8">
@@ -79,6 +111,25 @@ export default function HomePage() {
               </p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="section-space section-block">
+        <div className="container grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <div className="eyebrow">Methodology</div>
+            <h2 className="section-title mt-4">How we rate destinations.</h2>
+          </div>
+          <div className="grid gap-4">
+            {destinationMethodology.slice(0, 4).map((item) => (
+              <div
+                key={item}
+                className="rounded-[1.5rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] p-6"
+              >
+                <p className="text-sm leading-7 text-[var(--muted)]">{item}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -124,6 +175,26 @@ export default function HomePage() {
                   {topic.title}
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{topic.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space section-block">
+        <div className="container">
+          <div className="max-w-3xl">
+            <div className="eyebrow">Testimonials</div>
+            <h2 className="section-title mt-4">What this kind of guidance should feel like.</h2>
+          </div>
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {testimonials.map((testimonial) => (
+              <article key={testimonial.quote} className="card rounded-[1.8rem] p-8">
+                <p className="text-base leading-8 text-[var(--muted)]">“{testimonial.quote}”</p>
+                <div className="mt-6 border-t border-[var(--border)] pt-5">
+                  <div className="font-semibold text-[var(--text)]">{testimonial.name}</div>
+                  <div className="mt-1 text-sm text-[var(--muted)]">{testimonial.role}</div>
+                </div>
               </article>
             ))}
           </div>

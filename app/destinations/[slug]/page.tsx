@@ -1,6 +1,7 @@
+import { AuthorProfile } from "@/components/author-profile";
 import { notFound } from "next/navigation";
 import { ConversionCta } from "@/components/conversion-cta";
-import { advisoryCountries } from "@/data/site";
+import { advisoryCountries, destinationMethodology } from "@/data/site";
 
 type CountryPageProps = {
   params: {
@@ -124,6 +125,27 @@ export default function CountryGuidePage({ params }: CountryPageProps) {
           </article>
         </div>
       </section>
+
+      <section className="section-space section-block">
+        <div className="container grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+          <div>
+            <div className="eyebrow">How We Rate</div>
+            <h2 className="section-title mt-4">The methodology behind this destination score.</h2>
+          </div>
+          <div className="grid gap-4">
+            {destinationMethodology.map((item) => (
+              <div
+                key={item}
+                className="rounded-[1.5rem] border border-[var(--border)] bg-[rgba(255,255,255,0.34)] p-6"
+              >
+                <p className="text-sm leading-7 text-[var(--muted)]">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <AuthorProfile eyebrow="Guide Authors" />
     </>
   );
 }

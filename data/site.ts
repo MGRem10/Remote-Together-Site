@@ -45,6 +45,12 @@ export type ServiceItem = {
   price: string;
 };
 
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+};
+
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
@@ -66,6 +72,70 @@ export const secondaryCta = {
 
 export const ctaTrustCopy =
   "Reply within 48 hours. Best for remote workers, couples, and people planning longer, work-friendly stays.";
+
+export const authorProfile = {
+  name: "Matteo & Partner",
+  title: "Founders of Remote Together",
+  bio: "A couple building remote-work trips around real deadlines, shared routines, and the lived details that decide whether a destination feels sustainable after week one.",
+  yearsRemote: "6+ years",
+  countries: "40+ countries",
+  cities: "70+ cities",
+};
+
+export const aboutStats = [
+  { label: "Working remotely while traveling", value: "6+ years" },
+  { label: "Countries lived through or tested", value: "40+" },
+  { label: "Cities and bases experienced", value: "70+" },
+  { label: "Perspective used in every recommendation", value: "Solo + couple" },
+];
+
+export const destinationMethodology = [
+  "Internet quality, backup options, and call reliability",
+  "Housing comfort, desk setup, and neighborhood noise",
+  "Walkability, transport friction, and day-to-day convenience",
+  "Cost realism after the first week, not just headline prices",
+  "Emotional fit: whether the place still feels good after real workdays",
+];
+
+export const trustProofPoints = [
+  {
+    title: "Remote-tested, not list-compiled",
+    body: "Every guide is written from real workweeks, not quick stopovers or generic destination roundup research.",
+  },
+  {
+    title: "Built from two perspectives",
+    body: "Recommendations are shaped through both solo and couple travel dynamics, which changes how we rate space, pacing, and routine.",
+  },
+  {
+    title: "Focused on workability",
+    body: "We pay close attention to Wi-Fi, desk setup, backup cafés, noise, walkability, and how a place performs under actual deadlines.",
+  },
+  {
+    title: "Tradeoff-aware guidance",
+    body: "We deliberately document friction, not just highlights, so decisions are grounded before money is committed.",
+  },
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Remote Together gave us the kind of recommendation we were actually missing: not just where to go, but where we could work well for six weeks without burning out.",
+    name: "Placeholder Client",
+    role: "Couple planning a 6-week stay",
+  },
+  {
+    quote:
+      "What stood out was the realism. The advice covered Wi-Fi, housing, work rhythm, and neighborhood fit in a way most travel content never does.",
+    name: "Placeholder Client",
+    role: "Solo remote worker",
+  },
+  {
+    quote:
+      "The guidance felt editorial in taste but operational in detail. That made it easier to book with confidence instead of second-guessing everything.",
+    name: "Placeholder Client",
+    role: "Long-stay traveler",
+  },
+];
 
 export const featuredDestinations: Destination[] = [
   {
